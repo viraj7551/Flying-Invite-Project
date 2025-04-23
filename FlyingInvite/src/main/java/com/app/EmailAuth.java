@@ -25,8 +25,9 @@ public class EmailAuth extends HttpServlet {
     // Email regex pattern
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
-    private static final String USERNAME = "flyinginvite@gmail.com";
-    private static final String PASSWORD = "pngr bafg wrlp pgwq";
+    private static final String USERNAME = "admin@flyinginvite.in";
+    private static final String PASSWORD = "13Viraj@2507";
+    //pngr bafg wrlp pgwq [gmail password]
     
     Connection con;
     PreparedStatement ps;
@@ -60,7 +61,8 @@ public class EmailAuth extends HttpServlet {
 			  }
 				
 		        Properties prop = new Properties();
-				prop.put("mail.smtp.host", "smtp.gmail.com");
+				//prop.put("mail.smtp.host", "smtp.gmail.com");
+				prop.put("mail.smtp.host","smtp.hostinger.com");
 		        prop.put("mail.smtp.port", "465");
 		        prop.put("mail.smtp.auth", "true");
 		        prop.put("mail.smtp.socketFactory.port", "465");
@@ -76,7 +78,7 @@ public class EmailAuth extends HttpServlet {
 		        try {
 
 		            Message message = new MimeMessage(session);
-		            message.setFrom(new InternetAddress("flyinginvite@gmail.com"));
+		            message.setFrom(new InternetAddress("admin@flyinginvite.in"));
 		            message.setRecipients(
 		                    Message.RecipientType.TO,
 		                    InternetAddress.parse(to_email)
@@ -109,7 +111,7 @@ public class EmailAuth extends HttpServlet {
 	    	   
 	        } else {
 	           
-	        	
+	        	response.sendRedirect("404.jsp");
 	        }
     }
 	

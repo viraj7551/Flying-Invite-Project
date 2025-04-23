@@ -1,0 +1,52 @@
+package com.app;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet(name = "OTPAuth", urlPatterns = { "/OTPAuth" })
+public class VerifyOTP extends HttpServlet {
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter pw = response.getWriter();
+	    response.setContentType("text/html");	
+	    
+	    int otp_field_value = Integer.parseInt(request.getParameter("otp_field"));
+	   
+	    // Retrieve the OTP from the session
+        Integer generatedOTP = (Integer) request.getSession().getAttribute("generatedOTP");
+        if (generatedOTP != null) {
+            if (generatedOTP == otp_field_value) {
+                request.getSession(true);  // Make sure the session is created or exists
+                pw.println("<script type=\"text/javascript\">");
+                pw.println("alert('You are validated successfully.');");
+                pw.println("location='nameGenerator.jsp';");
+                pw.println("</script>");
+            } else {
+                request.getSession(false);  // Invalidate the session if OTP is incorrect
+                pw.println("<script type=\"text/javascript\">");
+                pw.println("alert('Please enter the correct OTP!');");
+                pw.println("location='verifyOTP.jsp';");
+                pw.println("</script>");
+            }   
+        	
+        }
+        
+        else {
+            pw.println("<script type=\"text/javascript\">");
+            pw.println("alert('Please try again.');");
+            pw.println("location='verifyOTP.jsp';");
+            pw.println("</script>");
+        }
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
