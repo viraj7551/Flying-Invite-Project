@@ -4,26 +4,35 @@ window.onload = function() {
 };
 
 
-function starting_letter_character_field_validation(){
-    var character_field = document.getElementById("starting_letter_value");
-    var character_value = character_field.value;
-    var character_length = character_value.length;
 
-       if(character_length < 2){        
-            // Regex pattern to allow only letters (both uppercase and lowercase)
-            var regex = /^[A-Za-z]+$/;
-            if(!regex.test(character_value)){
-                alert("please enter only character value");
-                 return false;
-            }else{
-                 return true;
-            }
-       }else if(character_letter > 2){
-             alert("please enter charatecr lenght less than 2 characters.");
-             return false;
-       }else{
-    	   return true;
-       }
+
+function name_generator_form_handle(){
+	
+	var caste_preference_flag = caste_preference();
+	var start_letter_preference_value = start_letter_preference();
+	
+	if(start_letter_preference_value == true){
+		starting_letter_character_field_validation();
+	}
+	
+	return true;
+}
+
+
+function starting_letter_character_field_validation(){
+var character_field = document.getElementById("starting_letter_value");
+var character_value = character_field.value;
+var character_length = character_value.length;
+
+// Regex pattern to allow only letters (both uppercase and lowercase)
+   var regex = /^[A-Za-z]+$/;
+   if(!regex.test(character_value) || (character_length > 1)){
+	   if(character_length > 1){
+			  alert("please enter character length less than 2 characters");
+	   }else{ 
+		   alert("please enter only character value");
+	   }  
+   }
 }
 
 function validateOTP(){
@@ -82,8 +91,12 @@ function start_letter_preference(){
     if(start_letter_preference_value.includes("No")){
       document.getElementById("lbl_start_letter_list_options").style.display="none";
       document.getElementById("starting_letter_value").style.display="none";
+      return false
     }else{
         document.getElementById("lbl_start_letter_list_options").style.display="block";
         document.getElementById("starting_letter_value").style.display="block";
+        return true;
     }
+    
+    return true;
 }

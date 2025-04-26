@@ -37,7 +37,6 @@ INDEX VERSION 1.131+C:\Users\Viraj\Desktop\FlyingInvite\Flying_Invite_Landing_pa
 1132740132.index
 1608616577.index
 2952488648.index
-2188223235.index
 1500444764.index
 1101176589.index
 820084027.index

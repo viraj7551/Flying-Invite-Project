@@ -53,8 +53,8 @@ public class EmailAuth extends HttpServlet {
 		
 		  
 		  String to_email = request.getParameter("email");
-	      int email_length = to_email.length();
-	       if (isValidEmail(to_email) || email_length < 31 ) { 
+		  
+	       if (isValidEmail(to_email)) { 
 	 		  boolean userExist = isUserExists(to_email);
 			  if(!userExist) {
 				  insert_record(to_email);

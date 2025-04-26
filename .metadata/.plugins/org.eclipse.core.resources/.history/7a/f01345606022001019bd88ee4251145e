@@ -1,0 +1,99 @@
+// script.js
+window.onload = function() {
+    document.getElementById('form-container').style.display = 'block';
+};
+
+
+
+function name_generator_form_validation(){
+	
+  var caste_preference_flag = caste_preference();
+  var start_letter_preference_flag = start_letter_preference();
+  
+      if(start_letter_preference_flag == true){
+    	  starting_letter_character_field_validation();
+      }  
+      return true;
+}
+
+
+
+function starting_letter_character_field_validation(){
+var character_field = document.getElementById("starting_letter_value");
+var character_value = character_field.value;
+var character_length = character_value.length;
+
+// Regex pattern to allow only letters (both uppercase and lowercase)
+   var regex = /^[A-Za-z]+$/;
+   if(!regex.test(character_value) || (character_length > 1)){
+	   if(character_length > 1){
+			  alert("please enter character length less than 2 characters");
+	   }else{ 
+		   alert("please enter only character value");
+	   }  
+   }
+}
+
+function validateOTP(){
+    var otp_field = document.getElementById("validate_otp");
+    var otp_field_value = otp_field.value;
+    var otp_length = otp_field_value.length;
+
+       if(otp_length < 7){        
+            // Regex pattern to allow only numeric.
+            var regex = /^\d+$/;
+
+            if(!regex.test(otp_field_value)){
+                alert("please enter correct one time password");
+                 return false;
+            }else{
+                 return true;
+            }
+       }else{
+             alert("please enter correct one time password.");
+             return false;
+       } 
+}
+
+
+function baby_name_generator(){
+   var email_field = document.getElementById("email");
+   var email_value = email_field.value;
+   // Regular expression for a basic email format
+   var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+       // Validate email format
+       if (!emailRegex.test(email_value)) {
+       alert("please enter correct email id");
+       return false;  // Prevent form submission
+      }else{
+        return true;
+      }
+}
+
+
+function caste_preference(){
+    var caste_preference_value = document.getElementById("castepref").value;
+    if(caste_preference_value.includes("No")){
+        document.getElementById("lbl_caste_list_options").style.display="none";
+        document.getElementById("caste_list_options").style.display="none";
+    }else{
+        document.getElementById("lbl_caste_list_options").style.display="block";
+        document.getElementById("caste_list_options").style.display="block";
+        document.getElementById("lbl_caste_list_options").style.marginLeft="-105px";
+    }
+}
+
+
+function start_letter_preference(){
+    var start_letter_preference_value = document.getElementById("starting_letter").value;
+    if(start_letter_preference_value.includes("No")){
+      document.getElementById("lbl_start_letter_list_options").style.display="none";
+      document.getElementById("starting_letter_value").style.display="none";
+      return false;
+    }else{
+        document.getElementById("lbl_start_letter_list_options").style.display="block";
+        document.getElementById("starting_letter_value").style.display="block";
+        return true;
+    }
+}
