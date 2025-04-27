@@ -566,3 +566,8 @@
 0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:39:09 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21985
 0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:48:32 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21985
 0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:48:35 +0530] "GET /FlyingInvite/donate.jsp HTTP/1.1" 200 6118
+127.0.0.1 - - [27/Apr/2025:23:50:13 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:50:16 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21884
+0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:50:21 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21884
+0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:50:40 +0530] "GET /FlyingInvite/vendor/bootstrap/js/bootstrap.bundle.min.js.map HTTP/1.1" 200 327261
+0:0:0:0:0:0:0:1 - - [27/Apr/2025:23:50:40 +0530] "GET /FlyingInvite/vendor/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 449111
