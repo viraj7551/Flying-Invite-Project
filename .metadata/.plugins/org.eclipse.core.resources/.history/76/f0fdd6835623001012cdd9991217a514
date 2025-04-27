@@ -1,0 +1,68 @@
+package com.app;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.json.JSONObject;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
+import com.razorpay.Utils;
+
+import javax.servlet.http.*;
+import java.io.PrintWriter;
+
+@WebServlet("/CreateOrderServlet")
+public class CreateOrderServlet extends HttpServlet {
+
+	private static final String RAZORPAY_KEY_ID = "rzp_test_dtWFk2gzJrLE8s"; // Replace with your real key_id
+    private static final String RAZORPAY_KEY_SECRET = "vkkY8D9ztQXmZ0BQyQq9sfD9"; // Keep this safe
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RazorpayClient razorpay = new RazorpayClient(RAZORPAY_KEY_ID,RAZORPAY_KEY_SECRET);
+
+		JSONObject orderRequest = new JSONObject();
+		orderRequest.put("amount",50000); // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+		orderRequest.put("currency","INR");
+		orderRequest.put("receipt", "receipt#1");
+		JSONObject notes = new JSONObject();
+		notes.put("notes_key_1","Tea, Earl Grey, Hot");
+		orderRequest.put("notes",notes);
+
+		Order order = instance.orders.create(orderRequest);
+	
+	}
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			RazorpayClient razorpay = new RazorpayClient(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET);
+		} catch (RazorpayException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		String secret = "EnLs21M47BllR3X8PSFtjtbd";
+
+		JSONObject options = new JSONObject();
+		options.put("razorpay_order_id", "order_IEIaMR65cu6nz3");
+		options.put("razorpay_payment_id", "pay_IH4NVgf4Dreq1l");
+		options.put("razorpay_signature", "0d4e745a1838664ad6c9c9902212a32d627d68e917290b0ad5f08ff4561bc50f");
+
+		boolean status;
+		try {
+		   status =  Utils.verifyPaymentSignature(options, secret);
+		} catch (RazorpayException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(status == true) {
+			
+		}else {
+			
+		}
+	}
+
+}

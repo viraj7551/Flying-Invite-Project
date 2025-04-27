@@ -100,16 +100,10 @@
                     <ul><strong>Eligibility to use the services</strong>
                       <li>You must be at least 18 years of age or have the legal capacity to enter into a binding contract under applicable laws in India.</li> 
                     </ul> <br>
-                    <ul><strong>License to use templates upon purchasing a template</strong>
-                        <li>you are granted a limited, non-transferable, and non-exclusive license to use the digital invitation template for personal use only. You may not resell, redistribute, or use the templates for commercial purposes without prior written consent from Flying Invite.</li>
-                    </ul> <br>
                     <ul><strong>Payment Terms</strong>
                         <li>1. All payments for templates or services are processed through secure payment gateways.</li>
                         <li>2. All charges are in INR <strong>(Indian Rupees)</strong>.</li>
                         <li>3. Payments are non-refundable unless specified otherwise.</li>
-                    </ul> <br>
-                    <ul> <strong>User-Generated Content</strong>
-                      <li>You are solely responsible for any content you upload, share, or modify using our templates, including but not limited to text, images, and videos. You retain all ownership rights to the content you create, but grant [Your Company Name] a non-exclusive, worldwide, royalty-free license to use, display, and distribute the content as needed to provide the services.</li>
                     </ul> <br>
                     <ul><strong>Restrictions you agree not to</strong>
                         <li>1. Use the templates for illegal, harmful, or abusive activities.</li>
@@ -120,13 +114,13 @@
                         <li>Your use of the website is governed by our privacy policy, which outlines how we collect, use, and protect your personal data.</li>
                     </ul> <br>
                     <ul><strong>Limitation of Liability To the fullest extent permitted by law</strong>
-                        <li>Flying Invite shall not be liable for any indirect, incidental, special, or consequential damages arising out of your use of the website or services, including any loss of data or profits.</li>
+                        <li>Flying Invite shall not be liable for any indirect, incidental, special, or consequential damages arising out of your use of the website or services, including any loss of data.</li>
                     </ul> <br>
                     <ul><strong>Intellectual property rights</strong>
                        <li>Including trademarks, logos, and content on the Website, are owned by Flying Invite or its licensors. You may not use any of these without prior written consent.</li>
                     </ul> <br>
                     <ul> <strong>Indemnification You agree to indemnify and hold harmless Flying Invite</strong>
-                      <li>Its affiliates, and employees from any claim, demand, or damage, including attorney’s fees, arising out of your violation of these terms and conditions or misuse of the services.</li>
+                      <li>Its affiliates, and employees from any claim, demand, or damage, including attorney fees, arising out of your violation of these terms and conditions or misuse of the services.</li>
                     </ul> <br>
                     <ul><strong>Termination We reserve the right to suspend</strong>
                       <li>We have right to terminate your access to the Website and Services at our sole discretion if we believe you have violated these terms and conditions.</li>
@@ -135,7 +129,7 @@
                        <li>Flying Invite reserves the right to modify or update these Terms and Conditions at any time. You will be notified of such changes, and your continued use of the Website after such changes will constitute your acceptance of the modified terms.</li>
                     </ul> <br>
                     <ul><strong>Governing Law</strong>
-                       <li>These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts located in Navi Mumbai, India.</li>
+                       <li>These Terms and Conditions shall be governed by and constructed in accordance with the laws of India. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts located in Navi Mumbai, India.</li>
                     </ul> <br>
                     <ul>
                          <strong>Contact Information</strong>

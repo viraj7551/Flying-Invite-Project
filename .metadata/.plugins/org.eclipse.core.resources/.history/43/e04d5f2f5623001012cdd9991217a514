@@ -1,0 +1,28 @@
+package com.app;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.json.JSONObject;
+import com.razorpay.RazorpayClient;
+import javax.servlet.http.*;
+import java.io.PrintWriter;
+
+@WebServlet("/CreateOrderServlet")
+public class CreateOrderServlet extends HttpServlet {
+
+	private static final String RAZORPAY_KEY_ID = "rzp_test_dtWFk2gzJrLE8s"; // Replace with your real key_id
+    private static final String RAZORPAY_KEY_SECRET = "vkkY8D9ztQXmZ0BQyQq9sfD9"; // Keep this safe
+
+    
+    
+    
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,46 @@
+package com.app;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
+import org.json.JSONObject;
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
+import com.razorpay.Utils;
+import io.github.cdimascio.dotenv.Dotenv;
+
+@WebServlet("/OrderCreation")
+public class OrderCreation extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RazorpayClient client=null;
+		String orderId=null;
+		Dotenv dotenv = Dotenv.configure().load();
+		try {
+			  client=new RazorpayClient(dotenv.get("API_KEY_ID"),dotenv.get("API_KEY_SECRET"));
+			  JSONObject options = new JSONObject();
+			  options.put("amount", 10000); // amount in the smallest currency unit
+			  options.put("currency", "INR");
+			  options.put("receipt", "zxr456");
+			  options.put("payment_capture", true);
+			 
+			Order order = client.orders.create(options);
+            orderId=order.get("id");
+			} catch (RazorpayException e) {
+			  // Handle Exception
+				 e.printStackTrace();
+			}
+       response.getWriter().append(orderId);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

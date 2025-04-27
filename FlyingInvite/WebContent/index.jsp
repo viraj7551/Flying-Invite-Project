@@ -26,6 +26,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- ICO format -->
     <link rel="icon" href="./images/flyinginvite.jpg" type="image/jpg"> <!-- PNG format -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -86,8 +87,7 @@
               <li class="scroll-to-section"><a href="#home" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About</a></li>
               <li class="scroll-to-section"><a href="#faq">FAQ</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a>  
-              </li>
+              <li class="scroll-to-section"><a href="#services">Services</a></li>
               <li class="scroll-to-section"><a href="terms_and_condition_page.jsp" target="_blank">Terms & Conditions</a></li>
               <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Contact</a></div></li> 
             </ul>        

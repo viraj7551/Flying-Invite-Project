@@ -111,7 +111,7 @@ public class EmailAuth extends HttpServlet {
 	    	   
 	        } else {
 	           
-	        	response.sendRedirect("404.jsp");
+	        	response.sendRedirect("500.jsp");
 	        }
     }
 	
