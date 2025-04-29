@@ -110,8 +110,9 @@ public class EmailAuth extends HttpServlet {
 		        }
 	    	   
 	        } else {
-	           
-	        	response.sendRedirect("500.jsp");
+			    pw.println("<script type=\"text/javascript\">"); 
+			    pw.println("alert('Please enter correct email id.');"); 
+			    pw.println("</script>"); 
 	        }
     }
 	

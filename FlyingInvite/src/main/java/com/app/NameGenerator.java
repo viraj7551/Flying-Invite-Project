@@ -473,39 +473,71 @@ public class NameGenerator extends HttpServlet {
 		    case "S":
 		    case "s":
 		    	if(selected_caste_option.contains("Hindu")) {
-		        	 
+	        	    String relativePath = "/assets/utils/Boys/Hindu/File16.pdf";
+	        	    download_file(relativePath, request, response);
 	            }else if(selected_caste_option.equals("Muslim")) {
-	        	 
+	        	    String relativePath = "/assets/utils/Boys/Muslim/File14.pdf";
+	        	    download_file(relativePath, request, response);	
 	            }else if(selected_caste_option.equals("Christian")) {
-	        	 
+	        	    String relativePath = "/assets/utils/Boys/Christian/File08.pdf";
+	        	    download_file(relativePath, request, response);
 	            }else{
-	            
+	            	String relativePath = "/assets/utils/Boys/Sikh/File11.pdf";
+		        	download_file(relativePath, request, response);
 	            }
 		    break;
 		    
 		    case "T":
 		    case "t":
 		    	if(selected_caste_option.contains("Hindu")) {
-		        	 
+	        	    String relativePath = "/assets/utils/Boys/Hindu/File17.pdf";
+	        	    download_file(relativePath, request, response); 
 	            }else if(selected_caste_option.equals("Muslim")) {
-	        	 
+	            	try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else if(selected_caste_option.equals("Christian")) {
-	        	 
+	            	try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else{
-	            
+	            	try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }
 		    break;
 		    
 		    case "U":
 		    case "u":
 		    	if(selected_caste_option.contains("Hindu")) {
-		        	 
+	        	    String relativePath = "/assets/utils/Boys/Hindu/File18.pdf";
+	        	    download_file(relativePath, request, response); 
 	            }else if(selected_caste_option.equals("Muslim")) {
-	        	 
+					try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else if(selected_caste_option.equals("Christian")) {
-	        	 
+					try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else{
-	            
+	            	String relativePath = "/assets/utils/Boys/Sikh/File12.pdf";
+		        	download_file(relativePath, request, response);
 	            }
 		    break;
 		    case "V":
@@ -537,13 +569,33 @@ public class NameGenerator extends HttpServlet {
 		    case "X":
 		    case "x":
 		    	if(selected_caste_option.contains("Hindu")) {
-		        	 
+					try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else if(selected_caste_option.equals("Muslim")) {
-	        	 
+	    			try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else if(selected_caste_option.equals("Christian")) {
-	        	 
+	    			try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }else{
-	            
+	    			try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }
 		    break;
 		    
