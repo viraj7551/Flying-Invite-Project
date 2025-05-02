@@ -9,12 +9,26 @@ window.onload = function() {
 
 
 function name_generator_form_handle(){
+	var caste_pref_val = document.getElementById("castepref").value
+    var start_letter_preference_value = document.getElementById("starting_letter").value;
 	
-	var caste_preference_flag = caste_preference();
-	var start_letter_preference_value = start_letter_preference();
-	
-	if(start_letter_preference_value == true){
+	if(caste_pref_val.includes("Yes") && start_letter_preference_value.includes("Yes")){
+		caste_preference();
+		start_letter_preference();
 		starting_letter_character_field_validation();
+	}else{
+		
+		if(caste_pref_val.includes("Yes") && start_letter_preference_value.includes("No")){
+			caste_preference();
+			start_letter_preference();
+			starting_letter_character_field_validation();
+		}else if(caste_pref_val.includes("No") && start_letter_preference_value.includes("Yes")){
+			caste_preference();
+			start_letter_preference();
+			starting_letter_character_field_validation();
+		}else{
+			alert("something went wrong");
+		}
 	}
 	
 	return true;
@@ -93,84 +107,13 @@ function start_letter_preference(){
     if(start_letter_preference_value.includes("No")){
       document.getElementById("lbl_start_letter_list_options").style.display="none";
       document.getElementById("starting_letter_value").style.display="none";
-      return false
+      document.getElementById("starting_letter_value").required= false;
     }else{
         document.getElementById("lbl_start_letter_list_options").style.display="block";
         document.getElementById("starting_letter_value").style.display="block";
-        return true;
+        document.getElementById("starting_letter_value").required=true;
     }
-    
-    return true;
 }
 
 
 
-const form=document.getElementById('form');
-const name=document.getElementById('name');
-const email=document.getElementById('email');
-const mno=document.getElementById('mno');
-
-
-form.addEventListener('submit',(e) => {
-    e.preventDefault();
-});
-
-function checkInputs(){
-   const nameValue = name.value.trim();
-   const emailValue = email.value.trim();
-   const mnoValue = mno.value.trim();         
-  
-   if(nameValue === ''){
-       setErrorFor(name,'Name cannot be empty!');
-   }else{
-      setSuccessFor(name);
-   }
-   if(emailValue === ''){
-       setErrorFor(email,'Email cannot be empty!');
-   }else if(!isEmail(emailValue)){
-    setErrorFor(email,'Email is not valid!');
-   }
-   else{
-      setSuccessFor(email);
-   }
-   if(mnoValue === ''){
-       setErrorFor(mno,'Mobile Number cannot be empty!');
-   }else{
-      setSuccessFor(mno);
-   }
-  
-  doSubmit();
-}
-function setErrorFor(input,message){
-    const formControl=input.parentElement;
-    const small=formControl.querySelector('small');
-    small.innerText=message;
-    formControl.className='form-control error';
-}
-function setSuccessFor(input){
-    const formControl=input.parentElement;
-    formControl.className='form-control success';
-}
-function isEmail(email){
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
-function onlyNumberKey(evt) {
- var ASCIICode = (evt.which) ? evt.which : evt.keyCode
- if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-     return false;
- return true;
-}
-
-
-function doSubmit(){
- const nameValue = name.value.trim();
- const emailValue = email.value.trim();
- const mnoValue = mno.value.trim();
- 
- if((nameValue !=='') && (emailValue !=='') && (mnoValue !=='') && isEmail(emailValue)){
-	 CreateOrderId(nameValue,emailValue,mnoValue);
-   }
- else{
-	 alert('Form cannot be submitted.\nPlease check your details again.');
- }
-}
