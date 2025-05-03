@@ -28,7 +28,6 @@ public class NameGenerator extends HttpServlet {
 		String selected_start_letter_preference_option = request.getParameter("starting_letter_pref");
 		String start_letter_field = request.getParameter("starting_letter_value"); 
 		
-		
 		if(selected_child_gender.equals("Boy") &&  selected_caste_preference_option != null && selected_start_letter_preference_option != null) {
 		   if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("Yes")) {
 			   get_filter(selected_caste_option,start_letter_field, request, response);
@@ -37,14 +36,20 @@ public class NameGenerator extends HttpServlet {
 	        	    String relativePath = "/assets/utils/Boys/Other/File01.pdf";
 	        	    download_file(relativePath, request, response);
 			   }else if(selected_caste_option.equals("Muslim")) {
-				   
+	        	    String relativePath = "/assets/utils/Boys/Other/File02.pdf";
+	        	    download_file(relativePath, request, response);
 			   }else if(selected_caste_option.equals("Christian")) {
-				   
+	        	    String relativePath = "/assets/utils/Boys/Other/File03.pdf";
+	        	    download_file(relativePath, request, response);
 			   }else {
-				   
+	        	    String relativePath = "/assets/utils/Boys/Other/File04.pdf";
+	        	    download_file(relativePath, request, response);
 			   }
-		   }else {
-
+		   }else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
+			   
+		   }  
+		   else {
+                 
 		   }
 		}else if(selected_child_gender.equals("Girl") &&  selected_caste_preference_option != null && selected_start_letter_preference_option != null) {
 			
@@ -53,36 +58,17 @@ public class NameGenerator extends HttpServlet {
 		}
 
 	}
-//		if(selected_caste_preference_option.equalsIgnoreCase("Yes") && selected_start_letter_preference_option.equalsIgnoreCase("Yes")) {
-//	       get_filter(selected_caste_option,start_letter_field, request, response);
-//	}else if(selected_caste_preference_option.equalsIgnoreCase("Yes")){
-//		if(selected_caste_option.equalsIgnoreCase("Hindu")) {
-// 	    String relativePath = "/assets/utils/Boys/Other/File01.pdf";
-// 	    download_file(relativePath, request, response);	
-//		}	
-//	}else if(selected_start_letter_preference_option.equalsIgnoreCase("Yes")) {
-//	
-//	}else {
-//
-//	}	
-//}
-		
-	
-	
 	
 	private void get_filter(String selected_caste_option, String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
 		switch(start_letter_field) {
 		    case "A":
 		    case "a":
 		            if(selected_caste_option.contains("Hindu")) {
-		       
 		        	    String relativePath = "/assets/utils/Boys/Hindu/File01.pdf";
-		        	    download_file(relativePath, request, response);
-		        	    
+		        	    download_file(relativePath, request, response);   
 		            }else if(selected_caste_option.equals("Muslim")) {
 		        	    String relativePath = "/assets/utils/Boys/Muslim/File01.pdf";
 		        	    download_file(relativePath, request, response);
-		            	
 		            }else if(selected_caste_option.equals("Christian")) {
 		        	    String relativePath = "/assets/utils/Boys/Christian/File01.pdf";
 		        	    download_file(relativePath, request, response);
@@ -241,12 +227,8 @@ public class NameGenerator extends HttpServlet {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File06.pdf";
 	        	    download_file(relativePath, request, response);	
 	            }else if(selected_caste_option.equals("Christian")) {
-					try {
-						error_alert(response);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+	        	    String relativePath = "/assets/utils/Boys/Christian/File10.pdf";
+	        	    download_file(relativePath, request, response);
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File04.pdf";
 		        	download_file(relativePath, request, response);		
