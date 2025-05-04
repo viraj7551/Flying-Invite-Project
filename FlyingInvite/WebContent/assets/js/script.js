@@ -7,34 +7,6 @@ window.onload = function() {
 
 
 
-
-function name_generator_form_handle(){
-	var caste_pref_val = document.getElementById("castepref").value
-    var start_letter_preference_value = document.getElementById("starting_letter").value;
-	
-	if(caste_pref_val.includes("Yes") && start_letter_preference_value.includes("Yes")){
-		caste_preference();
-		start_letter_preference();
-		starting_letter_character_field_validation();
-	}else{
-		
-		if(caste_pref_val.includes("Yes") && start_letter_preference_value.includes("No")){
-			caste_preference();
-			start_letter_preference();
-			starting_letter_character_field_validation();
-		}else if(caste_pref_val.includes("No") && start_letter_preference_value.includes("Yes")){
-			caste_preference();
-			start_letter_preference();
-			starting_letter_character_field_validation();
-		}else{
-			alert("something went wrong");
-		}
-	}
-	
-	return true;
-}
-
-
 function starting_letter_character_field_validation(){
 var character_field = document.getElementById("starting_letter_value");
 var character_value = character_field.value;
@@ -45,10 +17,13 @@ var character_length = character_value.length;
    if(!regex.test(character_value) || (character_length > 1)){
 	   if(character_length > 1){
 			  alert("please enter character length less than 2 characters");
+			  return false;
 	   }else{ 
 		   alert("please enter only character value");
+		   return false;
 	   }  
    }
+   return true;
 }
 
 function validateOTP(){

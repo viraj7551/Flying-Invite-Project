@@ -98,7 +98,7 @@ Let your baby's name be more than just letters let it carry dreams, stories, and
                 </p>
               
               <a href="index.jsp" class="btn btn-outline-danger" role="button"> Back</a>
-              <a href="verifyEmail.jsp" class="btn btn-outline-info" role="button">Generate</a>
+              <a href="verifyEmail.jsp" class="btn btn-primary" role="button">Generate</a>
               
               </div>
             </div>
@@ -112,7 +112,7 @@ Let your baby's name be more than just letters let it carry dreams, stories, and
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-           <p>FlyingInvite@2025</p>
+           <p class="footer-title">FlyingInvite@2025</p>
         </div>
       </div>
     </div>

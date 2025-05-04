@@ -33,25 +33,32 @@ public class NameGenerator extends HttpServlet {
 			   get_filter(selected_caste_option,start_letter_field, request, response);
 		   }else if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("No")) {
 			   if(selected_caste_option.equals("Hindu")) {
+				    String filename = " All boys name list - (Hindu)";
 	        	    String relativePath = "/assets/utils/Boys/Other/File01.pdf";
-	        	    download_file(relativePath, request, response);
+	        	    download_file(relativePath, request, response, filename);
 			   }else if(selected_caste_option.equals("Muslim")) {
+				    String filename = "All boys name list - (Muslim)";
 	        	    String relativePath = "/assets/utils/Boys/Other/File02.pdf";
-	        	    download_file(relativePath, request, response);
+	        	    download_file(relativePath, request, response, filename);
 			   }else if(selected_caste_option.equals("Christian")) {
+				    String filename = "All boys name list - (Christian)";
 	        	    String relativePath = "/assets/utils/Boys/Other/File03.pdf";
-	        	    download_file(relativePath, request, response);
+	        	    download_file(relativePath, request, response, filename);
 			   }else {
+				    String filename = "All boys name list - (Sikh)";
 	        	    String relativePath = "/assets/utils/Boys/Other/File04.pdf";
-	        	    download_file(relativePath, request, response);
+	        	    download_file(relativePath, request, response, filename);
 			   }
 		   }else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
 			   
 		   }  
 		   else {
-                 
+			String filename = "All boys name list";   
+       	    String relativePath = "/assets/utils/Boys/All/File01.pdf";
+       	    download_file(relativePath, request, response, filename);  
 		   }
 		}else if(selected_child_gender.equals("Girl") &&  selected_caste_preference_option != null && selected_start_letter_preference_option != null) {
+			
 			
 		}else {
 			
@@ -64,33 +71,42 @@ public class NameGenerator extends HttpServlet {
 		    case "A":
 		    case "a":
 		            if(selected_caste_option.contains("Hindu")) {
+		            	String filename = "boys name list - with letter A and Hindu";
 		        	    String relativePath = "/assets/utils/Boys/Hindu/File01.pdf";
-		        	    download_file(relativePath, request, response);   
+		        	    download_file(relativePath, request, response, filename);   
 		            }else if(selected_caste_option.equals("Muslim")) {
+		            	String filename = "boys name list - with letter A and Muslim";
 		        	    String relativePath = "/assets/utils/Boys/Muslim/File01.pdf";
-		        	    download_file(relativePath, request, response);
+		        	    download_file(relativePath, request, response, filename);
 		            }else if(selected_caste_option.equals("Christian")) {
+		            	String filename = "boys name list - with letter A and Christian";
 		        	    String relativePath = "/assets/utils/Boys/Christian/File01.pdf";
-		        	    download_file(relativePath, request, response);
+		        	    download_file(relativePath, request, response, filename);
 		            }else{
+		            	
 		            	String relativePath = "/assets/utils/Boys/Sikh/File01.pdf";
-			        	download_file(relativePath, request, response);	 
+		            	String filename = "boys name list - with letter A and Sikh";
+			        	download_file(relativePath, request, response,filename);	 
 		            }
 			break;
 		    case "B":
 		    case "b":
 		            if(selected_caste_option.contains("Hindu")) {
 		        	    String relativePath = "/assets/utils/Boys/Hindu/File02.pdf";
-		        	    download_file(relativePath, request, response);
+		            	String filename = "boys name list - with letter B and Hindu";
+			        	download_file(relativePath, request, response,filename);
 		            }else if(selected_caste_option.contains("Muslim")) {
 		        	    String relativePath = "/assets/utils/Boys/Muslim/File02.pdf";
-		        	    download_file(relativePath, request, response);		            	
+		            	String filename = "boys name list - with letter B and Muslim";
+			        	download_file(relativePath, request, response,filename);		            	
 		            }else if(selected_caste_option.contains("Christian")) {
 		        	    String relativePath = "/assets/utils/Boys/Christian/File02.pdf";
-		        	    download_file(relativePath, request, response);		            	
+		            	String filename = "boys name list - with letter B and Christian";
+			        	download_file(relativePath, request, response,filename);		            	
 		            }else{
 		            	String relativePath = "/assets/utils/Boys/Sikh/File02.pdf";
-			        	download_file(relativePath, request, response);		            	
+		            	String filename = "boys name list - with letter B and Sikh";
+			        	download_file(relativePath, request, response,filename);	            	
 		            }
 			break;
 			
@@ -98,7 +114,8 @@ public class NameGenerator extends HttpServlet {
 		    case "c":
 	            if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File03.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter C and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	        	    
 	            }else if(selected_caste_option.contains("Muslim")) {
 	            	try {
@@ -109,7 +126,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else if(selected_caste_option.contains("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File03.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter C and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            }else{
 
 	            	try {
@@ -125,16 +143,20 @@ public class NameGenerator extends HttpServlet {
 		    case "d":
 	            if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File04.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter D and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.contains("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File03.pdf";
-	        	    download_file(relativePath, request, response);		            	
+	            	String filename = "boys name list - with letter D and Muslim";
+		        	download_file(relativePath, request, response,filename);     	
 	            }else if(selected_caste_option.contains("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File04.pdf";
-	        	    download_file(relativePath, request, response);		            	
+	            	String filename = "boys name list - with letter D and Christian";
+		        	download_file(relativePath, request, response,filename);	            	
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File03.pdf";
-		        	download_file(relativePath, request, response);		            	
+	            	String filename = "boys name list - with letter D and Sikh";
+		        	download_file(relativePath, request, response,filename); 	
 	            }
 		    break;
 		    
@@ -142,13 +164,16 @@ public class NameGenerator extends HttpServlet {
 		    case "e":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File05.pdf";
-	        	    download_file(relativePath, request, response);
+	        	    String file = "boys name list - with letter E and Hindu";
+	        	    download_file(relativePath, request, response, file);
 	            }else if(selected_caste_option.contains("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File04.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter E and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.contains("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File05.pdf";
-	        	    download_file(relativePath, request, response);		 
+	            	String filename = "boys name list - with letter E and Christian";
+		        	download_file(relativePath, request, response,filename); 
 	            }else{
 	            	try {
 						error_alert(response);
@@ -170,7 +195,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else if(selected_caste_option.contains("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File05.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter F and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.contains("Christian")) {
 	    			try {
 						error_alert(response);
@@ -192,7 +218,8 @@ public class NameGenerator extends HttpServlet {
 		    case "g":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File06.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter G and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.contains("Muslim")) {
 	            	try {
 						error_alert(response);
@@ -222,16 +249,20 @@ public class NameGenerator extends HttpServlet {
 		    case "h":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File07.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter H and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File06.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter H and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File10.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter H and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File04.pdf";
-		        	download_file(relativePath, request, response);		
+	            	String filename = "boys name list - with letter H and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -239,10 +270,12 @@ public class NameGenerator extends HttpServlet {
 		    case "i":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File08.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter I and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File07.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter I and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	            	try {
 						error_alert(response);
@@ -264,16 +297,20 @@ public class NameGenerator extends HttpServlet {
 		    case "j":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File09.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter J and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File08.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter J and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File06.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter J and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File05.pdf";
-		        	download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter J and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -281,12 +318,23 @@ public class NameGenerator extends HttpServlet {
 		    case "k":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File10.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter K and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File09.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter K and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	        	 
+	            	
+	            	
+	            	//-------------------Remaining----------------------
+	            	
+	            	
+	            	
+	            	
+	            	
+	            	
 	            }else{
 	            	try {
 						error_alert(response);
@@ -301,7 +349,8 @@ public class NameGenerator extends HttpServlet {
 		    case "l":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File11.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter L and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	            	try {
 						error_alert(response);
@@ -318,7 +367,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File06.pdf";
-		        	download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter L and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -326,10 +376,12 @@ public class NameGenerator extends HttpServlet {
 		    case "m":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File12.pdf";
-	        	    download_file(relativePath, request, response);	 
+	            	String filename = "boys name list - with letter M and Hindu";
+		        	download_file(relativePath, request, response,filename); 
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File10.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter M and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	            	try {
 						error_alert(response);
@@ -339,7 +391,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File07.pdf";
-		        	download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter M and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -347,10 +400,12 @@ public class NameGenerator extends HttpServlet {
 		    case "n":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File13.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter N and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File11.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter N and Muslim";
+		        	download_file(relativePath, request, response,filename);	
 	            }else if(selected_caste_option.equals("Christian")) {
 	            	try {
 						error_alert(response);
@@ -360,7 +415,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File08.pdf";
-		        	download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter N and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -401,7 +457,8 @@ public class NameGenerator extends HttpServlet {
 		    case "p":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File14.pdf";
-	        	    download_file(relativePath, request, response);	 
+	            	String filename = "boys name list - with letter P and Hindu";
+		        	download_file(relativePath, request, response,filename);	 
 	            }else if(selected_caste_option.equals("Muslim")) {
 	            	try {
 						error_alert(response);
@@ -418,7 +475,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File09.pdf";
-		        	download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter P and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		
@@ -433,7 +491,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File12.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter Q and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            	
 	            }else if(selected_caste_option.equals("Christian")) {
 	            	try {
@@ -456,16 +515,20 @@ public class NameGenerator extends HttpServlet {
 		    case "r":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File15.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter R and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File13.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter R and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File07.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter R and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File10.pdf";
-		        	download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter R and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -473,16 +536,20 @@ public class NameGenerator extends HttpServlet {
 		    case "s":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File16.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter S and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File14.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter S and Muslim";
+		        	download_file(relativePath, request, response,filename);	
 	            }else if(selected_caste_option.equals("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File08.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter S and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File11.pdf";
-		        	download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter S and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    
@@ -490,7 +557,8 @@ public class NameGenerator extends HttpServlet {
 		    case "t":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File17.pdf";
-	        	    download_file(relativePath, request, response); 
+	            	String filename = "boys name list - with letter T and Hindu";
+		        	download_file(relativePath, request, response,filename); 
 	            }else if(selected_caste_option.equals("Muslim")) {
 	            	try {
 						error_alert(response);
@@ -519,7 +587,8 @@ public class NameGenerator extends HttpServlet {
 		    case "u":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File18.pdf";
-	        	    download_file(relativePath, request, response); 
+	            	String filename = "boys name list - with letter U and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 					try {
 						error_alert(response);
@@ -536,14 +605,16 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else{
 	            	String relativePath = "/assets/utils/Boys/Sikh/File12.pdf";
-		        	download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter U and Sikh";
+		        	download_file(relativePath, request, response,filename);
 	            }
 		    break;
 		    case "V":
 		    case "v":
 		    	if(selected_caste_option.contains("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File19.pdf";
-	        	    download_file(relativePath, request, response); 
+	            	String filename = "boys name list - with letter V and Hindu";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Muslim")) {
 	            	try {
 						error_alert(response);
@@ -574,10 +645,12 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File15.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter W and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	        	    String relativePath = "/assets/utils/Boys/Christian/File08.pdf";
-	        	    download_file(relativePath, request, response);
+	            	String filename = "boys name list - with letter W and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            }else{
 	            	try {
 						error_alert(response);
@@ -632,7 +705,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File16.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter Y and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	            	try {
 						error_alert(response);
@@ -661,7 +735,8 @@ public class NameGenerator extends HttpServlet {
 					}
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File17.pdf";
-	        	    download_file(relativePath, request, response);	
+	            	String filename = "boys name list - with letter Z and Muslim";
+		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
 	            	try {
 						error_alert(response);
@@ -693,9 +768,9 @@ public class NameGenerator extends HttpServlet {
 		pw.println("</body></html>");
 	}
 	
-	private void download_file(String file_path, HttpServletRequest request, HttpServletResponse response) {
+	private void download_file(String file_path, HttpServletRequest request, HttpServletResponse response, String filename) {
 		response.setContentType("application/pdf");
-		response.setHeader("Content-disposition", "attachment; filename=sample.pdf");
+		response.setHeader("Content-disposition", "attachment; filename="+filename+".pdf");
 
 	        try(InputStream in = request.getServletContext().getResourceAsStream(file_path);
 	          OutputStream out = response.getOutputStream()) {

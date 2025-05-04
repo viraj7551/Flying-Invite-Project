@@ -461,7 +461,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-           <p>FlyingInvite@2025</p>
+           <p class="footer-title">FlyingInvite@2025</p>
         </div>
       </div>
     </div>

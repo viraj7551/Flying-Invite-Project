@@ -97,7 +97,7 @@
                 </p>
               
               <a href="index.jsp" class="btn btn-outline-danger" role="button"> Back</a>
-              <a href="https://www.facebook.com/profile.php?id=61567671551405" class="btn btn-outline-info" target="_blank" role="button">Redirect</a>
+              <a href="https://www.facebook.com/profile.php?id=61567671551405" class="btn btn-primary" target="_blank" role="button">Redirect</a>
               
               </div>
             </div>
@@ -110,7 +110,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-           <p>FlyingInvite@2025</p>
+           <p class="footer-title">FlyingInvite@2025</p>
         </div>
       </div>
     </div>
