@@ -173,12 +173,7 @@ public class NameGenerator extends HttpServlet {
 			
 		case "O":
 		case "o":
-			try {
-				error_alert(response);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			error_alert(response);
 		   break;
 		  
 		case "P":

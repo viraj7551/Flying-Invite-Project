@@ -152,6 +152,7 @@ public class NameGenerator extends HttpServlet {
 		
 		case "L":
 		case "l":
+			
 			String filename12 = "Boys name list starting letter with only L";   
 	       	String relativePath12 = "/assets/utils/Boys/OnlyLetter/File12.pdf";
 	       	download_file(relativePath12, request, response, filename12);
@@ -159,26 +160,15 @@ public class NameGenerator extends HttpServlet {
 			
 		case "M":
 		case "m":
-			String filename13 = "Boys name list starting letter with only M";   
-	       	String relativePath13 = "/assets/utils/Boys/OnlyLetter/File13.pdf";
-	       	download_file(relativePath13, request, response, filename13);
+			
 			break;
 			
 		case "N":
 		case "n":
-			String filename14 = "Boys name list starting letter with only N";   
-	       	String relativePath14 = "/assets/utils/Boys/OnlyLetter/File14.pdf";
-	       	download_file(relativePath14, request, response, filename14);
 			break;
 			
 		case "O":
 		case "o":
-			try {
-				error_alert(response);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		   break;
 		  
 		case "P":
