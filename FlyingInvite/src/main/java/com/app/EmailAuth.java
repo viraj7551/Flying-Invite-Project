@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Properties;
+import java.util.UUID;
 import java.util.regex.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -59,6 +60,7 @@ public class EmailAuth extends HttpServlet {
 			  if(!userExist) {
 				  insert_record(to_email);
 			  }
+			  
 				
 		        Properties prop = new Properties();
 				//prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -88,16 +90,16 @@ public class EmailAuth extends HttpServlet {
 		            int generated_otp = gp.generateOTP();
 		            gp.set_OTP(generated_otp);
 		            
-		     
-		            
 		            // Store OTP in session
-		            request.getSession().setAttribute("generatedOTP", generated_otp);
+		            request.getSession().setAttribute("generatedOTP", generated_otp);           
 		            
 		            int OTP_Value = gp.get_OTP();
 		            message.setSubject("OTP Verification ["+OTP_Value+"]");
 		            message.setText("Dear User,"
 		                    + "\n\n Your OTP is "+OTP_Value+""
 		                    +"\n\n Best practise is to not share OTP with anyone.");
+		            
+		            
 		            
 		            Transport.send(message);
 				    pw.println("<script type=\"text/javascript\">"); 
@@ -114,12 +116,9 @@ public class EmailAuth extends HttpServlet {
 			    pw.println("alert('Please enter correct email id.');"); 
 			    pw.println("</script>"); 
 	        }
+	       
+	       
     }
-	
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
 	
 	private void insert_record(String email) {
 	       try {
@@ -131,6 +130,12 @@ public class EmailAuth extends HttpServlet {
 	    	   e.printStackTrace();
 	       } 
 	}
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
 	
     private boolean isValidEmail(String email) {
         if (email == null) return false;
@@ -162,4 +167,6 @@ public class EmailAuth extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
 }
+

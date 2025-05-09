@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/NameGenerator")
 public class NameGenerator extends HttpServlet {
     private final int ARBITARY_SIZE = 1048;
+    private PrintWriter pw;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    response.setContentType("text/html");	
@@ -50,7 +51,7 @@ public class NameGenerator extends HttpServlet {
 	        	    download_file(relativePath, request, response, filename);
 			   }
 		   }else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
-			   
+			   get_filter(start_letter_field, request, response);
 		   }  
 		   else {
 			String filename = "All boys name list";   
@@ -61,10 +62,165 @@ public class NameGenerator extends HttpServlet {
 			
 			
 		}else {
-			
+		    pw.println("<script type=\"text/javascript\">"); 
+		    pw.println("alert('something went wrong, please try again !');"); 
+		    pw.println("</script>"); 
 		}
 
 	}
+	
+	
+	private void get_filter(String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
+		switch(start_letter_field) {
+ 
+		case "A":
+		case "a":
+			String filename = "Boys name list starting letter with only A";   
+       	    String relativePath = "/assets/utils/Boys/OnlyLetter/File01.pdf";
+       	    download_file(relativePath, request, response, filename);  
+			break;
+		
+		case "B":
+		case "b":
+			String filename02 = "Boys name list starting letter with only B";   
+       	    String relativePath02 = "/assets/utils/Boys/OnlyLetter/File02.pdf";
+       	    download_file(relativePath02, request, response, filename02); 
+			break;
+		
+		case "C":
+		case "c":
+			String filename03 = "Boys name list starting letter with only C";   
+       	    String relativePath03 = "/assets/utils/Boys/OnlyLetter/File03.pdf";
+       	    download_file(relativePath03, request, response, filename03);
+			break;
+			
+		case "D":
+		case "d":
+			String filename04 = "Boys name list starting letter with only D";   
+       	    String relativePath04 = "/assets/utils/Boys/OnlyLetter/File04.pdf";
+       	    download_file(relativePath04, request, response, filename04);
+			break;
+			
+		case "E":
+		case "e":
+		   String filename05 = "Boys name list starting letter with only E";   
+       	   String relativePath05 = "/assets/utils/Boys/OnlyLetter/File05.pdf";
+       	   download_file(relativePath05, request, response, filename05);
+		   break;
+		   
+		case "F":
+		case "f":
+			String filename06 = "Boys name list starting letter with only F";   
+	       	String relativePath06 = "/assets/utils/Boys/OnlyLetter/File06.pdf";
+	       	download_file(relativePath06, request, response, filename06);
+			break;
+			
+		case "G":
+		case "g":
+			String filename07 = "Boys name list starting letter with only G";   
+	       	String relativePath07 = "/assets/utils/Boys/OnlyLetter/File07.pdf";
+	       	download_file(relativePath07, request, response, filename07);
+			break;
+			
+		case "H":
+		case "h":
+			String filename08 = "Boys name list starting letter with only H";   
+	       	String relativePath08 = "/assets/utils/Boys/OnlyLetter/File08.pdf";
+	       	download_file(relativePath08, request, response, filename08);
+			break;
+			
+		case "I":
+		case "i":
+			String filename09 = "Boys name list starting letter with only I";   
+	       	String relativePath09 = "/assets/utils/Boys/OnlyLetter/File09.pdf";
+	       	download_file(relativePath09, request, response, filename09);
+			break;
+			
+		case "J":
+		case "j":
+			String filename10 = "Boys name list starting letter with only J";   
+	       	String relativePath10 = "/assets/utils/Boys/OnlyLetter/File10.pdf";
+	       	download_file(relativePath10, request, response, filename10);
+			break;
+			
+		case "K":
+		case "k":
+			String filename11 = "Boys name list starting letter with only K";   
+	       	String relativePath11 = "/assets/utils/Boys/OnlyLetter/File10.pdf";
+	       	download_file(relativePath11, request, response, filename11);
+			break;
+		
+		case "L":
+		case "l":
+			break;
+			
+		case "M":
+		case "m":
+			break;
+			
+		case "N":
+		case "n":
+			break;
+			
+		case "O":
+		case "o":
+		   break;
+		  
+		case "P":
+		case "p":
+		  break;
+		  
+		case "Q":
+		case "q":
+		  break;
+		  
+		case "R":
+		case "r":
+		  break;  
+		  
+		  
+		case "S":
+		case "s":
+		  break;
+		  
+		case "T":
+		case "t":
+		  break;
+		  
+		case "U":
+		case "u":
+		  break;  
+		 
+
+		case "V":
+		case "v":
+		  break;
+		  
+		case "W":
+		case "w":
+		  break;
+		  
+		case "X":
+		case "x":
+		  break;
+		  
+		case "Y":
+		case "y":
+		  break;  
+		 
+		case "Z":
+		case "z":
+		  break;
+		  
+		default:  
+		  
+			
+			
+		
+		}
+	}
+	
+	
 	
 	private void get_filter(String selected_caste_option, String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
 		switch(start_letter_field) {
@@ -325,15 +481,10 @@ public class NameGenerator extends HttpServlet {
 	            	String filename = "boys name list - with letter K and Muslim";
 		        	download_file(relativePath, request, response,filename);
 	            }else if(selected_caste_option.equals("Christian")) {
-	        	 
-	            	
-	            	
-	            	//-------------------Remaining----------------------
-	            	
-	            	
-	            	
-	            	
-	            	
+	          	
+	        	    String relativePath = "/assets/utils/Boys/Christian/File11.pdf";
+	            	String filename = "boys name list - with letter K and Christian";
+		        	download_file(relativePath, request, response,filename);
 	            	
 	            }else{
 	            	try {
@@ -760,7 +911,7 @@ public class NameGenerator extends HttpServlet {
 	
 	private void error_alert(HttpServletResponse response) throws IOException {
 		String alertMessage = "Sorry ! no name found for given input character";
-		PrintWriter pw = response.getWriter();
+		 pw = response.getWriter();
 		pw.println("<html><body>");
 		pw.println("<script>alert('" + alertMessage + "');");
 		pw.println("location='nameGenerator.jsp'");

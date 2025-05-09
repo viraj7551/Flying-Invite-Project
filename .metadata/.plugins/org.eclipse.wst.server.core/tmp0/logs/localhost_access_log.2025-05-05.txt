@@ -1,0 +1,12 @@
+127.0.0.1 - - [05/May/2025:22:57:06 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:57:15 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21905
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:57:15 +0530] "GET /FlyingInvite/assets/css/app.css HTTP/1.1" 200 42438
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:58:51 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21905
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:58:52 +0530] "GET /FlyingInvite/assets/css/app.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:58:55 +0530] "GET /FlyingInvite/images/flyinginvite.jpg HTTP/1.1" 404 1346
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:58:55 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:59:13 +0530] "GET /FlyingInvite/name_suggestor.jsp HTTP/1.1" 200 4839
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:59:20 +0530] "GET /FlyingInvite/verifyEmail.jsp HTTP/1.1" 200 2507
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:59:42 +0530] "POST /FlyingInvite/EmailAuth HTTP/1.1" 200 109
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:59:42 +0530] "GET /FlyingInvite/verifyOTP.jsp HTTP/1.1" 200 1215
+0:0:0:0:0:0:0:1 - - [05/May/2025:22:59:42 +0530] "GET /FlyingInvite/assets/js/script.js HTTP/1.1" 200 3161

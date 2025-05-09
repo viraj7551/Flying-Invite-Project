@@ -65,7 +65,7 @@
 
     <div id="form-container">
         <h4>Email Verification</h4> <br>
-        <form id="signup-form" method="POST" action="/FlyingInvite/EmailAuth" onsubmit="return baby_name_generator()">
+        <form id="signup-form" method="POST" action="/FlyingInvite/EmailAuth" onsubmit="return baby_name_generator();">
             <label for="email">Enter Your Email *</label>
             <input type="email" id="email" name="email" required><br>
             <button type="submit">Verify Email</button>
@@ -86,5 +86,6 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -58,9 +58,9 @@ function baby_name_generator(){
        if (!emailRegex.test(email_value)) {
        alert("please enter correct email id");
        return false;  // Prevent form submission
-      }else{
-        return true;
       }
+       
+       return true;
 }
 
 

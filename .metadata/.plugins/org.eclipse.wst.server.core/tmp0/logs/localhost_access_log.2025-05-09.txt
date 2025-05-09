@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:21 +0530] "GET /FlyingInvite/nameGenerator.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:22 +0530] "GET /FlyingInvite/verifyEmail.jsp HTTP/1.1" 200 2559
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:22 +0530] "GET /FlyingInvite/assets/js/script.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:22 +0530] "GET /FlyingInvite/assets/css/app.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:26 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21905
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:56 +0530] "GET /FlyingInvite/entertainment.jsp HTTP/1.1" 200 4986
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:44:56 +0530] "GET /FlyingInvite/assets/images/wedding.png HTTP/1.1" 200 2224686
+0:0:0:0:0:0:0:1 - - [09/May/2025:06:45:09 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21905
