@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:42:49 +0530] "GET /FlyingInvite/nameGenerator.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:42:50 +0530] "GET /FlyingInvite/verifyEmail.jsp HTTP/1.1" 200 2559
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:42:57 +0530] "GET /FlyingInvite/assets/js/app.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:42:57 +0530] "GET /FlyingInvite/assets/js/script.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:43:01 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21905
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:46:38 +0530] "GET /FlyingInvite/index.jsp HTTP/1.1" 200 21905
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:47:18 +0530] "GET /FlyingInvite/name_suggestor.jsp HTTP/1.1" 200 4839
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:47:21 +0530] "GET /FlyingInvite/verifyEmail.jsp HTTP/1.1" 200 2559
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:47:35 +0530] "POST /FlyingInvite/EmailAuth HTTP/1.1" 200 109
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:47:35 +0530] "GET /FlyingInvite/verifyOTP.jsp HTTP/1.1" 200 1215
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:47:56 +0530] "POST /FlyingInvite/OTPAuth HTTP/1.1" 200 118
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:47:57 +0530] "GET /FlyingInvite/nameGenerator.jsp HTTP/1.1" 200 2422
+0:0:0:0:0:0:0:1 - - [10/May/2025:10:48:01 +0530] "POST /FlyingInvite/NameGenerator HTTP/1.1" 200 118683

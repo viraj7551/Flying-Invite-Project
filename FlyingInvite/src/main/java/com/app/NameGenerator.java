@@ -31,7 +31,7 @@ public class NameGenerator extends HttpServlet {
 		
 		if(selected_child_gender.equals("Boy") &&  selected_caste_preference_option != null && selected_start_letter_preference_option != null) {
 		   if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("Yes")) {
-			   get_filter(selected_caste_option,start_letter_field, request, response);
+			   get_filter_for_boy_child(selected_caste_option,start_letter_field, request, response);
 		   }else if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("No")) {
 			   if(selected_caste_option.equals("Hindu")) {
 				    String filename = " All boys name list - (Hindu)";
@@ -51,7 +51,7 @@ public class NameGenerator extends HttpServlet {
 	        	    download_file(relativePath, request, response, filename);
 			   }
 		   }else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
-			   get_filter(start_letter_field, request, response);
+			   get_filter_for_boy_child(start_letter_field, request, response);
 		   }  
 		   else {
 			String filename = "All boys name list";   
@@ -70,7 +70,7 @@ public class NameGenerator extends HttpServlet {
 	}
 	
 	
-	private void get_filter(String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
+	private void get_filter_for_boy_child(String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
 		switch(start_letter_field) {
  
 		case "A":
@@ -183,61 +183,100 @@ public class NameGenerator extends HttpServlet {
 		  
 		case "P":
 		case "p":
-		  break;
+			String filename15 = "Boys name list starting letter with only P";   
+	       	String relativePath15 = "/assets/utils/Boys/OnlyLetter/File15.pdf";
+	       	download_file(relativePath15, request, response, filename15);
+			break;
 		  
 		case "Q":
 		case "q":
+			String filename16 = "Boys name list starting letter with only Q";   
+	       	String relativePath16 = "/assets/utils/Boys/OnlyLetter/File16.pdf";
+	       	download_file(relativePath16, request, response, filename16);
 		  break;
 		  
 		case "R":
 		case "r":
+			String filename17 = "Boys name list starting letter with only R";   
+	       	String relativePath17 = "/assets/utils/Boys/OnlyLetter/File17.pdf";
+	       	download_file(relativePath17, request, response, filename17);
 		  break;  
 		  
 		  
 		case "S":
 		case "s":
+			String filename18= "Boys name list starting letter with only S";   
+	       	String relativePath18 = "/assets/utils/Boys/OnlyLetter/File18.pdf";
+	       	download_file(relativePath18, request, response, filename18);
 		  break;
 		  
 		case "T":
 		case "t":
+			String filename19= "Boys name list starting letter with only T";   
+	       	String relativePath19 = "/assets/utils/Boys/OnlyLetter/File19.pdf";
+	       	download_file(relativePath19, request, response, filename19);
 		  break;
 		  
 		case "U":
 		case "u":
+			String filename20= "Boys name list starting letter with only U";   
+	       	String relativePath20 = "/assets/utils/Boys/OnlyLetter/File20.pdf";
+	       	download_file(relativePath20, request, response, filename20);
 		  break;  
 		 
 
 		case "V":
 		case "v":
+			String filename21= "Boys name list starting letter with only V";   
+	       	String relativePath21 = "/assets/utils/Boys/OnlyLetter/File21.pdf";
+	       	download_file(relativePath21, request, response, filename21);
 		  break;
 		  
 		case "W":
 		case "w":
+			String filename22= "Boys name list starting letter with only W";   
+	       	String relativePath22 = "/assets/utils/Boys/OnlyLetter/File22.pdf";
+	       	download_file(relativePath22, request, response, filename22);
 		  break;
 		  
 		case "X":
 		case "x":
+			try {
+				error_alert(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		  break;
 		  
 		case "Y":
 		case "y":
+			String filename23= "Boys name list starting letter with only Y";   
+	       	String relativePath23 = "/assets/utils/Boys/OnlyLetter/File23.pdf";
+	       	download_file(relativePath23, request, response, filename23);
 		  break;  
 		 
 		case "Z":
 		case "z":
+			String filename24= "Boys name list starting letter with only Z";   
+	       	String relativePath24 = "/assets/utils/Boys/OnlyLetter/File24.pdf";
+	       	download_file(relativePath24, request, response, filename24);
 		  break;
 		  
 		default:  
-		  
-			
-			
+			try {
+				something_went_wrong_alert(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		}
 	}
 	
 	
 	
-	private void get_filter(String selected_caste_option, String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
+	private void get_filter_for_boy_child(String selected_caste_option, String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
 		switch(start_letter_field) {
 		    case "A":
 		    case "a":
@@ -922,6 +961,16 @@ public class NameGenerator extends HttpServlet {
 		    
 		    default:
 		}
+	}
+	
+	private void something_went_wrong_alert(HttpServletResponse response) throws IOException {
+		String alertMessage = "Something went wrong, please try again.";
+		 pw = response.getWriter();
+		pw.println("<html><body>");
+		pw.println("<script>alert('" + alertMessage + "');");
+		pw.println("location='nameGenerator.jsp'");
+		pw.println("</script>");
+		pw.println("</body></html>");
 	}
 	
 	private void error_alert(HttpServletResponse response) throws IOException {
