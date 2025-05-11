@@ -22,7 +22,7 @@
     <div id="form-container">
     
         <h2>Name Generator</h2>
-        <form id="signup-form" action="/FlyingInvite/NameGenerator" method="POST">
+        <form id="signup-form" action="/FlyingInvite/NameGenerator" method="POST" onsubmit="return starting_letter_character_field_validation();" >
 
             <label for="email">It's a</label>
             <select id="selectGender" name="child_gender_option" required>

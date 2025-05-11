@@ -26,7 +26,6 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- ICO format -->
     <link rel="icon" href="./images/flyinginvite.jpg" type="image/jpg"> <!-- PNG format -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

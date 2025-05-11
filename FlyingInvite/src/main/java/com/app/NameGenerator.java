@@ -65,6 +65,7 @@ public class NameGenerator extends HttpServlet {
 		    pw.println("<script type=\"text/javascript\">"); 
 		    pw.println("alert('something went wrong, please try again !');"); 
 		    pw.println("</script>"); 
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
 
 	}
@@ -579,10 +580,10 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "M":
 		    case "m":
-		    	if(selected_caste_option.contains("Hindu")) {
-	        	    String relativePath = "/assets/utils/Boys/Hindu/File12.pdf";
-	            	String filename = "boys name list - with letter M and Hindu";
-		        	download_file(relativePath, request, response,filename); 
+		    	if(selected_caste_option.equals("Hindu")) {
+	        	    String relativePath12 = "/assets/utils/Boys/Hindu/File12.pdf";
+	            	String filename12 = "boys name list - with letter M and Hindu";
+		        	download_file(relativePath12, request, response,filename12); 
 	            }else if(selected_caste_option.equals("Muslim")) {
 	        	    String relativePath = "/assets/utils/Boys/Muslim/File10.pdf";
 	            	String filename = "boys name list - with letter M and Muslim";
@@ -603,7 +604,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "N":
 		    case "n":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File13.pdf";
 	            	String filename = "boys name list - with letter N and Hindu";
 		        	download_file(relativePath, request, response,filename);
@@ -627,7 +628,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "O":
 		    case "o":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 		    		try {
 						error_alert(response);
 					} catch (IOException e) {
@@ -660,7 +661,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "P":
 		    case "p":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File14.pdf";
 	            	String filename = "boys name list - with letter P and Hindu";
 		        	download_file(relativePath, request, response,filename);	 
@@ -687,7 +688,7 @@ public class NameGenerator extends HttpServlet {
 		
 		    case "Q":
 		    case "q":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 		    		try {
 						error_alert(response);
 					} catch (IOException e) {
@@ -718,7 +719,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "R":
 		    case "r":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File15.pdf";
 	            	String filename = "boys name list - with letter R and Hindu";
 		        	download_file(relativePath, request, response,filename);
@@ -739,7 +740,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "S":
 		    case "s":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File16.pdf";
 	            	String filename = "boys name list - with letter S and Hindu";
 		        	download_file(relativePath, request, response,filename);
@@ -760,7 +761,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "T":
 		    case "t":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File17.pdf";
 	            	String filename = "boys name list - with letter T and Hindu";
 		        	download_file(relativePath, request, response,filename); 
@@ -790,7 +791,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "U":
 		    case "u":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File18.pdf";
 	            	String filename = "boys name list - with letter U and Hindu";
 		        	download_file(relativePath, request, response,filename);
@@ -816,7 +817,7 @@ public class NameGenerator extends HttpServlet {
 		    break;
 		    case "V":
 		    case "v":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 	        	    String relativePath = "/assets/utils/Boys/Hindu/File19.pdf";
 	            	String filename = "boys name list - with letter V and Hindu";
 		        	download_file(relativePath, request, response,filename);
@@ -835,13 +836,18 @@ public class NameGenerator extends HttpServlet {
 						e.printStackTrace();
 					}	        	 
 	            }else{
-	            
+	            	try {
+						error_alert(response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }
 		    break;
 		    
 		    case "W":
 		    case "w":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 		    		try {
 						error_alert(response);
 					} catch (IOException e) {
@@ -868,7 +874,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "X":
 		    case "x":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 					try {
 						error_alert(response);
 					} catch (IOException e) {
@@ -901,7 +907,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "Y":
 		    case "y":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 		    		try {
 						error_alert(response);
 					} catch (IOException e) {
@@ -931,7 +937,7 @@ public class NameGenerator extends HttpServlet {
 		    
 		    case "Z":
 		    case "z":
-		    	if(selected_caste_option.contains("Hindu")) {
+		    	if(selected_caste_option.equals("Hindu")) {
 		    		try {
 						error_alert(response);
 					} catch (IOException e) {
@@ -965,7 +971,7 @@ public class NameGenerator extends HttpServlet {
 	
 	private void something_went_wrong_alert(HttpServletResponse response) throws IOException {
 		String alertMessage = "Something went wrong, please try again.";
-		 pw = response.getWriter();
+		pw = response.getWriter();
 		pw.println("<html><body>");
 		pw.println("<script>alert('" + alertMessage + "');");
 		pw.println("location='nameGenerator.jsp'");
@@ -975,7 +981,7 @@ public class NameGenerator extends HttpServlet {
 	
 	private void error_alert(HttpServletResponse response) throws IOException {
 		String alertMessage = "Sorry ! no name found for given input character";
-		 pw = response.getWriter();
+		pw = response.getWriter();
 		pw.println("<html><body>");
 		pw.println("<script>alert('" + alertMessage + "');");
 		pw.println("location='nameGenerator.jsp'");
