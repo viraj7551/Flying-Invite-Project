@@ -1,0 +1,139 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:title" content="FlyingInvite | Name Suggestor">
+<meta property="og:description" content="India's Interative Invitation">
+<meta property="og:url" content="https://flyinginvite.in/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FlyingInvite">
+<meta property="og:image" content="https://red-katalin-50.tiiny.site/">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href=" ./assets/images/FlyingInvite.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <title>FlyingInvite | Name Suggestor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="./assets/css/fontawesome.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+  <link rel="stylesheet" href="./assets/css/animated.css">
+  <link rel="stylesheet" href="./assets/css/owl.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZ4MP44ET9');
+</script>
+
+
+</head>
+<body>
+ <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+    <!-- ***** Preloader End ***** -->
+
+  <!-- Pre-header Starts -->
+  <div class="pre-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8 col-7">
+          <ul class="info">
+            <li><a href="#"><i class="fa fa-envelope"></i>admin@flyinginvite.in</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-5">
+          <ul class="social-media">
+            <li><a href="https://www.facebook.com/profile.php?id=61567671551405" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="https://www.instagram.com/flyinginvite/?igsh=Yjh6aXM5eHZ3a3Nt" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pre-header End -->
+
+  <div id="about" class="about section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="assets/images/name_suggestor.png" alt="mom with baby in her womb">
+              </div>
+            </div>
+            <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+              <div class="about-right-content">
+                <div class="section-heading">
+                  <h6>Congratulations !</h6>
+                  <h4>We have some <em>Name Suggestion</em></h4>
+                  <div class="line-dec"></div>
+                </div>
+                
+                <p>
+                    <ul><strong>We have some words</strong>
+                      <li>Choosing your baby's name is one of the most heartfelt decisions you'll ever make and we're here to make it meaningful, joyful, and easy. Whether you're looking for something traditional, modern, spiritual, or unique, our application understands your vibe and offers names that resonate.
+Let your baby's name be more than just letters let it carry dreams, stories, and love.
+                      </li>
+                    </ul> <br>
+                </p>
+              
+              <a href="index.jsp" class="btn btn-outline-danger" role="button"> Back</a>
+              <a href="verifyEmail.jsp" class="btn btn-primary" role="button">Generate</a>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+           <p class="footer-title">FlyingInvite@2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./vendor/jquery/jquery.min.js"></script>
+  <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/owl-carousel.js"></script>
+  <script src="./assets/js/animation.js"></script>
+  <script src="./assets/js/imagesloaded.js"></script>
+  <script src="./assets/js/custom.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
