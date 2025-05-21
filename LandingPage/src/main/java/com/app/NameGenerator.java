@@ -60,7 +60,7 @@ public class NameGenerator extends HttpServlet {
 		   }
 		}else if(selected_child_gender.equals("Girl") &&  selected_caste_preference_option != null && selected_start_letter_preference_option != null) {
 			   if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("Yes")) {
-				   coming_soon_alert(response);
+				   get_filter_for_girl_child(selected_caste_option,start_letter_field, request, response);
 			   }else if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("No")) {
 				   if(selected_caste_option.equals("Hindu")) {
 					   coming_soon_alert(response);
@@ -84,6 +84,32 @@ public class NameGenerator extends HttpServlet {
 
 	}
 	
+	
+	private void get_filter_for_girl_child(String selected_caste_option, String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
+		switch (start_letter_field) {
+		case "A":
+		case "a":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter A and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File01.pdf";
+        	    download_file(relativePath, request, response, filename);   
+            }else if(selected_caste_option.equals("Muslim")) {
+            	String filename = "Girls name list - with letter A and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File01.pdf";
+        	    download_file(relativePath, request, response, filename); 
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter A and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File01.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter A and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File01.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+		break;
+		
+		}
+	}
 	
 	private void get_filter_for_boy_child(String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
 		switch(start_letter_field) {
