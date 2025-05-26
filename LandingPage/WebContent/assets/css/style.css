@@ -148,7 +148,7 @@ h1 {
 
     .accordion .container.active .content{
       width: auto;
-      height: 100px;
+      height: 240px;
     }
 
     #navigateBtn{

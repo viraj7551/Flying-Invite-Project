@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.*;
 import javax.servlet.*;
@@ -98,22 +99,24 @@ public class EmailAuth extends HttpServlet {
 			                    InternetAddress.parse(to_email)
 			            );
 			            
-			            GenerateOTP gp = new GenerateOTP();
-			            int generated_otp = gp.generateOTP();
-			            gp.set_OTP(generated_otp);
+
+			    		Random rand = new Random();
+			            // Generate a random number between 100000 and 999999 (6 digits)
+			    		int generated_otp = rand.nextInt(900000) + 100000;  
 			            
 			            // Store OTP in session
-			            request.getSession().setAttribute("generatedOTP", generated_otp);           
+			            HttpSession session02 = request.getSession(true);
+			            session02.setAttribute("generatedOTP", generated_otp);
+  
 			            
-			            int OTP_Value = gp.get_OTP();
-			            message.setSubject("OTP Verification ["+OTP_Value+"]");
+			            message.setSubject("OTP Verification ["+generated_otp+"]");
 			            message.setText("Dear User,"
-			                    + "\n\n Your OTP is "+OTP_Value+""
+			                    + "\n\n Your OTP is "+generated_otp+""
 			                    +"\n\n Best practise is to not share OTP with anyone.");
 			            
 			            
 			            
-			            Transport.send(message);
+			            Transport.send(message);       
 					    pw.println("<script type=\"text/javascript\">"); 
 					    pw.println("alert('OTP is send on your email.');"); 
 					    pw.println("location='verifyOTP.jsp';"); 
@@ -133,7 +136,7 @@ public class EmailAuth extends HttpServlet {
     }
 	
 	
-	private boolean email_attempts(HttpServletRequest request, HttpServletResponse response) {
+	public boolean email_attempts(HttpServletRequest request, HttpServletResponse response) {
 		
 		 String clientId = getClientIdentifier(request); // can be IP or session ID
 	        AttemptInfo info = attemptsMap.getOrDefault(clientId, new AttemptInfo(0, System.currentTimeMillis()));
@@ -151,13 +154,13 @@ public class EmailAuth extends HttpServlet {
 	        return true;
 	}
 	
-    private String getClientIdentifier(HttpServletRequest request) {
+    public String getClientIdentifier(HttpServletRequest request) {
         // You can enhance this to use session ID, user ID, or fingerprint
         return request.getRemoteAddr();
     }
 	
 	
-    private static class AttemptInfo {
+    public static class AttemptInfo {
         int attempts;
         long firstAttemptTime;
 
@@ -167,7 +170,7 @@ public class EmailAuth extends HttpServlet {
         }
     }
 	
-	private void insert_record(String email) {
+	public void insert_record(String email) {
 	       try {
 	    	   ps = con.prepareStatement("insert into user_info(user_email) values(?)");
 	           ps.setString(1, email);
@@ -184,7 +187,7 @@ public class EmailAuth extends HttpServlet {
 	}
 	
 	
-    private boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         if (email == null) return false;
         Matcher matcher = EMAIL_PATTERN.matcher(email);
         return matcher.matches();

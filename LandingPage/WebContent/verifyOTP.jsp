@@ -33,6 +33,7 @@
 <body>
 
  <%
+ 
     if(session.getAttribute("generatedOTP") == null){
 	   response.sendRedirect("verifyEmail.jsp");
     }
