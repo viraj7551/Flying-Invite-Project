@@ -155,6 +155,58 @@ public class NameGenerator extends HttpServlet {
 				}
             }
        break;
+       
+       
+		case "D":
+		case "d":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter D and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File04.pdf";
+        	    download_file(relativePath, request, response, filename);   
+            }else if(selected_caste_option.equals("Muslim")) {
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter D and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File04.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+       break;
+       
+		case "E":
+		case "e":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter E and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File05.pdf";
+        	    download_file(relativePath, request, response, filename);   
+            }else if(selected_caste_option.equals("Muslim")) {
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter E and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File05.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter E and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File03.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+       break;
 			
 		
 		}
