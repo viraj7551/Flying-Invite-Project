@@ -282,6 +282,67 @@ public class NameGenerator extends HttpServlet {
 				}
             }
        break;
+       
+		case "I":
+		case "i":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter I and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File08.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Muslim")) {
+            	String filename = "Girls name list - with letter I and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File06.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter I and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File08.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter I and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File05.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+       break;
+		case "J":
+		case "j":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter J and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File09.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Muslim")) {
+            	String filename = "Girls name list - with letter J and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File07.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter J and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File09.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter J and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File06.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+       break;
+		case "K":
+		case "k":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter K and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File10.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Muslim")) {
+            	String filename = "Girls name list - with letter K and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File08.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter K and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File10.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter K and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File07.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+       break;
 			
 		}
 	}
