@@ -343,6 +343,26 @@ public class NameGenerator extends HttpServlet {
         	    download_file(relativePath, request, response, filename);
             }
        break;
+		case "L":
+		case "l":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter L and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File11.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Muslim")) {
+            	String filename = "Girls name list - with letter L and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File09.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter L and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File11.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter L and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File08.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+       break;
 			
 		}
 	}
