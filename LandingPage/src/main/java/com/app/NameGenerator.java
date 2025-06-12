@@ -404,6 +404,58 @@ public class NameGenerator extends HttpServlet {
         	    download_file(relativePath, request, response, filename);
             }
        break;
+		case "O":
+		case "o":
+            if(selected_caste_option.contains("Hindu")) {
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }else if(selected_caste_option.equals("Muslim")) {
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }else if(selected_caste_option.equals("Christian")) {
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }else{
+            	try {
+					error_alert(response);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+       break;
+		case "P":
+		case "p":
+            if(selected_caste_option.contains("Hindu")) {
+            	String filename = "Girls name list - with letter P and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File14.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Muslim")) {
+            	String filename = "Girls name list - with letter P and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File12.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else if(selected_caste_option.equals("Christian")) {
+            	String filename = "Girls name list - with letter P and Christian";
+        	    String relativePath = "/assets/utils/Girls/Christian/File14.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }else{
+            	String filename = "Girls name list - with letter P and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File11.pdf";
+        	    download_file(relativePath, request, response, filename);
+            }
+       break;
 			
 		}
 	}
