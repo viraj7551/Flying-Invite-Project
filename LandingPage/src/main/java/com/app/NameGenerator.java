@@ -71,7 +71,9 @@ public class NameGenerator extends HttpServlet {
 				   }else {
 					   coming_soon_alert(response);
 				   }
-			   }else {
+			   } else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
+					get_filter_for_girl_child(start_letter_field, request, response);
+				}else {
 				   coming_soon_alert(response);
 			   }
 		}
@@ -668,12 +670,12 @@ public class NameGenerator extends HttpServlet {
 		case "Y":
 		case "y":
             if(selected_caste_option.contains("Hindu")) {
-            	String filename = "Girls name list - with letter T and Hindu";
-        	    String relativePath = "/assets/utils/Girls/Hindu/File17.pdf";
+            	String filename = "Girls name list - with letter Y and Hindu";
+        	    String relativePath = "/assets/utils/Girls/Hindu/File20.pdf";
         	    download_file(relativePath, request, response, filename);
             }else if(selected_caste_option.equals("Muslim")) {
-            	String filename = "Girls name list - with letter T and Muslim";
-        	    String relativePath = "/assets/utils/Girls/Muslim/File15.pdf";
+            	String filename = "Girls name list - with letter Y and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File18.pdf";
         	    download_file(relativePath, request, response, filename);
             }else if(selected_caste_option.equals("Christian")) {
             	try {
@@ -683,8 +685,8 @@ public class NameGenerator extends HttpServlet {
 					e.printStackTrace();
 				}
             }else{
-            	String filename = "Girls name list - with letter T and Sikh";
-        	    String relativePath = "/assets/utils/Girls/Sikh/File13.pdf";
+            	String filename = "Girls name list - with letter Y and Sikh";
+        	    String relativePath = "/assets/utils/Girls/Sikh/File16.pdf";
         	    download_file(relativePath, request, response, filename);
             }
        break;
@@ -698,8 +700,8 @@ public class NameGenerator extends HttpServlet {
 					e.printStackTrace();
 				}
             }else if(selected_caste_option.equals("Muslim")) {
-            	String filename = "Girls name list - with letter T and Muslim";
-        	    String relativePath = "/assets/utils/Girls/Muslim/File15.pdf";
+            	String filename = "Girls name list - with letter Z and Muslim";
+        	    String relativePath = "/assets/utils/Girls/Muslim/File19.pdf";
         	    download_file(relativePath, request, response, filename);
             }else if(selected_caste_option.equals("Christian")) {
             	try {
@@ -720,6 +722,214 @@ public class NameGenerator extends HttpServlet {
        
 		}
 	}
+	
+	private void get_filter_for_girl_child(String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
+		switch(start_letter_field) {
+ 
+		case "A":
+		case "a":
+			String filename = "Girls name list starting letter with only A";   
+       	    String relativePath = "/assets/utils/Girls/OnlyLetter/File01.pdf";
+       	    download_file(relativePath, request, response, filename);  
+			break;
+		
+		case "B":
+		case "b":
+			String filename02 = "Girls name list starting letter with only B";   
+       	    String relativePath02 = "/assets/utils/Girls/OnlyLetter/File02.pdf";
+       	    download_file(relativePath02, request, response, filename02); 
+			break;
+		
+		case "C":
+		case "c":
+			String filename03 = "Girls name list starting letter with only C";   
+       	    String relativePath03 = "/assets/utils/Girls/OnlyLetter/File03.pdf";
+       	    download_file(relativePath03, request, response, filename03);
+			break;
+			
+		case "D":
+		case "d":
+			String filename04 = "Girls name list starting letter with only D";   
+       	    String relativePath04 = "/assets/utils/Girls/OnlyLetter/File04.pdf";
+       	    download_file(relativePath04, request, response, filename04);
+			break;
+			
+		case "E":
+		case "e":
+		   String filename05 = "Girls name list starting letter with only E";   
+       	   String relativePath05 = "/assets/utils/Girls/OnlyLetter/File05.pdf";
+       	   download_file(relativePath05, request, response, filename05);
+		   break;
+		   
+		case "F":
+		case "f":
+			String filename06 = "Girls name list starting letter with only F";   
+	       	String relativePath06 = "/assets/utils/Girls/OnlyLetter/File06.pdf";
+	       	download_file(relativePath06, request, response, filename06);
+			break;
+			
+		case "G":
+		case "g":
+			String filename07 = "Girls name list starting letter with only G";   
+	       	String relativePath07 = "/assets/utils/Girls/OnlyLetter/File07.pdf";
+	       	download_file(relativePath07, request, response, filename07);
+			break;
+			
+		case "H":
+		case "h":
+			String filename08 = "Girls name list starting letter with only H";   
+	       	String relativePath08 = "/assets/utils/Girls/OnlyLetter/File08.pdf";
+	       	download_file(relativePath08, request, response, filename08);
+			break;
+			
+		case "I":
+		case "i":
+			String filename09 = "Girls name list starting letter with only I";   
+	       	String relativePath09 = "/assets/utils/Girls/OnlyLetter/File09.pdf";
+	       	download_file(relativePath09, request, response, filename09);
+			break;
+			
+		case "J":
+		case "j":
+			String filename10 = "Girls name list starting letter with only J";   
+	       	String relativePath10 = "/assets/utils/Girls/OnlyLetter/File10.pdf";
+	       	download_file(relativePath10, request, response, filename10);
+			break;
+			
+		case "K":
+		case "k":
+			String filename11 = "Girls name list starting letter with only K";   
+	       	String relativePath11 = "/assets/utils/Girls/OnlyLetter/File11.pdf";
+	       	download_file(relativePath11, request, response, filename11);
+			break;
+		
+		case "L":
+		case "l":
+			String filename12 = "Girls name list starting letter with only L";   
+	       	String relativePath12 = "/assets/utils/Girls/OnlyLetter/File12.pdf";
+	       	download_file(relativePath12, request, response, filename12);
+			break;
+			
+		case "M":
+		case "m":
+			String filename13 = "Girls name list starting letter with only M";   
+	       	String relativePath13 = "/assets/utils/Girls/OnlyLetter/File13.pdf";
+	       	download_file(relativePath13, request, response, filename13);
+			break;
+			
+		case "N":
+		case "n":
+			String filename14 = "Girls name list starting letter with only N";   
+	       	String relativePath14 = "/assets/utils/Girls/OnlyLetter/File14.pdf";
+	       	download_file(relativePath14, request, response, filename14);
+			break;
+			
+		case "O":
+		case "o":
+			try {
+				error_alert(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   break;
+		  
+		case "P":
+		case "p":
+			String filename15 = "Girls name list starting letter with only P";   
+	       	String relativePath15 = "/assets/utils/Girls/OnlyLetter/File15.pdf";
+	       	download_file(relativePath15, request, response, filename15);
+			break;
+		  
+		case "Q":
+		case "q":
+        	try {
+				error_alert(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  
+		case "R":
+		case "r":
+			String filename17 = "Girls name list starting letter with only R";   
+	       	String relativePath17 = "/assets/utils/Girls/OnlyLetter/File16.pdf";
+	       	download_file(relativePath17, request, response, filename17);
+		  break;  
+		  
+		  
+		case "S":
+		case "s":
+			String filename18= "Girls name list starting letter with only S";   
+	       	String relativePath18 = "/assets/utils/Girls/OnlyLetter/File17.pdf";
+	       	download_file(relativePath18, request, response, filename18);
+		  break;
+		  
+		case "T":
+		case "t":
+			String filename19= "Girls name list starting letter with only T";   
+	       	String relativePath19 = "/assets/utils/Girls/OnlyLetter/File18.pdf";
+	       	download_file(relativePath19, request, response, filename19);
+		  break;
+		  
+		case "U":
+		case "u":
+			String filename20= "Girls name list starting letter with only U";   
+	       	String relativePath20 = "/assets/utils/Girls/OnlyLetter/File19.pdf";
+	       	download_file(relativePath20, request, response, filename20);
+		  break;  
+		 
+
+		case "V":
+		case "v":
+			String filename21= "Girls name list starting letter with only V";   
+	       	String relativePath21 = "/assets/utils/Girls/OnlyLetter/File20.pdf";
+	       	download_file(relativePath21, request, response, filename21);
+		  break;
+		  
+		case "W":
+		case "w":
+			String filename22= "Girls name list starting letter with only W";   
+	       	String relativePath22 = "/assets/utils/Girls/OnlyLetter/File21.pdf";
+	       	download_file(relativePath22, request, response, filename22);
+		  break;
+		  
+		case "X":
+		case "x":
+			try {
+				error_alert(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  break;
+		  
+		case "Y":
+		case "y":
+			String filename23= "Girl name list starting letter with only Y";   
+	       	String relativePath23 = "/assets/utils/Girls/OnlyLetter/File22.pdf";
+	       	download_file(relativePath23, request, response, filename23);
+		  break;  
+		 
+		case "Z":
+		case "z":
+			String filename24= "Girl name list starting letter with only Z";   
+	       	String relativePath24 = "/assets/utils/Girls/OnlyLetter/File23.pdf";
+	       	download_file(relativePath24, request, response, filename24);
+		  break;
+		  
+		default:  
+			try {
+				something_went_wrong_alert(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		}
+	}
+
+	
 	
 	private void get_filter_for_boy_child(String start_letter_field, HttpServletRequest request, HttpServletResponse response) {
 		switch(start_letter_field) {
