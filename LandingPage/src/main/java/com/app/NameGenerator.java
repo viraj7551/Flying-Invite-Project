@@ -63,7 +63,9 @@ public class NameGenerator extends HttpServlet {
 				   get_filter_for_girl_child(selected_caste_option,start_letter_field, request, response);
 			   }else if(selected_caste_preference_option.equals("Yes") && selected_start_letter_preference_option.equals("No")) {
 				   if(selected_caste_option.equals("Hindu")) {
-					   coming_soon_alert(response);
+					    String filename = " All girls name list - (Hindu)";
+		        	    String relativePath = "/assets/utils/Girls/Other/File01.pdf";
+		        	    download_file(relativePath, request, response, filename);
 				   }else if(selected_caste_option.equals("Muslim")) {
 					   coming_soon_alert(response);
 				   }else if(selected_caste_option.equals("Christian")) {
@@ -906,14 +908,14 @@ public class NameGenerator extends HttpServlet {
 		  
 		case "Y":
 		case "y":
-			String filename23= "Girl name list starting letter with only Y";   
+			String filename23= "Girls name list starting letter with only Y";   
 	       	String relativePath23 = "/assets/utils/Girls/OnlyLetter/File22.pdf";
 	       	download_file(relativePath23, request, response, filename23);
 		  break;  
 		 
 		case "Z":
 		case "z":
-			String filename24= "Girl name list starting letter with only Z";   
+			String filename24= "Girls name list starting letter with only Z";   
 	       	String relativePath24 = "/assets/utils/Girls/OnlyLetter/File23.pdf";
 	       	download_file(relativePath24, request, response, filename24);
 		  break;
