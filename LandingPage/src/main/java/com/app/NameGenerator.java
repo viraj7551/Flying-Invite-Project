@@ -66,17 +66,25 @@ public class NameGenerator extends HttpServlet {
 					    String filename = " All girls name list - (Hindu)";
 		        	    String relativePath = "/assets/utils/Girls/Other/File01.pdf";
 		        	    download_file(relativePath, request, response, filename);
+		        	    
 				   }else if(selected_caste_option.equals("Muslim")) {
-					   coming_soon_alert(response);
+					    String filename = " All girls name list - (Muslim)";
+		        	    String relativePath = "/assets/utils/Girls/Other/File02.pdf";
+		        	    download_file(relativePath, request, response, filename);
+					   
 				   }else if(selected_caste_option.equals("Christian")) {
-					   coming_soon_alert(response);
+					    String filename = " All girls name list - (Christian)";
+		        	    String relativePath = "/assets/utils/Girls/Other/File03.pdf";
+		        	    download_file(relativePath, request, response, filename);
+					   
 				   }else {
-					   coming_soon_alert(response);
+
+					   
 				   }
 			   } else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
 					get_filter_for_girl_child(start_letter_field, request, response);
 				}else {
-				   coming_soon_alert(response);
+					error_alert(response);
 			   }
 		}
 		else {
