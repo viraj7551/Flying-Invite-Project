@@ -78,7 +78,9 @@ public class NameGenerator extends HttpServlet {
 		        	    download_file(relativePath, request, response, filename);
 					   
 				   }else {
-
+					    String filename = " All girls name list - (Sikh)";
+		        	    String relativePath = "/assets/utils/Girls/Other/File04.pdf";
+		        	    download_file(relativePath, request, response, filename);
 					   
 				   }
 			   } else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
