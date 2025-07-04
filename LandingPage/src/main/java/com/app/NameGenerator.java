@@ -86,7 +86,9 @@ public class NameGenerator extends HttpServlet {
 			   } else if(selected_caste_preference_option.equals("No") && selected_start_letter_preference_option.equals("Yes")) {
 					get_filter_for_girl_child(start_letter_field, request, response);
 				}else {
-					error_alert(response);
+					String filename = "All girls name list";   
+		       	    String relativePath = "/assets/utils/Girls/All/File01.pdf";
+		       	    download_file(relativePath, request, response, filename); 
 			   }
 		}
 		else {
