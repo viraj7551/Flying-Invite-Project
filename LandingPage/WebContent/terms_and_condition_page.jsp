@@ -60,24 +60,9 @@
     <!-- ***** Preloader End ***** -->
 
   <!-- Pre-header Starts -->
-  <div class="pre-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8 col-7">
-          <ul class="info">
-            <li><a href="#"><i class="fa fa-envelope"></i>admin@flyinginvite.in</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-5">
-          <ul class="social-media">
-            <li><a href="https://www.facebook.com/profile.php?id=61567671551405" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="https://www.instagram.com/flyinginvite/?igsh=Yjh6aXM5eHZ3a3Nt" target="_blank"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <%@ include file="/WEB-INF/jsp/common/preheader.jsp" %>
+
   <!-- Pre-header End -->
 
   <div id="about" class="about section">
@@ -153,15 +138,12 @@
     </div>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-           <p>FlyingInvite@2025</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  
+<!--------------Footer starts here ------------------------------->
+
+    <%@ include file="/WEB-INF/jsp/common/footer.jsp" %>
+   
+ <!--------------Footer ends here-------------------------------->  
 
   <!-- Scripts -->
   <script src="./vendor/jquery/jquery.min.js"></script>

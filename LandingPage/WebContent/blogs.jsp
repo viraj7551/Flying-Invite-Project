@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta property="og:title" content="FlyingInvite | Name Suggestor">
+<meta property="og:title" content="FlyingInvite | Blogs">
 <meta property="og:description" content="India's Interative Invitation">
 <meta property="og:url" content="https://flyinginvite.in/">
 <meta property="og:type" content="website">
@@ -19,8 +19,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-  <title>FlyingInvite | Name Suggestor</title>
+  <title>FlyingInvite | Blogs</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,6 +66,9 @@
 
   <!-- Pre-header End -->
 
+
+<!-- ----------------------- BLOG 1 STARTS HERE --------------------------------------->
+
   <div id="about" class="about section">
     <div class="container">
       <div class="row">
@@ -72,28 +76,29 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="assets/images/name_suggestor.png" alt="mom with baby in her womb">
+                <img src="assets/images/cafe.jpg" alt="It's an tagline image for business">
               </div>
             </div>
             <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="about-right-content">
                 <div class="section-heading">
-                  <h6>Congratulations !</h6>
-                  <h4>We have some <em>Name Suggestion</em></h4>
+                
+                <a href="index.jsp">
+                      <i class="bi bi-arrow-left fs-3"></i>
+                </a>
+
+                  <h6>Best Cafe Near New Panvel </h6>
+                  <h4>Top <em>10</em> Cafe in New Panvel <br><em>(FEB 2026) </em></h4>
                   <div class="line-dec"></div>
                 </div>
-                
-                <p>
-                    <ul><strong>We have some words</strong>
-                      <li>Choosing your baby's name is one of the most heartfelt decisions you'll ever make and we're here to make it meaningful, joyful, and easy. Whether you're looking for something traditional, modern, spiritual, or unique, our application understands your vibe and offers names that resonate.
-Let your baby's name be more than just letters let it carry dreams, stories, and love.
-                      </li>
-                    </ul> <br>
-                </p>
-              
-              <a href="index.jsp" class="btn btn-outline-danger" role="button"> Back</a>
-              <a href="verifyEmail.jsp" class="btn btn-primary" role="button">Generate</a>
-              
+               
+
+                    <p>
+                        <ul>
+                             <a  class="btn btn-primary btn-lg" href="top_10_cafe_in_panvel.jsp" target="_blank">Know More</a>
+                             <a  class="btn btn-secondary btn-lg" href="index.jsp">Redirect Back</a>
+                        </ul>
+                    </p>
               </div>
             </div>
           </div>
@@ -101,12 +106,18 @@ Let your baby's name be more than just letters let it carry dreams, stories, and
       </div>
     </div>
   </div>
-
+  
+  <!-- --------------------------BLOG 1 ENDS HERE ------------------------------------------ -->
+  
+  
+  
+  
+  
 <!--------------Footer starts here ------------------------------->
 
     <%@ include file="/WEB-INF/jsp/common/footer.jsp" %>
    
- <!--------------Footer ends here--------------------------------> 
+ <!--------------Footer ends here-------------------------------->  
 
   <!-- Scripts -->
   <script src="./vendor/jquery/jquery.min.js"></script>

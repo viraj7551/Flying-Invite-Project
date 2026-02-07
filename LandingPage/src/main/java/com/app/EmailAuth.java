@@ -29,8 +29,6 @@ public class EmailAuth extends HttpServlet {
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
     private static final String USERNAME = "admin@flyinginvite.in";
     private static final String PASSWORD = "13Viraj@2507";
-    
-   
     private static final int MAX_ATTEMPTS = 4;
     private static final long BLOCK_DURATION_MS = 15 * 60 * 1000; // 15 minutes
     private static final ConcurrentHashMap<String, AttemptInfo> attemptsMap = new ConcurrentHashMap<>();
@@ -61,15 +59,13 @@ public class EmailAuth extends HttpServlet {
 		  
 		  String to_email = request.getParameter("email");
 	       if (isValidEmail(to_email)) { 
-	    	   
-	    	 boolean attempt_status = email_attempts(request,response);    	 
-	    	 if(!attempt_status) {
-				    pw.println("<script type=\"text/javascript\">"); 
-				    pw.println("alert('Too Many Request ! Please try again 15 minutes Later');");  
-				    pw.println("location='verifyEmail.jsp';");
-				    pw.println("</script>"); 
-				    
-	    	 }else {
+      	    	 boolean attempt_status = email_attempts(request,response);    	 
+    	    	 if(!attempt_status) {
+    				    pw.println("<script type=\"text/javascript\">"); 
+    				    pw.println("alert('Too Many Request ! Please try again 15 minutes Later');");  
+    				    pw.println("location='verifyEmail.jsp';");
+    				    pw.println("</script>"); 
+               }else {
 	    		 boolean userExist = isUserExists(to_email);
 				  if(!userExist) {
 					  insert_record(to_email);

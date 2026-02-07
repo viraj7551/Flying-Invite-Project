@@ -26,7 +26,6 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="./assets/css/fontawesome.css">
     <link rel="stylesheet" href="./assets/css/app.css">
@@ -58,55 +57,15 @@
   <!-- ***** Preloader End ***** -->
 
   <!-- Pre-header Starts -->
-  <div class="pre-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8 col-7">
-          <ul class="info">
-            <li><a href="#"><i class="fa fa-envelope"></i>admin@flyinginvite.in</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-5">
-          <ul class="social-media">
-            <li><a href="https://www.facebook.com/profile.php?id=61567671551405" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="https://www.instagram.com/flyinginvite/?igsh=Yjh6aXM5eHZ3a3Nt" target="_blank"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <%@ include file="/WEB-INF/jsp/common/preheader.jsp" %>
+
   <!-- Pre-header End -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="#" class="logo">
-              <img src="assets/images/loggo.png" style="width: 150px; margin-top:-30px;" alt="">
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section"><a href="#home" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
-              <li class="scroll-to-section"><a href="#faq">FAQ</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
-              <li class="scroll-to-section"><a href="terms_and_condition_page.jsp" target="_blank">Terms & Conditions</a></li>
-              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Contact</a></div></li> 
-            </ul>        
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
+  
+     <%@ include file="/WEB-INF/jsp/common/header.jsp" %>
+  
   <!-- ***** Header Area End ***** -->
 
   <div id="home" class="main-banner wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
@@ -309,7 +268,7 @@
                       <div>
                         <div class="thumb">                 
                           <span class="icon"><img src="assets/images/service-icon-04.png" alt=""></span>
-                          Ukhane For Everyone
+                           Branding & Communication
                         </div>
                       </div>
                     </div>
@@ -349,15 +308,16 @@
                           </div>
                         </div>
                       </li>
-                      <li>
+                      
+                     <li>
                         <div>
                           <div class="thumb">
                             <div class="row">
                               <div class="col-lg-6 align-self-center">
                                 <div class="left-text">
-                                  <h4 id="navigateHeader">Ukhane for Everyone</h4>
+                                  <h4 id="navigateHeader">Tagline for Business</h4>
                                   <div class="navigate_section">
-                                    <a  id="navigateBtn" href="entertainment.jsp">Know More</a>
+                                    <a  id="navigateBtn" href="branding.jsp">Know More</a>
                                   </div>  
                                 </div>
                               </div>
@@ -365,33 +325,6 @@
                           </div>
                         </div>
                       </li>
-                      <li>
-                        <div>
-                          <div class="thumb">
-                            <div class="row">
-                              <div class="col-lg-6 align-self-center">
-                                <div class="left-text">
-                                  <h4>Seasonal Festival Invitation</h4>
-                                  <p>A "seasonal festival event" is a celebration that occurs at a specific time of year.These events carry deep cultural meanings, including rituals, traditions, and special foods specific to the season.
-                                    Flying Invite is providing basic baby shower template that you can share upto 1000 guests.
-                                    Template is responsive on all device, interactive, time saving, cost effective, real time tracking of attendees count.
-                                  </p>
-                                  <div class="ticks-list">
-                                    <span><i class="fa fa-check"></i> Web Template</span> <span><i class="fa fa-check"></i> Basic Template</span> <span><i class="fa fa-check"></i> Share upto 1000 guests</span>
-                                    <span><i class="fa fa-check"></i> Time Saving</span> <span><i class="fa fa-check"></i> Less Cost</span> <span> <i class="fa fa-check"></i> Real Time Tracking</span> <span> <i class="fa fa-check"></i> Map Integration</span> <span> <i class="fa fa-check"></i> Interactive</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-6 align-self-center">
-                                <div class="right-image">
-                                  <img src="assets/images/seasonal.png" alt="">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    
                     </ul>
                   </div>          
                 </div>
@@ -461,16 +394,13 @@
   </div> <br>
 
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.3827733322055!2d73.11647127373436!3d19.002847554267824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e90025ca1f13%3A0xddd377f79dc793c9!2sVaishanav%20Dhara%20appartment!5e0!3m2!1sen!2sin!4v1734084359207!5m2!1sen!2sin" width="1050" height="450" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-           <p class="footer-title">FlyingInvite@2025</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    
+<!-- ------------Footer starts here ------------------------------->
 
+    <%@ include file="/WEB-INF/jsp/common/footer.jsp" %>
+   
+ <!-- ------------Footer ends here-------------------------------->  
+    
 
   <!-- Scripts -->
   <script src="./vendor/jquery/jquery.min.js"></script>

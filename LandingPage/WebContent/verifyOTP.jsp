@@ -45,7 +45,7 @@
         <h4>OTP Verification</h4> <br>
         <form id="signup-form" method="POST" action="/LandingPage/OTPAuth" onsubmit="return validateOTP();">
             <label for="email">Please Enter OTP:</label>
-            <input type="password" id="validate_otp" name="otp_field" required><br>
+                <input type="password" id="validate_otp" name="otp_field" required><br>
             <button type="submit">Verify OTP</button>
         </form>
          <a id="navigateBack" href="verifyEmail.jsp">Back</a>
