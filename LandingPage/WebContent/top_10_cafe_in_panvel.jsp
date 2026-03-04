@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta property="og:title" content="FlyingInvite | Blogs">
-<meta property="og:description" content="India's Interative Invitation">
+<meta property="og:description" content="display's the list of best cafe in panvel">
 <meta property="og:url" content="https://flyinginvite.in/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FlyingInvite">
@@ -69,6 +69,11 @@
 
 <!-- ----------------------- #Top 1 Cafe Details - STARTS HERE --------------------------------------->
 
+  
+    <span>
+          <h1 style="margin:40px"><a href="index.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> Best Cafe In New Panvel For March 2026.</h1>
+    </span>
+
   <div id="about" class="about section">
     <div class="container">
       <div class="row">
@@ -80,12 +85,8 @@
               </div>
             </div>
             <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-              <div class="about-right-content">
+              <div class="about-right-content">   
                 <div class="section-heading">
-                
-                <a href="index.jsp">
-                      <i class="bi bi-arrow-left fs-3"></i>
-                </a>
 
                   <h6>#TOP 1 Cafe in Panvel</h6>
                   <h4>Lake Side - Cafe <em>&</em> Eatery</h4>
@@ -93,7 +94,12 @@
                   
                    <p>
                     <ul><strong>Why at #Top1 ?</strong>
-                      <li>Ratings: 4.2 </li>
+                      <li>Ratings: 
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i></li>    
                       <li>Reviews: 979</li>
                       <li>Address:  2nd & 3rd floor, Cafe & Eatery, Lake Side, Plot no 162, Sector-9, New Panvel East, Panvel, Navi Mumbai, Maharashtra 410206</li>
                       <li>Contact: (+91) 086578 85181</li> 
@@ -134,7 +140,13 @@
                   
                    <p>
                     <ul><strong>Why at #Top2 ?</strong>
-                      <li>Ratings: 4.4 </li>
+                      <li>Ratings:
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </li>
                       <li>Reviews: 303</li>
                       <li>Address: HOP NO. 13, GOBBLE ENTERPRISES, PRAJAPATI ARCADE CHS, PLOT NO. 22-23, Sector 15A, New Panvel East, Panvel, Navi Mumbai, Maharashtra 410206</li>
                       <li>Contact: (+91) 091520 13766</li> 
@@ -176,7 +188,14 @@
                   
                    <p>
                     <ul><strong>Why at #Top3 ?</strong>
-                      <li>Ratings: 4.8 </li>
+                      <li>Ratings:
+                      <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      
+                      </li>
                       <li>Reviews: 298</li>
                       <li>Address: shop no 9, PRECIOUS RESIDENCY, KK cinema road, near Dmart ready, Sector 19, Kamothe, Panvel, Navi Mumbai, Maharashtra 410209</li>
                       <li>Contact: (+91) 081691 58008</li> 
@@ -216,7 +235,13 @@
                   
                    <p>
                     <ul><strong>Why at #Top4 ?</strong>
-                      <li>Ratings: 4.1 </li>
+                      <li>Ratings: 
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                     
+                      </li>
                       <li>Reviews: 217</li>
                       <li>Address: Shop no -12, Tulsi Heights Building, Chs Ltd, Plot no - 1, Gurudwara Rd, Sector 5, New Panvel East, Maharashtra 410206</li>
                       <li>Contact: (+91) 091370 28276</li> 
@@ -257,7 +282,13 @@
                   
                    <p>
                     <ul><strong>Why at #Top5 ?</strong>
-                      <li>Ratings: 4.3 </li>
+                      <li>Ratings:
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </li>
                       <li>Reviews: 125</li>
                       <li>Address: 242G+P7Q, Sector-10, New Panvel East, Panvel, Navi Mumbai, Maharashtra 410206</li>
                       <li>Contact: (+91) 091370 28276</li> 
@@ -297,7 +328,13 @@
                   
                    <p>
                     <ul><strong>Why at #Top6 ?</strong>
-                      <li>Ratings: 4.7 </li>
+                      <li>Ratings: 
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                       </li>
                       <li>Reviews: 97</li>
                       <li>Address: Suyesh Apt, Grub Box Cafe And Bistro, Row house.06, Sector -02, New Panvel East, Panvel, Maharashtra 410206</li>
                       <li>Contact: (+91) 079772 97426</li> 
@@ -337,7 +374,13 @@
                   
                    <p>
                     <ul><strong>Why at #Top7 ?</strong>
-                      <li>Ratings: 3.9 </li>
+                      <li>Ratings: 
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      
+                      </li>
                       <li>Reviews: 181</li>
                       <li>Address: Shop no.20, Neelkanth darshan, Plot No.124/4, near Nadkarani Hospital, Old Panvel, Panvel, Mumbai, Navi Mumbai, Maharashtra 410206</li>
                       <li>Contact: (+91) 079772 97426</li> 
@@ -378,7 +421,14 @@
                   
                    <p>
                     <ul><strong>Why at #Top8 ?</strong>
-                      <li>Ratings: 4.4</li>
+                      <li>Ratings:
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      
+                      </li>
                       <li>Reviews: 87</li>
                       <li>Address:  Pale Budruk, 105K, Panvel Vavanja Road, Panvel, Navi Mumbai, Pale Bk., Maharashtra 410208</li>
                       <li>Contact: (+91)  070214 74940</li> 
@@ -418,7 +468,13 @@
                   
                    <p>
                     <ul><strong>Why at #Top9 ?</strong>
-                      <li>Ratings: 4.3</li>
+                      <li>Ratings: 
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </li>
                       <li>Reviews: 109</li>
                       <li>Address:  Plot no.2, Rd Number 16, near ayushman clinic, Sector 19, New Panvel East, Panvel, Mumbai, Navi Mumbai, Maharashtra 410206</li>
                       <li>Direction: <a href="https://www.google.com/maps?rlz=1C1UEAD_enIN1095IN1095&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBBzI1N2owajeoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KX-N1P3j6ec7MbePG9sgIaqG&daddr=Plot+no.2,+Rd+Number+16,+near+ayushman+clinic,+Sector+19,+New+Panvel+East,+Panvel,+Mumbai,+Navi+Mumbai,+Maharashtra+410206">Click Here </a> </li>
@@ -458,11 +514,18 @@
                   
                    <p>
                     <ul><strong>Why at #Top10 ?</strong>
-                      <li>Ratings: 4.7</li>
+                      <li>Ratings: 
+                       <i class="bi bi-star-fill"></i> 
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                       <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                      </li>
                       <li>Reviews: 66</li>
                       <li>Address:  Shop-4, Sai Paradise, plot - 100, Sector-1, New Panvel East, Panvel, Navi Mumbai, Maharashtra 410206</li>
                       <li>Direction: <a href="https://www.google.com/maps?sca_esv=6a52f92c2e81f74a&rlz=1C1UEAD_enIN1095IN1095&sxsrf=ANbL-n4SH5WaEb6L9zFdlOz1l740TuDjeA:1770458739008&biw=1536&bih=703&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiF0NqJ3MgQ2hpbmVzZSBIdWIgJiBDYWZlMgUQABiABDIGEAAYFhgeMgYQABgWGB4yAhAmMgsQABiABBiKBRiGAzIFEAAY7wUyBRAAGO8FMggQABiJBRiiBDIIEAAYiQUYogQyCBAAGIkFGKIESNUyUJUeWKAqcAN4AZABAJgBnAGgAZwBqgEDMC4xuAEDyAEA-AEC-AEBmAIEoALZAcICChAAGEcY1gQYsAPCAg0QABiABBiKBRhDGLADmAMAiAYBkAYEkgcDMy4xoAfHB7IHAzAuMbgHpQHCBwcyLTIuMS4xyAcugAgB&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Ke_OgATF6ec7McezJNUz6cCR&daddr=Shop-4,+Sai+Paradise,+plot+-+100,+Sector-1,+New+Panvel+East,+Panvel,+Navi+Mumbai,+Maharashtra+410206">Click Here </a> </li>
                     </ul>
+                    
                 </p>      
                 </div>
               </div>

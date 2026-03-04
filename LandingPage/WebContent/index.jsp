@@ -284,7 +284,7 @@
                               <div class="left-text">
                                 <h4 id="navigateHeader">Interactive Invitations</h4>
                                 <div class="navigate_section">
-                                  <h2 class="blink_me" id="coming_soon_header">Coming Soon</h2>
+                                   <a  id="navigateBtn" href="invitation.jsp">Know More</a>
                                 </div>
                               </div>
                               </div>

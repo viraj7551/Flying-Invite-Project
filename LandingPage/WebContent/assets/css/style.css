@@ -2,7 +2,10 @@
 
 h1 {
     text-align: center;
+    font-size: 42px;
+    font-family:'Poppins', sans-serif';
   } 
+ 
   
   /* Sets the width for the accordion. Sets the margin to 90px on the top and bottom and auto to the left and right */
 .accordion-body{
