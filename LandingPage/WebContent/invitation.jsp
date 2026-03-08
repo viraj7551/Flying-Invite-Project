@@ -21,7 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <title>FlyingInvite | Special Invite</title>
 
     <!-- Bootstrap core CSS -->
@@ -89,8 +90,8 @@
 
 <!-- ---------------- Carousal Slider Code Starts Here --------------------------------------->
 
-  
-  <h1 style="margin-top:160px; padding:60px; font-family:Arial">DIGITAL INVITATIONS</h1>
+
+<h1 style="margin-top:160px; padding:60px; font-family:Arial"><a href="index.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> DIGITAL INVITATIONS</h1>
   
 <div class="container d-flex justify-content-center">
   
@@ -102,14 +103,32 @@
         
         <div class="carousel-item active">
           <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
+           <a href="baby_shower_invitations.jsp">
+               <div class="card-body text-center">
+                 <h5 class="card-title">Baby Shower Invitation</h5>
+                 <p class="card-text">This is a smaller carousel styled like a card.</p>
+               </div>
+             </a> 
         </div>
         
         <div class="carousel-item">
           <img src="https://picsum.photos/500/300?random=2" class="d-block w-100" alt="Slide 2">
+             <a href="baby_shower_invitations.jsp">
+                  <div class="card-body text-center">
+                 <h5 class="card-title">Corporate Invitation</h5>
+                 <p class="card-text">This is a smaller carousel styled like a card.</p>
+               </div>
+             </a>  
         </div>
         
         <div class="carousel-item">
           <img src="https://picsum.photos/500/300?random=3" class="d-block w-100" alt="Slide 3">
+             <a href="baby_shower_invitations.jsp">
+                  <div class="card-body text-center">
+                 <h5 class="card-title">Festival Invitation</h5>
+                 <p class="card-text">This is a smaller carousel styled like a card.</p>
+               </div>
+             </a> 
         </div>
         
       </div>
@@ -122,19 +141,9 @@
       <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
       </button>
-
+      
     </div>
-
-      <a href="baby_shower_invitations.jsp">
-
-           <div class="card-body text-center">
-             <h5 class="card-title">Baby Shower Invitation</h5>
-             <p class="card-text">This is a smaller carousel styled like a card.</p>
-            </div>
-      </a>
-
   </div>
-
 </div>
 
 
@@ -151,6 +160,7 @@
     
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./vendor/jquery/jquery.min.js"></script>
   <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/owl-carousel.js"></script>

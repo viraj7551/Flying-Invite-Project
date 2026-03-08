@@ -22,6 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  
     <title>FlyingInvite | Special Invite</title>
 
     <!-- Bootstrap core CSS -->
@@ -41,6 +43,63 @@
 
   gtag('config', 'G-DZ4MP44ET9');
 </script>
+
+  <style>
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .overlay i {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .overlay i:hover {
+            color: #0d6efd;
+        }
+
+        .image-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Fullscreen image styling */
+        .fullscreen-img {
+            width: 100%;
+            height: 100vh;
+            object-fit: contain;
+        }
+    </style>
+    
 </head>
 <body>
  <!-- ***** Preloader Start ***** -->
@@ -72,7 +131,9 @@
         <div class="col-12">
 
             <!-- ***** Menu Start ***** -->
-              <h2 style="padding:20px;">Baby Shower Invitations</h2>
+                <span>
+                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> BABY SHOWER INVITATIONS</h2>
+              </span>
 
             <!-- ***** Menu End ***** -->
           </nav>
@@ -85,103 +146,306 @@
 
 
 
-<!-- ---------------- Carousal Slider Code Starts Here --------------------------------------->
+<!-- ---------------- Carousal1 Slider Code Starts Here --------------------------------------->
 
   
   
-  <div class="container mt-5">
-  <div class="row g-4">
+<div class="container mt-5">
+    <div class="row" style="margin-top:180px;">
+        <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
 
-              <!-- Card 1 -->
-                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100">
-                       <img src="https://picsum.photos/500/300?random=1" class="card-img-top" alt="Image">
-                       <div class="card-body">
-                          <h5 class="card-title">Card Title</h5>
-                          <p class="card-text">Some quick example text to build on the card title.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                       </div>
-                   </div>
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
                 </div>
 
-    <!-- Card 2 -->
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="card h-100">
-        <img src="https://picsum.photos/500/300?random=2" class="card-img-top" alt="Image">
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text">Some quick example text to build on the card title.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card-body">
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        
+        
+        
+        
+        
+                <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
 
-    <!-- Card 3 -->
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="card h-100">
-        <img src="https://picsum.photos/500/300?random=3" class="card-img-top" alt="Image">
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text">Some quick example text to build on the card title.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        
+        
+        
+        
+                <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
 
-  </div>
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- -----------------------Row 2 cards starts here  -->
+    
+      <div class="row" style="margin-top:180px;">
+        <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
+
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
+
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+        
+        
+         <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
+
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <!-- ------------------------Row 2 cards ends here -->
+    
+    
+        <!-- -----------------------Row 3 cards starts here  -->
+    
+      <div class="row" style="margin-top:180px;">
+        <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
+
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
+
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+        
+        
+         <div class="col-md-4">
+            <div class="card image-card shadow">
+                <img src="https://picsum.photos/500/400" alt="Image">
+
+                <div class="overlay">
+
+                    <!-- Preview -->
+                    <i class="bi bi-eye-fill"
+                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       data-bs-toggle="modal"
+                       data-bs-target="#previewModal"></i>
+
+                    <!-- Download -->
+                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                        <i class="bi bi-download"></i>
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <!-- ------------------------Row 3 cards ends here -->
+    
+    
+    
+</div>
+
+<!-- FULLSCREEN MODAL -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0 text-center">
+                <img id="modalImage" class="fullscreen-img">
+            </div>
+        </div>
+    </div>
 </div>
 
 
+<!-- ----------------- Carousal 1 Slider Code Ends Here ------------------------------------------>
 
-
-
-
-
-
-  <div class="container mt-5">
-  <div class="row g-4">
-
-              <!-- Card 1 -->
-                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100">
-                       <img src="https://picsum.photos/500/300?random=1" class="card-img-top" alt="Image">
-                       <div class="card-body">
-                          <h5 class="card-title">Card Title</h5>
-                          <p class="card-text">Some quick example text to build on the card title.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                       </div>
-                   </div>
-                </div>
-
-    <!-- Card 2 -->
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="card h-100">
-        <img src="https://picsum.photos/500/300?random=2" class="card-img-top" alt="Image">
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text">Some quick example text to build on the card title.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="card h-100">
-        <img src="https://picsum.photos/500/300?random=3" class="card-img-top" alt="Image">
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text">Some quick example text to build on the card title.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ----------------- Carousal Slider Code Ends Here ------------------------------------------>
   
   
   
@@ -193,6 +457,12 @@
     
 
   <!-- Scripts -->
+  
+  <script>
+    function openPreview(imageSrc) {
+        document.getElementById("modalImage").src = imageSrc;
+    }
+</script>
   <script src="./vendor/jquery/jquery.min.js"></script>
   <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/owl-carousel.js"></script>
