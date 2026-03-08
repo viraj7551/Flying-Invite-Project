@@ -165,16 +165,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -196,16 +196,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -226,16 +226,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -259,16 +259,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -286,16 +286,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -314,16 +314,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -350,16 +350,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -377,16 +377,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
@@ -405,16 +405,16 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="https://picsum.photos/1200/800" download="image.jpg">
+                    <a href="downloadImage.jsp">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
 
                 <div class="card-body">
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Sample Image</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
+                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
+                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
                 </div>
             </div>
         </div>
