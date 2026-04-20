@@ -143,8 +143,8 @@ margin-left:0;
 <label class="form-label">Template Category</label>
 <select class="form-select" name="template_category_selector">
 <option selected>Select option</option>
-<option value="1">Greetings</option>
-<option value="2">Invitation</option>
+<option value="Greeting">Greetings</option>
+<option value="Invitation">Invitation</option>
 </select>
 </div>
 </div>
@@ -182,50 +182,49 @@ Submit
  <!-- ------------------ Form ends here -->
  
  
- 
  <!-- -------------------- Form 2 starts here -->
  
 <div class="container">
 <div class="form-container">
 <h4 class="mb-4 text-center">Add Target Information</h4>
-<form method="POST" action="/Invitations">
+<form method="POST" action="/Admin03/SetTargetInformation">
 <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="mb-3">
       <label class="form-label">Select Target</label>
       <select id ="first_drop_down" class="form-select" onchange = "festivalFilter()" name="target_selector">
           <option selected>Select option</option>
-          <option value="1">Wedding</option>
-          <option value="2">Baby Shower</option>
-          <option value="3">Birthday</option>
-          <option value="4">Anniversary</option>
-          <option value="5">Festival</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Baby Shower">Baby Shower</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
+          <option value="Festival">Festival</option>
        </select>
 </div>
+</div>
 
-<div class="col-md-6 mb-3" id="second_drop_down" style="display:none";>
+<div class="row">
+<div class="mb-3"  id="second_drop_down"  style="display:none;">
       <label class="form-label">Select Festival</label>
           <select class="form-select" name="festival_selector">
              <option selected>Select option</option>
-<option value="1">Makar Sankranti</option>
-<option value="2">Holi</option>
-<option value="3">Eid-ul-Fitr</option>
-<option value="4">Gudi Padwa</option>
-<option value="5">Ram Navami</option>
-<option value="6">Easter</option>
-<option value="7">Independence Day</option>
-<option value="8">Raksha Bandhan</option>
-<option value="9">Janmashtami</option>
-<option value="10">Ganesh Chaturthi</option>
-<option value="11">Dussehra</option>
-<option value="12">Diwali</option>
-</select>
-</div>
+             <option value="Makar Sankranti">Makar Sankranti</option>
+             <option value="Holi">Holi</option>
+             <option value="Eid-ul-Fitr">Eid-ul-Fitr</option>
+             <option value="Gudi Padwa">Gudi Padwa</option>
+             <option value="Ram Navami">Ram Navami</option>
+             <option value="Easter">Easter</option>
+             <option value="Independence Day">Independence Day</option>
+             <option value="Raksha Bandhan">Raksha Bandhan</option>
+             <option value="Janmashtami">Janmashtami</option>
+             <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
+             <option value="Dussehra">Dussehra</option>
+             <option value="Diwali">Diwali</option>
+          </select>
+   </div>
 </div>
 
 <div class="d-grid">
-<button type="submit" class="btn btn-primary">
-Submit
-</button>
+ <button type="submit" class="btn btn-primary"> Submit </button>
 </div>
 
 </form>
@@ -242,7 +241,7 @@ Submit
 
    function festivalFilter(){
 	   let firstValue = document.getElementById("first_drop_down").value;
-	   if(firstValue === "5"){
+	   if(firstValue === "Festival"){
 		   document.getElementById("second_drop_down").style.display="block";
 	   }else{
 		   document.getElementById("second_drop_down").style.display="none";

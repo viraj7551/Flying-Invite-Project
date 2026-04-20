@@ -124,7 +124,7 @@ body {
   <div class="brand-loggo">
 	<h1 class="brand-name grey-qo-regular" style="color:white; margin-bottom:20px;">Flying Invite</h1>
 </div>
-    <form name="f1" class="login-form" action="Auth" method="post" onSubmit="return validate1();">
+    <form name="f1" class="login-form" action="/Admin03/Auth" method="post" onSubmit="return validate1();">
       <input type="text" placeholder="username" name="username"/>
       <div class="username-alert" style="margin:5px 20px 15px -30px; color:red; display:none;">
        <span>please enter correct username</span>

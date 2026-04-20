@@ -20,7 +20,7 @@ public class Auth extends HttpServlet {
 	Connection con;
 	PreparedStatement ps;
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_custom";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 	private String username = "root";
 	private String password = "13Viraj@2507";
 	
@@ -39,10 +39,11 @@ public class Auth extends HttpServlet {
 		response.setContentType("text/html");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
 		boolean success = false;
 		if(username != null && password != null) {
 			try {
-				ps = con.prepareStatement("select * from admin where username = ? and password = ?");
+				ps = con.prepareStatement("select * from userInfo where email = ? and password = ?");
 				ps.setString(1,username);
 				ps.setString(2, password);
 				ResultSet rs  = ps.executeQuery();
@@ -72,6 +73,7 @@ public class Auth extends HttpServlet {
 		    pw.println("</script>"); 
 		}
 	}
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

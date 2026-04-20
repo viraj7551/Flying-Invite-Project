@@ -1,0 +1,80 @@
+package main.resources;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/SetTargetInformation")
+public class SetTargetInformation extends HttpServlet {
+	Connection con;
+	PreparedStatement ps;
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	private String username = "root";
+	private String password = "13Viraj@2507";
+	
+	public void init() {
+		try {
+		     Class.forName(driver);
+			 con = DriverManager.getConnection(url, username, password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         String selected_target = request.getParameter("target_selector");
+         String selected_festival = request.getParameter("festival_selector");
+         
+         if(selected_target != null) {
+        	 boolean flag = insert_into_target(ps,con,selected_target,selected_festival);
+         }
+         
+         if(flag == true) {
+        	 
+         }else {
+        	 
+         }
+         
+	}
+	
+	private boolean insert_into_target(PreparedStatement ps, Connection con, String selected_target, String selected_festival) {
+		boolean success = false;
+		try {
+			if(selected_target == "Festival") {
+				
+			}else {
+				ps = con.prepareStatement("insert into target()values()");
+				
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+	public void destroy() {
+		try {
+			ps.close();
+			con.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

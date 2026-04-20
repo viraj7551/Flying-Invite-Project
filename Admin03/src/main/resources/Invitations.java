@@ -25,6 +25,8 @@ public class Invitations extends HttpServlet {
 	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 	private String username = "root";
 	private String password = "13Viraj@2507";
+	private int login_userId = 0;
+	private String login_username;
 	
 	public void init() {
 		try {
@@ -38,25 +40,23 @@ public class Invitations extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        PrintWriter pw = response.getWriter();
+        response.setContentType("text/html");
         
 		String template_type = request.getParameter("template_type_selector");
         String template_category = request.getParameter("template_category_selector");
-        String target = request.getParameter("target_selector");
         String template_heading = request.getParameter("template_heading");
         int template_price = Integer.parseInt(request.getParameter("total_amount"));
         String template_image_url = request.getParameter("template_image");
-       
-        PrintWriter pw = response.getWriter();
-        response.setContentType("text/html");
-		HttpSession session = request.getSession(true); 
-		String username = (String) session.getAttribute("username");
-		
-        boolean success =  insert_into_template(ps,con,template_type,template_category,template_heading,template_price,template_image_url,username);
+        read_user_info();
+        
+        boolean success =  insert_into_template(ps,con,template_type,template_category,template_heading,template_price,template_image_url,login_username,login_userId);
        
 		if(success) {    
 		    pw.println("<script type=\"text/javascript\">"); 
 		    pw.println("alert('Template details inserted successfully');"); 
-		    pw.println("location='dashbord.jsp';"); 
+		    pw.println("location='digital_invitation.jsp';"); 
 		    pw.println("</script>"); 		  
 		}else {
 		    request.getSession(false); 
@@ -72,19 +72,18 @@ public class Invitations extends HttpServlet {
 	}
 	
 	
-	private boolean insert_into_template(PreparedStatement ps2, Connection con2, String template_type, String template_category, String template_heading, int template_price, String template_image_url, String username) {
+	private boolean insert_into_template(PreparedStatement ps2, Connection con2, String template_type, String template_category, String template_heading, int template_price, String template_image_url, String username, int userId) {
 		boolean flag = false;
-		
 		if(template_type != null && template_category != null && template_heading != null && template_image_url != null) {
 			try {
-		 
-				ps2 = con.prepareStatement("insert into template(template_type, template_category, template_price, template_image_url, username, template_heading)values(?,?,?,?,?,?)");
+				ps2 = con.prepareStatement("insert into template(template_type, template_category, template_price, template_image_url, username, template_heading, userId)values(?,?,?,?,?,?,?)");
 				ps2.setString(1,template_type);
 				ps2.setString(2,template_category);
 				ps2.setInt(3,template_price);
 				ps2.setString(4,template_image_url);
 				ps2.setString(5, username);
 				ps2.setString(6,template_heading);
+				ps2.setInt(7,userId);
 				ps2.executeUpdate();
 				flag = true;
 			}
@@ -93,13 +92,25 @@ public class Invitations extends HttpServlet {
 			}
 		}else {
 		      flag = false;
-		}
-		
+		}	
 		return flag;
 	}
 	
-	
-	
+	private void read_user_info()  {
+		try {
+			ps = con.prepareStatement("select email, userId from userInfo where userId = ?");
+			ps.setInt(1, 1);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				this.login_username = rs.getString("email");
+				this.login_userId = rs.getInt("userId");
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+		
 	public void destroy() {
 		try {
 			ps.close();
