@@ -73,9 +73,8 @@
 
             <!-- ***** Menu Start ***** -->
                <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Digital Invitations</a>
-                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp">Interactive Invitations</a>
-
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">Electronic Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">RSVP Invites</a>
             <!-- ***** Menu End ***** -->
           </nav>
         </div>
@@ -87,67 +86,78 @@
 
 
 
-<!-- ---------------- Carousal Slider Code Starts Here --------------------------------------->
+  <!-- ------------------Badges Start Here ----------------------------------------------------->
+
+  <div class="badges" style="margin-top:180px; text-align:center">
+       <button type="button" class="btn btn-outline-primary" id="btn_greeting" onclick="invitations_tab('greetings');">Greetings</button>  
+      <button type="button" class="btn btn-outline-primary" id="btn_invitation" onclick="invitations_tab('invitations');">Invitations</button> 
+  </div>
+
+<!-- ------------------Badges End Here  ------------------------------------------------------->
 
 
-<h1 style="margin-top:160px; padding:60px; font-family:Arial"><a href="index.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> DIGITAL INVITATIONS</h1>
-  
-<div class="container d-flex justify-content-center">
-  
-  <div class="card shadow" style="width: 500px;">
-    
-    <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-      
-      <div class="carousel-inner">
-        
-        <div class="carousel-item active">
-          <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-           <a href="baby_shower_invitations.jsp">
-               <div class="card-body text-center">
-                 <h5 class="card-title">Baby Shower Invitation</h5>
-                 <p class="card-text">This is a smaller carousel styled like a card.</p>
-               </div>
-             </a> 
-        </div>
-        
-        <div class="carousel-item">
-          <img src="https://picsum.photos/500/300?random=2" class="d-block w-100" alt="Slide 2">
-             <a href="baby_shower_invitations.jsp">
-                  <div class="card-body text-center">
-                 <h5 class="card-title">Corporate Invitation</h5>
-                 <p class="card-text">This is a smaller carousel styled like a card.</p>
-               </div>
-             </a>  
-        </div>
-        
-        <div class="carousel-item">
-          <img src="https://picsum.photos/500/300?random=3" class="d-block w-100" alt="Slide 3">
-             <a href="baby_shower_invitations.jsp">
-                  <div class="card-body text-center">
-                 <h5 class="card-title">Festival Invitation</h5>
-                 <p class="card-text">This is a smaller carousel styled like a card.</p>
-               </div>
-             </a> 
-        </div>
-        
-      </div>
 
-      <!-- Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
 
-      <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-      
+<div class="main" id="greetings" style="display:block;">
+
+
+   <h1 style="padding:60px; font-family:Arial"><a href="index.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> DIGITAL GREETINGS</h1>
+
+    <!-- ---------------- Card01 Starts Here --------------------------------------->
+     <div class="container d-flex justify-content-center">
+       <div class="card shadow" style="width: 500px;">
+        <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
+                <a href="baby_shower_invitations.jsp">
+                   <div class="card-body text-center">
+                    <h5 class="card-title">Baby Shower Invitations</h5>
+                    <p class="card-text">This is a smaller carousel styled like a card.</p>
+                 </div>
+               </a> 
+           </div>
+        </div>      
     </div>
   </div>
 </div>
+    <!-- ----------------- Card01 Ends Here ------------------------------------------>
 
-<!-- ----------------- Carousal Slider Code Ends Here ------------------------------------------>
+</div>
+
+
+
+
+<div class="main02" id="invitations" style="display:none;">
+
+
+   <h1 style="padding:60px; font-family:Arial"><a href="index.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> DIGITAL INVITATIONS</h1>
+
+    <!-- ---------------- Card01 Starts Here --------------------------------------->
+     <div class="container d-flex justify-content-center">
+       <div class="card shadow" style="width: 500px;">
+        <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
+                <a href="baby_shower_invitations.jsp">
+                   <div class="card-body text-center">
+                    <h5 class="card-title">Baby Shower Invitations</h5>
+                    <p class="card-text">This is a smaller carousel styled like a card.</p>
+                 </div>
+               </a> 
+           </div>
+        </div>      
+    </div>
+  </div>
+</div>
+    <!-- ----------------- Card01 Ends Here ------------------------------------------>
+
+</div>
+
   
   
+ 
   
   <!-- ------------Footer starts here ------------------------------->
 
@@ -165,5 +175,6 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

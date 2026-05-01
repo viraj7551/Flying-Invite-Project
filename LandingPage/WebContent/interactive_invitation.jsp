@@ -72,8 +72,8 @@
 
             <!-- ***** Menu Start ***** -->
                <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link " href="invitation.jsp">Digital Invitations</a>
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Interactive Invitations</a>
+                  <a class="flex-sm-fill text-sm-center nav-link " href="invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">Electronic Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">RSVP Invites</a>
 
             <!-- ***** Menu End ***** -->
           </nav>
@@ -86,8 +86,8 @@
 
 
   
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <h2 class="blink_me" id="coming_soon_header">Coming Soon</h2>
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <h2 class="blink_me"  id="coming_soon_header">Coming Soon</h2>
 </div>
   
   

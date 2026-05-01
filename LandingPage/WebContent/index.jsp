@@ -66,7 +66,9 @@
   
      <%@ include file="/WEB-INF/jsp/common/header.jsp" %>
   
-  <!-- ***** Header Area End ***** -->
+  <!-- ***** Heade
+  
+  r Area End ***** -->
 
   <div id="home" class="main-banner wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
@@ -89,7 +91,7 @@
                     <div class="border-first-button scroll-to-section">
                       <a href="#contact">Contact</a>
                     </div>
-                  </div>
+                  </div> 
                 </div>
               </div>
             </div>

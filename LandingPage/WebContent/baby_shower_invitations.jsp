@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.util.*" %>
+<%@ page import = "java.sql.*"%>
+ 
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,177 +141,64 @@
               </span>
 
             <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
+        </div>    
       </div>
     </div>
+    
   </header>
   
   <!-- ***** Header Area End ***** -->
 
 
 
+<% 
+    String driver = "com.mysql.cj.jdbc.Driver";
+    String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+    String username = "root";
+    String password = "13Viraj@2507";
+    ResultSet rs = null;
+    Connection con = null;
+    PreparedStatement ps = null;
+    List<Map<String, Object>> cards = new ArrayList<>();
+    Set<Integer> seenIds = new HashSet<>();
+
+    try{
+	   	   Class.forName(driver);
+	   	   con = DriverManager.getConnection(url,username,password);
+		   ps = con.prepareStatement("select * from userInfo Inner Join template using(userId) Inner Join target using(userId) Inner Join festival using(userId);");
+		   rs = ps.executeQuery();
+		   
+		       while(rs.next()){  
+		    	    int id = rs.getInt("templateId");
+		    	    if (!seenIds.contains(id)) {
+		    	    	  seenIds.add(id);
+		       	          Map<String, Object> row = new HashMap<>();
+		       	          row.put("template_heading", rs.getString("template_heading"));
+		       	          row.put("template_price", rs.getInt("template_price"));
+		       	          row.put("template_image_url", rs.getString("template_image_url"));
+		       	          row.put("template_id", rs.getInt("templateId"));
+		       	          row.put("template_category", rs.getString("template_category"));
+		       	          cards.add(row);
+		    	    }
+		        }   
+	       rs.close();
+	       ps.close();
+	       con.close();
+
+%>
+
+
 <!-- ---------------- Carousal1 Slider Code Starts Here --------------------------------------->
-
   
-  
-<div class="container mt-5">
+   <div class="container mt-5">   
     <div class="row" style="margin-top:180px;">
-        <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        
-        
-                <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        
-                <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    
-    <!-- -----------------------Row 2 cards starts here  -->
-    
-      <div class="row" style="margin-top:180px;">
-        <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-        
+      
+   <%  for(Map<String, Object> card : cards) {  %>
+      
          <div class="col-md-4">
             <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
+                <img src="https://picsum.photos/500/400" alt="Image" id="Image01">
                 <div class="overlay">
-
                     <!-- Preview -->
                     <i class="bi bi-eye-fill"
                        onclick="openPreview('https://picsum.photos/1200/800')"
@@ -314,119 +206,23 @@
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="downloadImage.jsp">
+                    <a href="javascript:downloadIcon(1); return false;">
                         <i class="bi bi-download"></i>
                     </a>
 
                 </div>
-
                 <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
+                       <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> <%= card.get("template_category") %></h6>
+                       <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> <%= card.get("template_heading") %></h6>
+                       <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> <%= card.get("template_price") %></h6>
                 </div>
             </div>
         </div>
         
-    </div>
-    
-    
-    <!-- ------------------------Row 2 cards ends here -->
-    
-    
-        <!-- -----------------------Row 3 cards starts here  -->
-    
-      <div class="row" style="margin-top:180px;">
-        <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
+        <% } %>
+   </div> 
+</div> 
 
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-        
-         <div class="col-md-4">
-            <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image">
-
-                <div class="overlay">
-
-                    <!-- Preview -->
-                    <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
-                       data-bs-toggle="modal"
-                       data-bs-target="#previewModal"></i>
-
-                    <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
-                </div>
-
-                <div class="card-body">
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Preview</h6>
-                    <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Fill Details & Do Payment</h6>
-                     <h6 class="card-title"><i class="bi bi-check-circle text-success"></i> Image Is Downloaded</h6>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    
-    <!-- ------------------------Row 3 cards ends here -->
-    
-    
-    
-</div>
 
 <!-- FULLSCREEN MODAL -->
 <div class="modal fade" id="previewModal" tabindex="-1">
@@ -441,19 +237,26 @@
             </div>
         </div>
     </div>
-</div>
+</div>   
 
+  <%
+  
+    }
+   catch(Exception e){
+  	   e.printStackTrace();
+     }   
+  
+  %>
 
 <!-- ----------------- Carousal 1 Slider Code Ends Here ------------------------------------------>
 
-  
-  
-  
+
   <!-- ------------Footer starts here ------------------------------->
 
     <%@ include file="/WEB-INF/jsp/common/footer.jsp" %>
    
  <!-- ------------Footer ends here-------------------------------->  
+   
     
 
   <!-- Scripts -->
@@ -462,6 +265,13 @@
     function openPreview(imageSrc) {
         document.getElementById("modalImage").src = imageSrc;
     }
+    
+    function downloadIcon(ImageId){
+    	let id = document.getElementById("ImageId").value;
+        window.location.href = "downloadImage.jsp";
+    	
+ }
+    
 </script>
   <script src="./vendor/jquery/jquery.min.js"></script>
   <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

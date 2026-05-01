@@ -93,3 +93,22 @@ function start_letter_preference(){
 
 
 
+function invitations_tab(val){
+
+	
+	if(val.includes("invitations")){	
+		document.getElementById("btn_invitation").classList.add("active");
+		document.getElementById("btn_greeting").classList.remove("active");
+		document.getElementById("greetings").style.display = "none";
+		document.getElementById("invitations").style.display = "block";
+	}else{
+		document.getElementById("btn_greeting").classList.add("active");
+		document.getElementById("btn_invitation").classList.remove("active");
+		document.getElementById("greetings").style.display = "block";
+		document.getElementById("invitations").style.display = "none";		
+	}
+	
+}
+
+
+
