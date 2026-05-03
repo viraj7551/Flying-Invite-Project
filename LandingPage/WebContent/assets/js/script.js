@@ -1,7 +1,4 @@
-// script.js
-window.onload = function() {
-    document.getElementById('form-container').style.display = 'block';
-};
+
 
 
 
@@ -94,7 +91,6 @@ function start_letter_preference(){
 
 
 function invitations_tab(val){
-
 	
 	if(val.includes("invitations")){	
 		document.getElementById("btn_invitation").classList.add("active");
@@ -109,6 +105,4 @@ function invitations_tab(val){
 	}
 	
 }
-
-
 

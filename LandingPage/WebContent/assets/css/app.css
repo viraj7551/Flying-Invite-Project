@@ -720,7 +720,7 @@ header
     border-top: 1px solid #eee;
   }
   .header-area.header-sticky .nav {
-    margin-top: 100px;
+    margin-top: 30px;
   }
   .header-area .main-nav .nav li {
     width: 100%;
