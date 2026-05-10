@@ -258,7 +258,7 @@
                       <div class="first-thumb active">
                         <div class="thumb">
                           <span class="icon"><img src="assets/images/service-icon-04.png" alt=""></span>
-                          Interactive Invitations
+                          Digital<br>Invitations
                         </div>
                       </div>
                       <div>

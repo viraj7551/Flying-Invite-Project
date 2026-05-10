@@ -2,6 +2,7 @@
  * 
  */
 
+
 function greeting_filter(){
 	var val = document.getElementById("greeting").value;
 	console.log("Select option is:"+val);
@@ -120,7 +121,7 @@ function greeting_filter(){
 		document.getElementById("eid").style.display = "none";
 	break;
 	
-	case "Navratri Greetings":
+	case "Navrattri Greetings":
 		document.getElementById("navratri").style.display = "block";
 		document.getElementById("birthday").style.display = "none";
 		document.getElementById("diwali").style.display = "none";

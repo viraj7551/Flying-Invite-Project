@@ -79,7 +79,7 @@
             <input type="email" id="email" name="email" required><br>
             <button type="submit">Verify Email</button>
         </form>
-         <a id="navigateBack" href="index.jsp">Back</a>
+         <a id="navigateBack" href="name_suggestor.jsp">Back</a>
     </div>
     
     

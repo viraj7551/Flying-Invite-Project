@@ -137,7 +137,7 @@
 
             <!-- ***** Menu Start ***** -->
                 <span>
-                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> BABY SHOWER INVITATIONS</h2>
+                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> REPUBLIC DAY GREETINGS</h2>
               </span>
 
             <!-- ***** Menu End ***** -->
@@ -152,6 +152,8 @@
 
 
 <% 
+
+
     String driver = "com.mysql.cj.jdbc.Driver";
     String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
     String username = "root";

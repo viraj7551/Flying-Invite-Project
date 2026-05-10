@@ -137,7 +137,7 @@
 
             <!-- ***** Menu Start ***** -->
                 <span>
-                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> BABY SHOWER INVITATIONS</h2>
+                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> NAVRATTRI INVITATIONS</h2>
               </span>
 
             <!-- ***** Menu End ***** -->

@@ -112,7 +112,7 @@
         <option value="Makkar Sankrati Greetings">Makkar Sankrati Greetings</option>
         <option value="Diwali Greetings">Diwali Greetings</option>
         <option value="Birthday Greetings">Birthday Greetings</option>
-        <option value="Navratri Greetings">Navratri Greetings</option>
+        <option value="Navrattri Greetings">Navrattri Greetings</option>
         <option value="Holi Greetings">Holi Greetings</option>
         <option value="Baby Shower Greetings">Baby Shower Greetings</option>
         <option value="Eid Greetings">Eid Greetings</option>
@@ -131,7 +131,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="baby_shower_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Baby Shower Greetings</h5>
                           </div>
@@ -150,7 +150,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="republic_day_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Republic Day Greetings</h5>
                           </div>
@@ -169,7 +169,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="holi_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Holi Greetings</h5>
                           </div>
@@ -188,7 +188,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="ganesh_chaturthi.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Ganesh Chaturthi Greetings</h5>
                           </div>
@@ -207,7 +207,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="independance_day_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Independence Day Greetings</h5>
                           </div>
@@ -226,7 +226,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="navrattri.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Navrattri Greetings</h5>
                           </div>
@@ -245,7 +245,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="birthday_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Birthday Greetings</h5>
                           </div>
@@ -265,7 +265,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="diwali_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title"> Diwali Greetings</h5>
                           </div>
@@ -284,7 +284,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="marriage_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Marriage Greetings</h5>
                           </div>
@@ -303,9 +303,9 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="makkar_sankrant.jsp">
                            <div class="card-body text-center">
-                            <h5 class="card-title">Makar Sankrati Greetings</h5>
+                            <h5 class="card-title">Makkar Sankrant Greetings</h5>
                           </div>
                        </a> 
                   </div>
@@ -322,7 +322,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="anniversary_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Anniversary Greetings</h5>
                           </div>
@@ -341,7 +341,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="guddi_padwa_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Guddi Padwa Greetings</h5>
                           </div>
@@ -360,7 +360,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="eid_greetings.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Eid Greetings</h5>
                           </div>
@@ -435,7 +435,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="republic_day_invitation.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Republic Day Invitations</h5>
                           </div>
@@ -455,7 +455,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="holi_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Holi Invitations</h5>
                           </div>
@@ -475,7 +475,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="ganesh_chatturthi_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Ganesh Chatturthi Invitations</h5>
                           </div>
@@ -495,7 +495,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="independance_day_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Independance Day Invitations</h5>
                           </div>
@@ -515,7 +515,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="navrattri_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Navrattri Invitations</h5>
                           </div>
@@ -535,7 +535,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="birthday_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Birthday Invitations</h5>
                           </div>
@@ -555,7 +555,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="diwali_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Diwali Invitations</h5>
                           </div>
@@ -575,7 +575,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="marriage_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Marriage Invitations</h5>
                           </div>
@@ -595,7 +595,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="makkar_sankrant.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Makar Sankranti Invitations</h5>
                           </div>
@@ -615,7 +615,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="anniversary_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Anniversary Invitations</h5>
                           </div>
@@ -635,7 +635,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="guddi_padwa_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Guddi Padwa Invitations</h5>
                           </div>
@@ -655,7 +655,7 @@
                <div class="carousel-inner">
                  <div class="carousel-item active">
                    <img src="https://picsum.photos/500/300?random=1" class="d-block w-100" alt="Slide 1">
-                      <a href="baby_shower_invitations.jsp">
+                      <a href="eid_invitations.jsp">
                            <div class="card-body text-center">
                             <h5 class="card-title">Eid Invitations</h5>
                           </div>
