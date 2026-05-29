@@ -26,8 +26,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   
     <title>FlyingInvite | Special Invite</title>
 
@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="./assets/css/owl.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -137,7 +138,7 @@
 
             <!-- ***** Menu Start ***** -->
                 <span>
-                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> DIWALI INVITATIONS</h2>
+                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> YOGA DAY GREETINGS</h2>
               </span>
 
             <!-- ***** Menu End ***** -->
@@ -155,7 +156,7 @@
     String driver = "com.mysql.cj.jdbc.Driver";
     String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
     String username = "root";
-    String password = "13Viraj@2507";
+    String password = "13Viraj@6937";
     ResultSet rs = null;
     Connection con = null;
     PreparedStatement ps = null;
@@ -165,77 +166,121 @@
     try{
 	   	   Class.forName(driver);
 	   	   con = DriverManager.getConnection(url,username,password);
-		   ps = con.prepareStatement("select * from userInfo Inner Join template using(userId) Inner Join target using(userId) Inner Join festival using(userId);");
+	   	   
+		   ps = con.prepareStatement("select templateId, template_category, template_price, template_heading, template_download_type, targetid, target_name, imageId, image, preview_image from template inner join target using(templateId) inner join template_image using(templateId);");
 		   rs = ps.executeQuery();
 		   
-		       while(rs.next()){  
-		    	    int id = rs.getInt("templateId");
-		    	    if (!seenIds.contains(id)) {
-		    	    	  seenIds.add(id);
+		   while(rs.next()){  
+		
+	       int id = rs.getInt("templateId");
+		   
+  	         if (!seenIds.contains(id)) {
+  	    	              seenIds.add(id);
 		       	          Map<String, Object> row = new HashMap<>();
 		       	          row.put("template_heading", rs.getString("template_heading"));
 		       	          row.put("template_price", rs.getInt("template_price"));
-		       	          row.put("template_image_url", rs.getString("template_image_url"));
 		       	          row.put("template_id", rs.getInt("templateId"));
 		       	          row.put("template_category", rs.getString("template_category"));
 		       	          row.put("target_name", rs.getString("target_name"));
-		       	          cards.add(row);
-		    	    }
-		        }   
-	       rs.close();
-	       ps.close();
-	       con.close();
+		       	          row.put("template_download_type", rs.getString("template_download_type"));
+				       	    
+		       	          // get blob
+				       	    Blob blob = rs.getBlob("image");
+		       	            Blob blob02 = rs.getBlob("preview_image");
 
+				       	  // convert blob -> byte[]
+				       	     byte[] bytes = blob.getBytes(1, (int) blob.length());
+				       	     byte[] bytes02 = blob02.getBytes(1, (int) blob02.length());
+
+				       	  // convert byte[] -> base64 string
+				       	     String base64 = Base64.getEncoder().encodeToString(bytes);
+				       	     String base6402 = Base64.getEncoder().encodeToString(bytes02);
+
+				       	  // store base64 instead of blob
+				       	    row.put("template_image", base64);
+				       	    row.put("preview_image", base6402);
+		       	   
+		       	            cards.add(row);
+  	         }
+  	         
+		   }
 %>
 
 
 <!-- ---------------- Carousal1 Slider Code Starts Here --------------------------------------->
   
-   <div class="container mt-5">   
+    <div class="container mt-5">   
     <div class="row" style="margin-top:180px;">
+    
+   <%   
+
+      for(Map<String, Object> card : cards) {
       
-   <%  for(Map<String, Object> card : cards) {  %>
-      
-         <div class="col-md-4"> 
+      String template_target = card.get("target_name").toString();
+         
+      if(template_target.equals("Yoga Day")){ %>
+       <div class="col-md-4" style="padding-bottom:90px;">   
+         <form method="POST" action="downloadImage.jsp">
             <div class="card image-card shadow">
-                <img src="https://picsum.photos/500/400" alt="Image" id="Image01">
+                <img src="data:image/jpeg;base64,<%= card.get("preview_image") %>" alt="Image" id="Image01">
                 <div class="overlay">
                     <!-- Preview -->
                     <i class="bi bi-eye-fill"
-                       onclick="openPreview('https://picsum.photos/1200/800')"
+                       onclick="openPreview('data:image/jpeg;base64,<%= card.get("preview_image") %>')"
                        data-bs-toggle="modal"
                        data-bs-target="#previewModal"></i>
 
                     <!-- Download -->
-                    <a href="downloadImage.jsp">
-                        <i class="bi bi-download"></i>
-                    </a>
-
+                     <button type="submit" onclick="downloadTemplate(this);" class="btn p-0 border-0 bg-transparent"> <i class="bi bi-download"></i></button>
                 </div>
                 <div class="card-body">
+                    
+                <!-- Hidden field -->
+                <input type="hidden" name="encryptedTitle" class="encryptedTitle">
                 
-                    <h5 class="card-title mt-3"> <%= card.get("template_heading") %></h5>
-                 
-                 
-                       <div class="row">
+                    <h5 class=" heading card-title mt-3"> <%= card.get("template_heading") %></h5>
+                    <div class="row">
                        <div class="col-md-6">
                              <span class="card-title"><i class="bi bi-check-circle text-success"></i> <%= card.get("template_category") %></span>
                        </div>
                        
                         <div class="col-md-6">
-                            <span class="card-title"><i class="bi bi-check-circle text-success"></i> &#8377 <%= card.get("template_price") %></span>
+                            <%
+                                 Object template_type = card.get("template_download_type");
+                                 if(template_type.equals("Free")){ %>
+                                 
+                                 <span class="card-title text-decoration-line-through"><i class="bi bi-check-circle text-success"></i> &#8377 <%= card.get("template_price") %></span>
+                            <% }else{ %>
+                                	 <span class="card-title"><i class="bi bi-check-circle text-success"></i> &#8377 <%= card.get("template_price") %></span>
+                                
+                                <%  } %> 
+                       
                        </div>
                        
                        <div class="col-md-6">
                              <span class="card-title"><i class="bi bi-check-circle text-success"></i> <%= card.get("target_name") %></span>
                        </div>
                        
+                        <div class="col-md-6">
+                             <span class="card-title"><i class="bi bi-check-circle text-success"></i> <%= card.get("template_download_type") %></span>
+                       </div>
+                       
                        </div>                    
                 </div>
             </div>
+          </form>
         </div>
         
-        <% } %>
+        <% }else{ %>
+        	  <div>
+                 <h4 class="text-center">No Cards To Display ... </h4>
+              </div>
+            <%
+              break;
+            }
+          }     
+       %>
+        
    </div> 
 </div> 
 
@@ -255,9 +300,8 @@
     </div>
 </div>   
 
-  <%
-  
-    }
+  <%      
+     }
    catch(Exception e){
   	   e.printStackTrace();
      }   
@@ -295,6 +339,7 @@
   <script src="./assets/js/animation.js"></script>
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
+   <script src="./assets/js/downloadFile.js"></script>
   <script src="./assets/js/app.js"></script>
 </body>
 </html>

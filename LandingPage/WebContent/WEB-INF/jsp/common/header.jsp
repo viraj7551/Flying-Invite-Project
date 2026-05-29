@@ -25,7 +25,6 @@
               <li class="scroll-to-section"><a href="#about">About</a></li>
               <li class="scroll-to-section"><a href="#faq">FAQ</a></li>
               <li class="scroll-to-section"><a href="#services">Services</a></li>
-               <li class="scroll-to-section"><a href="blogs.jsp" target="_blank">Blogs</a></li>
               <li class="scroll-to-section"><a href="terms_and_condition_page.jsp" target="_blank">Terms & Conditions</a></li>
               <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Contact</a></div></li> 
             </ul>        

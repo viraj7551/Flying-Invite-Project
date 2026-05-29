@@ -84,11 +84,9 @@
   
   <!-- ***** Header Area End ***** -->
 
-
-  
-<div class="d-flex vh-100 justify-content-center align-items-center">
-    <h2 class="blink_me"  id="coming_soon_header">Coming Soon</h2>
-</div>
+   <div class="container mt-5">  
+       <h2 class="blink_me"  id="coming_soon_header" style=" margin: 45vh auto 45vh auto;">Coming Soon</h2>
+  </div>
   
   
   

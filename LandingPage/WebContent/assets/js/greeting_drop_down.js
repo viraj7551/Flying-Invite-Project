@@ -21,6 +21,7 @@ function greeting_filter(){
 	  document.getElementById("makar_sankrant").style.display = "none";
 	  document.getElementById("anniversary").style.display = "none";
 	  document.getElementById("guddi_padwa").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 	  document.getElementById("eid").style.display = "none";
 	  
 	  break;
@@ -38,6 +39,7 @@ function greeting_filter(){
 		document.getElementById("makar_sankrant").style.display = "none";
 		document.getElementById("anniversary").style.display = "none";
 		document.getElementById("guddi_padwa").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";  
 	 break
 	 
@@ -54,6 +56,7 @@ function greeting_filter(){
 		document.getElementById("marriage").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
 		document.getElementById("anniversary").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";
 	 break;
 	  
@@ -70,6 +73,7 @@ function greeting_filter(){
 		document.getElementById("diwali").style.display = "none";
 		document.getElementById("marriage").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";
 	break;
 	
@@ -86,6 +90,7 @@ function greeting_filter(){
 		document.getElementById("birthday").style.display = "none";
 		document.getElementById("diwali").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";
 	break;
 	
@@ -102,6 +107,7 @@ function greeting_filter(){
 		document.getElementById("navratri").style.display = "none";
 		document.getElementById("birthday").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";
 	 break;
 	 
@@ -118,6 +124,7 @@ function greeting_filter(){
 		document.getElementById("ganesh_chatturthi").style.display = "none";
 		document.getElementById("navratri").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";
 	break;
 	
@@ -134,6 +141,7 @@ function greeting_filter(){
 		document.getElementById("holi").style.display = "none";
 		document.getElementById("ganesh_chatturthi").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";		
 	break;
 	
@@ -150,6 +158,7 @@ function greeting_filter(){
 		document.getElementById("babyshower").style.display = "none";
 		document.getElementById("ganesh_chatturthi").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";	
 	break;
 	
@@ -166,7 +175,8 @@ function greeting_filter(){
 	  	document.getElementById("republic_day").style.display = "none";
 		document.getElementById("ganesh_chatturthi").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
-		document.getElementById("eid").style.display = "none";	
+		document.getElementById("yoga").style.display="none";
+		document.getElementById("eid").style.display = "none";
 	break;
 	
 	case "Eid Greetings":
@@ -183,6 +193,7 @@ function greeting_filter(){
 	  	document.getElementById("republic_day").style.display = "none";
 		document.getElementById("ganesh_chatturthi").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 	break;
 	case "Makkar Sankrati Greetings":
 		document.getElementById("makar_sankrant").style.display = "block";
@@ -198,11 +209,32 @@ function greeting_filter(){
 		document.getElementById("independence_day").style.display = "none";
 	  	document.getElementById("republic_day").style.display = "none";
 		document.getElementById("ganesh_chatturthi").style.display = "none";
+		document.getElementById("yoga").style.display="none";
 		document.getElementById("eid").style.display = "none";
 	break;
 	
 	case "Ganesh Chatturthi":
 		document.getElementById("ganesh_chatturthi").style.display = "block";
+		document.getElementById("makar_sankrant").style.display = "none";
+		document.getElementById("eid").style.display = "none";
+		document.getElementById("babyshower").style.display = "none";
+		document.getElementById("holi").style.display = "none";
+		document.getElementById("navratri").style.display = "none";
+		document.getElementById("birthday").style.display = "none";
+		document.getElementById("diwali").style.display = "none";
+		document.getElementById("marriage").style.display = "none";
+		document.getElementById("anniversary").style.display = "none";
+		document.getElementById("guddi_padwa").style.display = "none";
+		document.getElementById("independence_day").style.display = "none";
+	  	document.getElementById("republic_day").style.display = "none";
+		document.getElementById("yoga").style.display="none";
+	  	document.getElementById("eid").style.display = "none";
+
+	break;
+	
+	case "Yoga Day Greetings":
+		document.getElementById("yoga").style.display="block";
+		document.getElementById("ganesh_chatturthi").style.display = "none";
 		document.getElementById("makar_sankrant").style.display = "none";
 		document.getElementById("eid").style.display = "none";
 		document.getElementById("babyshower").style.display = "none";
@@ -231,6 +263,7 @@ function greeting_filter(){
 	document.getElementById("ganesh_chatturthi").style.display = "block";
 	document.getElementById("navratri").style.display = "block";
 	document.getElementById("makar_sankrant").style.display = "block";
+	document.getElementById("yoga").style.display="block";
 	document.getElementById("eid").style.display = "block";
 	
 	}

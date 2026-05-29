@@ -214,6 +214,10 @@ function invitation_filter(){
 		document.getElementById("independence_day_invite").style.display="none";
 		document.getElementById("republic_day_invite").style.display="none";
 	break;
+	
+	case "Yoga Day Invitations":
+		
+	break;
 
 	default:
 	document.getElementById("republic_day_invite").style.display="block";
