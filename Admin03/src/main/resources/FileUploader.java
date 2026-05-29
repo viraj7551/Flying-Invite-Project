@@ -2,6 +2,19 @@ package main.resources;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -10,32 +23,100 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet("/uploadFile")
-@MultipartConfig
+@WebServlet("/FileUploader")
+@MultipartConfig(
+	    maxFileSize = 1024 * 1024 * 5,      // 5 MB
+	    maxRequestSize = 1024 * 1024 * 10
+	)
 public class FileUploader extends HttpServlet {
-	 protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	            throws ServletException, IOException {
+	
+    // Allowed image extensions
+	private static final Set<String> ALLOWED_EXTENSIONS =new HashSet<>(Arrays.asList("jpg", "jpeg", "png", "gif"));
+    
+    // Allowed mime types
+	private static final Set<String> ALLOWED_MIME_TYPES = new HashSet<>(Arrays.asList("image/jpeg", "image/png", "image/gif"));
+    
+    // Only allow letters, numbers, underscore, dash, dot
+	private static final Pattern FILE_NAME_PATTERN =  Pattern.compile("^[a-zA-Z0-9._-]+$");
+	
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	
+	private String username = "root";
+	
+	private String password = "13Viraj@6937";
+    
+	private PreparedStatement ps = null;
+	
+	private Connection con = null;
+	
 
-	        Part filePart = request.getPart("file");
-	        String fileName = filePart.getSubmittedFileName();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
 
-	        String uploadPath = getServletContext().getRealPath("/uploads");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+    	 try {
+    		 Part filePart = request.getPart("file");
+    		 Part filePart02 = request.getPart("file02");
+    		 
+             
+             // Request for template
+             
+             int selected_template = Integer.parseInt(request.getParameter("template_selector"));
+             
+             // Extract filename safely
+             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            
+             
+             // Convert image to InputStream
+             InputStream inputStream = filePart.getInputStream();
+             InputStream inputStream02 = filePart02.getInputStream();
 
-	        File uploadDir = new File(uploadPath);
-	        if (!uploadDir.exists()) {
-	            uploadDir.mkdirs();
-	        }
-
-	        String filePath = uploadPath + File.separator + fileName;
-
-	        filePart.write(filePath);
-
-	        String fileUrl = request.getContextPath() + "/uploads/" + fileName;
-
-	        response.setContentType("text/html");
-
-	        response.getWriter().println("<h3>File Uploaded Successfully</h3>");
-	        response.getWriter().println("<a href='"+fileUrl+"' target='_blank'>"+fileUrl+"</a>");
-	    }
-
+             // MySQL Connection
+            boolean flag =  insert_image(fileName, inputStream, inputStream02, selected_template);
+             if(flag == true) {
+                 out.println("<script type='text/javascript'>");
+                 out.println("alert('File uploaded successfully..');");
+     		     out.println("location='file_uploader.jsp';"); 
+                 out.println("</script>");            	 
+             }else {
+                 out.println("<script type='text/javascript'>");
+                 out.println("alert('Something went wrong..');");
+    		     out.println("location='file_uploader.jsp';"); 
+                 out.println("</script>");            	 
+             }
+    	 }
+    	 catch(Exception e) {
+    		 e.printStackTrace();
+    	 }
+        
+    }
+    
+    private boolean insert_image(String filename, InputStream inputStream, InputStream inputStream02, int templateId) {
+    	boolean temp_flag = false;
+    	try {
+    	    Class.forName(driver);
+            con = DriverManager.getConnection(url, username, password);
+            
+    	    ps = con.prepareStatement("insert into template_image(filename, image, preview_image, templateId) values(?,?,?,?);");
+    	    ps.setString(1, filename);
+    	    ps.setBlob(2, inputStream);
+    	    ps.setBlob(3, inputStream02);
+    	    ps.setInt(4, templateId);
+    	    ps.executeUpdate();
+    	    temp_flag = true;
+    	}
+    	
+    	catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return temp_flag;
+    }
+   
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
+    	doPost(request, response);
+    }
 }

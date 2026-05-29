@@ -1,3 +1,6 @@
+<%@ page import="java.util.*" %>
+<%@ page import = "java.sql.*"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,6 +102,24 @@ margin-left:0;
 
 <body>
 
+
+<%
+    String driver = "com.mysql.cj.jdbc.Driver";
+    String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+    String username = "root";
+    String password = "13Viraj@6937";
+    ResultSet rs = null;
+    Connection con = null;
+    PreparedStatement ps = null;
+    
+    try{
+    	Class.forName(driver);
+    	con = DriverManager.getConnection(url, username, password);
+    	ps = con.prepareStatement("select templateId, template_heading, target_name from template Inner Join target using(templateId);");
+    	rs = ps.executeQuery();
+
+%>
+
 <div class="sidebar">
 
 <h4 class="text-center py-3">Admin Panel</h4>
@@ -126,33 +147,56 @@ margin-left:0;
 </div>
 </nav>
 
-
  
  <!-- ----------------- Form starts here -->
- 
 <div class="container">
 
-<div class="upload-box">
+   <div class="upload-box">
 
-<h4 class="text-center mb-4">Upload File</h4>
+     <h4 class="text-center mb-4">Upload Template File</h4>
 
-<form action="uploadFile" method="post" enctype="multipart/form-data">
+  <form action="FileUploader" method="post" enctype="multipart/form-data">
 
-<div class="mb-3">
-<label class="form-label">Select File</label>
-<input type="file" name="file" class="form-control" required>
-</div>
+       <div class="mb-3">
+           <label class="form-label">Select Template</label>
+             <select class="form-select" name="template_selector">
+               <option selected>Selected</option>
+               <% while(rs.next()){ %>
+               <option value="<%= rs.getInt("templateId") %>"><%= rs.getInt("templateId")%> - <%= rs.getString("template_heading") %> - <%= rs.getString("target_name") %></option>
+               <% } %>
+             </select>
+       </div>
 
-<div class="d-grid">
-<button class="btn btn-primary">Upload File</button>
-</div>
 
+      <div class="mb-3">
+         <label class="form-label">Select Original File</label>
+            <input type="file" name="file" class="form-control" required>
+      </div>
+      
+            <div class="mb-3">
+         <label class="form-label">Select Preview File</label>
+            <input type="file" name="file02" class="form-control" required>
+      </div>
+
+     <div class="d-grid">
+         <button class="btn btn-primary">Upload File</button>
+      </div>
 </form>
 
-</div>
+  </div>
 
-</div>
+ </div>
  
+ <!-- ------------------ Form ends here -->
+ 
+ <%
+    }
+    catch(Exception e){
+       e.printStackTrace();    	
+    }
+    
+ %>
+  
  <!-- ------------------ Form ends here -->
 
 </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,43 +135,44 @@ margin-left:0;
 
 <div class="row">
 
-<div class="col-md-6 mb-3">
-<label class="form-label">Template Type</label>
-<input type="text" class="form-control" placeholder="Enter first name" name="template_type_selector"  value = "Digital Invitations" readonly>
-</div>
+     <div class="col-md-6 mb-3">
+          <label class="form-label">Template Type</label>
+          <input type="text" class="form-control" placeholder="Enter first name" name="template_type_selector"  value = "Digital Invitations" readonly>
+    </div>
 
-<div class="col-md-6 mb-3">
-<label class="form-label">Template Category</label>
-<select class="form-select" name="template_category_selector">
-<option selected>Select option</option>
-<option value="Greeting">Greetings</option>
-<option value="Invitation">Invitation</option>
-</select>
-</div>
+     <div class="col-md-6 mb-3">
+          <label class="form-label">Template Category</label>
+          <select class="form-select" name="template_category_selector">
+             <option selected>Select option</option>
+             <option value="Greeting">Greetings</option>
+             <option value="Invitation">Invitation</option>
+          </select>
+    </div>
 </div>
 
 <div class="mb-3">
-<label class="form-label">Template Heading</label>
-<input type="text" class="form-control" placeholder="Enter Heading" name="template_heading">
+      <label class="form-label">Template Heading</label>
+      <input type="text" class="form-control" placeholder="Enter Heading" name="template_heading">
 </div>
 
 
-<div class="mb-3">
-<label class="form-label">Template Price</label>
-<input type="text" class="form-control" placeholder="Enter Amount*" name="total_amount">
-</div>
-
-
-
-<div class="mb-3">
-<label class="form-label">Template Image URL</label>
-<input type="text" class="form-control" placeholder="Enter Image Url" name="template_image">
-</div>
+<div class="row">
+     <div class="col-md-6 mb-3">
+          <label class="form-label">Template Price</label>
+          <input type="text" class="form-control" placeholder="Enter Amount*" name="total_amount">     
+     </div>
+     <div class="col-md-6 mb-3">
+              <label class="form-label">Download Type</label>
+              <select class="form-select" name="template_download_type">
+                 <option selected>Select option</option>
+                 <option value="Free">Free</option>
+                 <option value="Pay">Pay</option>
+             </select> 
+     </div>    
+ </div>
 
 <div class="d-grid">
-<button type="submit" class="btn btn-primary">
-Submit
-</button>
+      <button type="submit" class="btn btn-primary">Submit </button>
 </div>
 
 </form>
@@ -195,6 +197,7 @@ Submit
           <option selected>Select option</option>
           <option value="Wedding">Wedding</option>
           <option value="Baby Shower">Baby Shower</option>
+          <option value="Yoga Day">Yoga Day</option>
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>
           <option value="Festival">Festival</option>

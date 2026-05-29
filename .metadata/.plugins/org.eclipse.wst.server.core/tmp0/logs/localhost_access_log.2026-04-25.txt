@@ -1,0 +1,15 @@
+127.0.0.1 - - [25/Apr/2026:15:23:07 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:25 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3419
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:34 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:34 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:49 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3419
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:50 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:50 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:23:51 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:01 +0530] "POST /Admin03/Auth HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:01 +0530] "GET /Admin03/dashboard.jsp HTTP/1.1" 200 2745
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:06 +0530] "GET /Admin03/digital_invitation.jsp HTTP/1.1" 200 6086
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:13 +0530] "POST /Admin03/Invitations HTTP/1.1" 200 130
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:14 +0530] "GET /Admin03/digital_invitation.jsp HTTP/1.1" 200 6086
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:19 +0530] "POST /Admin03/SetTargetInformation HTTP/1.1" 200 128
+0:0:0:0:0:0:0:1 - - [25/Apr/2026:15:24:20 +0530] "GET /Admin03/digital_invitation.jsp HTTP/1.1" 200 6086
