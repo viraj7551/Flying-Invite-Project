@@ -3,6 +3,8 @@
     
 <%@ page import="java.util.*" %>
 <%@ page import = "java.sql.*"%>
+<%@ page import="com.app.DBConnection" %>
+<%@ page import="java.sql.Connection" %>
  
     
 <!DOCTYPE html>
@@ -20,7 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href=" ./assets/images/FlyingInvite.png" type="image/png">
+<link rel="icon" href=" ./assets/images/loggo.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,10 +155,7 @@
 
 
 <% 
-    String driver = "com.mysql.cj.jdbc.Driver";
-    String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
-    String username = "root";
-    String password = "13Viraj@6937";
+
     ResultSet rs = null;
     Connection con = null;
     PreparedStatement ps = null;
@@ -164,9 +163,8 @@
     Set<Integer> seenIds = new HashSet<>();
 
     try{
-	   	   Class.forName(driver);
-	   	   con = DriverManager.getConnection(url,username,password);
-	   	   
+    	
+    	   con = DBConnection.getConnection();
 		   ps = con.prepareStatement("select templateId, template_category, template_price, template_heading, template_download_type, targetid, target_name, imageId, image, preview_image from template inner join target using(templateId) inner join template_image using(templateId);");
 		   rs = ps.executeQuery();
 		   
@@ -235,8 +233,10 @@
                 </div>
                 <div class="card-body">
                     
+                    
                 <!-- Hidden field -->
-                <input type="hidden" name="encryptedTitle" class="encryptedTitle">
+               <input type="hidden" name="templateId" class="templateId" value="<%= card.get("template_id") %>">
+                
                 
                     <h5 class=" heading card-title mt-3"> <%= card.get("template_heading") %></h5>
                     <div class="row">

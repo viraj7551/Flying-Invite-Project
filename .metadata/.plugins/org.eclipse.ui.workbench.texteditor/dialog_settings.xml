@@ -8,21 +8,21 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value=".heading"/>
-			<item value="Ganesh "/>
-			<item value="id=&quot;greeting&quot;"/>
-			<item value="request.getParameter(&quot;page&quot;)"/>
-			<item value="img"/>
-			<item value="flyinginvite.jpg"/>
-			<item value="FlyingInvite"/>
-			<item value="FlyInvite"/>
-			<item value="p"/>
-			<item value="poppins"/>
-			<item value="center"/>
-			<item value="center-text"/>
-			<item value="left-text"/>
-			<item value=".container.container-md.container-sm "/>
-			<item value="    .container, .container-md, .container-sm "/>
+			<item value="quote-bg"/>
+			<item value="quote"/>
+			<item value="contact"/>
+			<item value="src"/>
+			<item value=".main-banner .left-content h6"/>
+			<item value="hover"/>
+			<item value="Footer"/>
+			<item value="footer"/>
+			<item value="Active"/>
+			<item value=".active"/>
+			<item value="active"/>
+			<item value="Hover"/>
+			<item value="Preloader"/>
+			<item value=".header-area"/>
+			<item value=".header-area .main-nav"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -25,7 +25,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href=" ./assets/images/FlyingInvite.png" type="image/png">
+<link rel="icon" href=" ./assets/images/loggo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,6 +45,7 @@
   <link rel="stylesheet" href="./assets/css/owl.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
 <script>
@@ -67,43 +68,23 @@
   
 
          <%
-         
-                 String driver = "com.mysql.cj.jdbc.Driver";
-                 String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
-                 String username = "root";
-                 String password = "13Viraj@6937";
                  ResultSet rs = null;
                  Connection con = null;
                  PreparedStatement ps = null;
                  String decrypted_heading_value = null;
                  
                  try{
-                	    String encryptedTitle = request.getParameter("encryptedTitle");
-                	    try {
-
-                	    	//following below snippet decrypts the encrypted value
-                	    	    String key = "13Viraj@67812345";
-                                String iv = "13Viraj@67812345";
-
-                               IvParameterSpec ivspec = new IvParameterSpec(iv.getBytes(StandardCharsets.UTF_8));
-                               SecretKeySpec secretKey = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8),"AES");
-                               Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                               cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec);
-                               byte[] decodedBytes = Base64.getDecoder().decode(encryptedTitle);
-                               byte[] original = cipher.doFinal(decodedBytes);
-                	    	
-                	        decrypted_heading_value = new String(original);
-
-                	    } catch (Exception e) {
-                	        e.printStackTrace();
-                	    }
-                	    
-            	        System.out.println(decrypted_heading_value);
-                	    
-             	   	   Class.forName(driver);
-             	   	   con = DriverManager.getConnection(url,username,password);
-             		   ps = con.prepareStatement("select template_heading, template_price, template_category, template_download_type, preview_image from template Inner Join template_image using(templateId) where template_heading = ?;");
-             		   ps.setString(1, decrypted_heading_value);
+                	 
+                	   int original_tempId = Integer.parseInt(request.getParameter("templateId")); 
+                	   int temp_tempId = original_tempId;
+                	   
+                	   if(temp_tempId != original_tempId){
+                		response.sendRedirect("/404.jsp");   
+                	   }
+                	   
+                	   con = DBConnection.getConnection();
+             		   ps = con.prepareStatement("select template_heading, template_price, template_category, template_download_type, preview_image from template Inner Join template_image using(templateId) where templateId = ?;");
+             		   ps.setInt(1, original_tempId);
              		   rs = ps.executeQuery();
              		   if(rs.next()){  
              			  
@@ -117,6 +98,8 @@
 				       	     String templateImage = Base64.getEncoder().encodeToString(bytes);
 				       	  
 				       	  request.setAttribute("template_image", templateImage);
+				       	  
+				       	  String template_download_tp = rs.getString("template_download_type");
              			   
     %>
     
@@ -132,69 +115,70 @@
     <div class="col-md-6">
       <h3 class="mb-4"> <a href="#" onclick="browser_back();"; return false;> <i class="bi bi-arrow-left fs-4"></i> </a> Customer Details</h3>
 
- <form>
+ <form action="MyServlet" method="post">
     <div class="row">
           <div class="col-6">
            
                 <div class="mb-3">
                    <label class="form-label">First Name</label>
-                   <input type="text" class="form-control" placeholder="Enter first name">
+                   <input type="text" name="firstname" class="form-control" placeholder="Enter first name" required>
                 </div>
           </div>
           <div class="col-6">
                 <div class="mb-3">
                    <label class="form-label">Last Name</label>
-                   <input type="text" class="form-control" placeholder="Enter last name">
+                   <input type="text" name="lastname" class="form-control" placeholder="Enter last name" required>
                 </div>
           </div>
     </div>
         <div class="mb-3">
           <label class="form-label">Email</label>
-          <input type="email" class="form-control" placeholder="Enter email">
+          <input type="email" name="email" class="form-control" placeholder="Enter email" required>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Phone</label>
-          <input type="tel" class="form-control" placeholder="Enter phone number">
+          <input type="tel" name="phone" class="form-control" placeholder="Enter phone number" required>
         </div>
         
-          <div class="mb-3">
-          
+          <div class="mb-3">      
                <h3 class="mb-4">Template Details</h3>
                  <div class="row">
                      <div class="col-6 mb-4">
                          <label class="form-label">Selected Template</label>
-                         <input type="text" class="form-control" value="<%= rs.getString("template_heading") %>" readonly>
+                         <input type="text" name="template_heading" class="form-control" value="<%= rs.getString("template_heading") %>" readonly>
                      </div>
                      <div class="col-6 mb-4">
-                         <label class="form-label">Template Price</label>
-                         <input type="text" class="form-control" value="&#8377 <%= rs.getInt("template_price") %>" readonly>
+                         <label class="form-label">Template Price - (&#8377)</label>
+                         <% if(template_download_tp.equals("Free")) { %>
+                         <input type="text" name="template_price" class="form-control" value="0" readonly>
+                         <%}else{ %>
+                         <input type="text" name="template_price" class="form-control" value="<%= rs.getInt("template_price") %>" readonly>                         
+                         <%} %> 
                      </div>
                  </div>
                  
                   <div class="row">
                      <div class="col-6 mb-4">
                          <label class="form-label">Template Type</label>
-                         <input type="text" class="form-control" value="<%= rs.getString("template_category") %>" readonly>
+                         <input type="text" name="template_category" class="form-control" value="<%= rs.getString("template_category") %>" readonly>
                      </div>
                      <div class="col-6 mb-4">
                          <label class="form-label">Download Type</label>
-                         <input type="text" class="form-control" value="<%= rs.getString("template_download_type") %>" readonly>
+                         <input type="text" name="download_type" class="form-control" value="<%= rs.getString("template_download_type") %>" readonly>
                      </div>
                  </div>
           </div>
           
           <% 
-             String template_download_tp = rs.getString("template_download_type");
-             if(template_download_tp.equals("Free")){ %>
-             
+          
+             if(template_download_tp.equals("Free")){ %> 
               <button type="submit" class="btn btn-success w-100">Download</button> <br><br>             
              <%} else{ %>
-
               <button type="submit" class="btn btn-success w-100">Check out</button> <br><br>
               <a href="index.jsp" class="btn btn-danger w-100">Cancel</a>
-        	  
-        	  <% } %>
+              
+        <% } %>
          
       </form>
     

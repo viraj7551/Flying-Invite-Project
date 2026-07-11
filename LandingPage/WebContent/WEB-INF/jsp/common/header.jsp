@@ -16,7 +16,7 @@
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="#" class="logo">
-              <img src="assets/images/loggo.png" style="width: 150px; margin-top:-30px;" alt="">
+              <img src="assets/images/loggo.png" style="width: 150px; margin-top:30px;" alt="brand logo">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -26,7 +26,7 @@
               <li class="scroll-to-section"><a href="#faq">FAQ</a></li>
               <li class="scroll-to-section"><a href="#services">Services</a></li>
               <li class="scroll-to-section"><a href="terms_and_condition_page.jsp" target="_blank">Terms & Conditions</a></li>
-              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Contact</a></div></li> 
+              <li class="scroll-to-section"><button type="button" class="btn btn-outline-danger"><a href="#contact">Contact</a></button></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>

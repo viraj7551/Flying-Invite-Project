@@ -15,7 +15,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href=" ./assets/images/FlyingInvite.png" type="image/png">
+<link rel="icon" href=" ./assets/images/loggo.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="./assets/css/animated.css">
     <link rel="stylesheet" href="./assets/css/owl.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -79,18 +81,16 @@
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h6>Flying Invite</h6>
-                    <h2>India's  Interactive Invitation</h2>
-                    <p>
-                      Our main motive is to solve the problem of individual that they face while organizing event.
-                      There is usually a challenge to get right count of attendees till the end of an event, This challenge leads to increase in cost for an individual.
-                      Flying Invite addresses to this challenge by interacting with guest and track the count of attendees in real time in form of web template.
+                    <h6>Deliver</h6>
+                    <h2>ELEGANT</h2>
+                    <p id="hero_banner_sub_heading">
+                      Greetings & Invitations
                     </p>
                   </div>
                   <div class="col-lg-12">
-                    <div class="border-first-button scroll-to-section">
-                      <a href="#contact">Contact</a>
-                    </div>
+                    <button type="button" class="btn btn-outline-danger btn-lg w-40" onClick="#contact">
+                      For Corporate Events
+                    </button>
                   </div> 
                 </div>
               </div>
@@ -126,11 +126,9 @@
                 <p>Flying Invite mission is to transform the
                   way you invite your loved ones to lifes most
                   important moments. We provide a seamless and
-                  eco-friendly way to send invitations for family, seasonal and corporate
-                  events. Our beautifully designed digital
-                  invitation web template combine creativity and convenience,
-                  allowing you to make a lasting impression
-                  without the hassle of traditional paper invites.
+                  eco-friendly way to send invitations for corporate
+                  events. Our beautifully designed digital invitation web template combine creativity and convenience,
+                  allowing you to make a lasting impression.
                   </p>
                 <div class="row">
                   <div class="col-lg-4 col-sm-4">
@@ -144,8 +142,8 @@
                         </span>
                         <div class="progress-value">
                           <div>
-                            100%<br>
-                            <span>Eco-Friendly</span>
+                             User <br>Oriented
+                           
                           </div>
                         </div>
                       </div>
@@ -162,8 +160,8 @@
                         </span>
                         <div class="progress-value">
                           <div>
-                            100%<br>
-                            <span>Reliability</span>
+                              AI Process Driven
+                              
                           </div>
                         </div>
                       </div>
@@ -180,8 +178,7 @@
                         </span>
                         <div class="progress-value">
                           <div>
-                            100%<br>
-                            <span>Availability</span>
+                              Secured Payment
                           </div>
                         </div>
                       </div>
@@ -207,33 +204,28 @@
       </div>
 
       <div class="container" style="margin-top: 80px;">
-        <div class="label">What type of invitations we deliver ?</div>
-        <div class="content">We are providing invitations in form of web-template  for <strong> family events </strong> (i.e., wedding, birthday, annivarsary, baby shower) for <strong> corporate events </strong>(i.e., team-outing) <strong> other seasonal events </strong> (i.e., christmas, ganesh chaturthi, navratri, republic day, independance day, holi)</div>
+        <div class="label">What type of service we deliver ?</div>
+        <div class="content">We deliver Greetings and Invitations</div>
       </div>
       <hr>
       <div class="container">
-        <div class="label">How much guest I can invite for my event ?</div>
-        <div class="content"> You can share invitation web-template url upto <strong> 1000 </strong> guest.</div>
+        <div class="label">Is watermark removable ?</div>
+        <div class="content"> <strong>Yes</strong> watermark is removable, Once it has been downloaded</div>
       </div>
       <hr>
       <div class="container">
-        <div class="label">Can I able to track guest count ?</div>
+        <div class="label">Can I able to track guest count for web templates ?</div>
         <div class="content"><strong>Yes</strong>, you can able to track guest count going to attend your event.</div>
       </div>
       <hr>
       <div class="container">
-        <div class="label">What is the process to book an invitation ?</div>
-        <div class="content">Process is <strong> easy </strong>, You will contact to our admin team on given email address, admin will configure your template and will share you invitation web-template url on your contact, further you can share with your guest.</div>
-      </div>
-      <hr>
-      <div class="container">
-        <div class="label">How much time will it take to deliver invitation ?</div>
+        <div class="label">How much time will it take to deliver web-template invitation ?</div>
         <div class="content">Not more than <strong> 1 </strong> day.</div>
       </div>
       <hr>
       <div class="container">
         <div class="label">Is it pocket friendly ?</div>
-        <div class="content"><strong>Yes</strong>, our invitation web-template's are pocket-friendly.</div>
+        <div class="content"><strong>Yes</strong>, Greetings and Invitations are pocket-friendly.</div>
       </div>
       <hr>
     </div>
@@ -261,6 +253,7 @@
                           Digital<br>Invitations
                         </div>
                       </div>
+                 
                       <div>
                         <div class="thumb">                 
                           <span class="icon"><img src="assets/images/service-icon-03.png" alt=""></span>
@@ -273,6 +266,9 @@
                            Branding & Communication
                         </div>
                       </div>
+                      
+                      
+                      
                     </div>
                   </div> 
                   <div class="col-lg-12">
@@ -294,6 +290,7 @@
                           </div>
                         </div>
                       </li>
+
                       <li>
                         <div>
                           <div class="thumb">
@@ -355,7 +352,7 @@
             <div class="row" >
               <div class="col-lg-12" >
                 <div class="contact-dec" >
-                  <img src="assets/images/contact-dec-v3.png" alt="">
+                  <img src="assets/images/contact-dec-v2.png" alt="">
                 </div>
               </div>
               <div class="col-lg-7" >

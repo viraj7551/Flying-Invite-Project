@@ -15,7 +15,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href=" ./assets/images/FlyingInvite.png" type="image/png">
+<link rel="icon" href=" ./assets/images/loggo.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
