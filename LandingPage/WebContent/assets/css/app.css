@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
+@import url('https://googleapis.com');
 
 /*
 
@@ -135,10 +135,11 @@ ul {
 }
 
 p {
-  font-size: 20px;
+  font-size: 21px;
   line-height: 30px;
   font-weight: 200;
   color: black;
+  font-family:Arial;
 }
 
 #hero_banner_sub_heading{
@@ -203,10 +204,26 @@ body {
 .section-heading h6 {
   font-size: 20px;
   font-weight: 700;
-  color: #FF6060;
+  color: #FFF;
   text-transform: uppercase;
   margin-bottom: 15px;
+  font-family:'fantasy', cursive;
+  letter-spacing:10px;
 }
+
+
+.section-heading h2{
+  font-size: 55px;
+  font-weight: 700;
+  color: #FFF;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-family:'Allura', cursive;
+  letter-spacing:27px;
+}
+
+
+
 
 .section-heading h4 {
   color: #2a2a2a;

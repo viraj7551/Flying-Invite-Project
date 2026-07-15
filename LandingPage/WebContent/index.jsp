@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Parisienne&family=Pinyon+Script&family=Ephesis&display=swap" rel="stylesheet">
 
     <title>FlyingInvite | Special Invite</title>
 
@@ -123,12 +124,7 @@
                   <h4>Why Flying <em>Invite</em> ?</h4>
                   <div class="line-dec"></div>
                 </div>
-                <p>Flying Invite mission is to transform the
-                  way you invite your loved ones to lifes most
-                  important moments. We provide a seamless and
-                  eco-friendly way to send invitations for corporate
-                  events. Our beautifully designed digital invitation web template combine creativity and convenience,
-                  allowing you to make a lasting impression.
+                <p>Every celebration begins with a memorable greetings & invitations. Flying Invite creates premium digital invitations and corporate greetings that reflect your organization's professionalism and culture. Our designs are modern, customizable, and crafted to leave a lasting impression on employees, clients, and business partners. Whether it's a corporate event, employee birthday, festival, award ceremony, or product launch, we help you celebrate every milestone with creativity and elegance.
                   </p>
                 <div class="row">
                   <div class="col-lg-4 col-sm-4">
@@ -160,7 +156,7 @@
                         </span>
                         <div class="progress-value">
                           <div>
-                              AI Process Driven
+                              AI Content Validation
                               
                           </div>
                         </div>
@@ -205,7 +201,7 @@
 
       <div class="container" style="margin-top: 80px;">
         <div class="label">What type of service we deliver ?</div>
-        <div class="content">We deliver Greetings and Invitations</div>
+        <div class="content">We deliver Greetings and Invitations For Corporate Events.</div>
       </div>
       <hr>
       <div class="container">
@@ -253,16 +249,10 @@
                           Digital<br>Invitations
                         </div>
                       </div>
-                 
+                
                       <div>
                         <div class="thumb">                 
                           <span class="icon"><img src="assets/images/service-icon-03.png" alt=""></span>
-                           Birth Name Suggestion
-                        </div>
-                      </div>
-                      <div>
-                        <div class="thumb">                 
-                          <span class="icon"><img src="assets/images/service-icon-04.png" alt=""></span>
                            Branding & Communication
                         </div>
                       </div>
@@ -277,32 +267,24 @@
                         <div>
                           <div class="thumb">
                             <div class="row">
+                              
                               <div class="col-lg-6 align-self-center">
-                               
-                              <div class="left-text">
-                                <h4 id="navigateHeader">Interactive Invitations</h4>
-                                <div class="navigate_section">
-                                   <a  id="navigateBtn" href="invitation.jsp">Know More</a>
-                                </div>
+                                       <div class="about-right-content">
+                                         <div class="section-heading">
+                                                  <h6>Explore The</h6> 
+                                                  <h2>Playground</h2>
+                                         </div>
+                                       </div>
                               </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div>
-                          <div class="thumb">
-                            <div class="row">
+                              
                               <div class="col-lg-6 align-self-center">
-                                <div class="left-text">
-                                  <h4 id="navigateHeader">Birth Name Suggestor</h4>
-                                  <div class="navigate_section">
-                                    <a  id="navigateBtn" href="name_suggestor.jsp">Know More</a>
-                                  </div>         
-                                </div>
+                                        <div class="about-left-content">
+                                           <div class="navigate_section">
+                                              <button type="button" class="btn btn-outline-dark btn-lg w-40" >For Corporate Events</button>
+                                            </div>
+                                         </div>
                               </div>
+                              
                             </div>
                           </div>
                         </div>

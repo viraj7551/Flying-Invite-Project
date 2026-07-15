@@ -72,8 +72,8 @@
 
             <!-- ***** Menu Start ***** -->
                <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link " href="invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">Electronic Invites</a>
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">RSVP Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation"style= "background-color:#FFF; border-color:#FF6060; color:#FF6060;">Electronic Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation"style="background-color:#FF6060; border-color:#FF6060; color:#fff;">RSVP Invites</a>
 
             <!-- ***** Menu End ***** -->
           </nav>

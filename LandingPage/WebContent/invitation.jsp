@@ -76,8 +76,8 @@
 
             <!-- ***** Menu Start ***** -->
                <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">Electronic Invites</a>
-                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation">RSVP Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style="background-color:#FF6060; border-color:#FF6060; color:#fff;">Electronic Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style= "border-color:#FF6060; color:#FF6060; background-color:#FFF;">RSVP Invites</a>
             <!-- ***** Menu End ***** -->
           </nav>
         </div>
@@ -92,8 +92,8 @@
   <!-- ------------------Badges Start Here ----------------------------------------------------->
 
   <div class="badges" style="margin-top:180px; text-align:center">
-       <button type="button" class="btn btn-outline-primary active" id="btn_greeting" onclick="invitations_tab('greetings');">Greetings</button>  
-       <button type="button" class="btn btn-outline-primary" id="btn_invitation" onclick="invitations_tab('invitations');">Invitations</button>
+       <button type="button" class="btn btn-outline-danger active" id="btn_greeting" onclick="invitations_tab('greetings');">Greetings</button>  
+       <button type="button" class="btn btn-outline-danger" id="btn_invitation" onclick="invitations_tab('invitations');">Invitations</button>
   </div>
 
 <!-- ------------------Badges End Here  ------------------------------------------------------->
