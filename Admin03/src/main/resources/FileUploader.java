@@ -107,6 +107,7 @@ public class FileUploader extends HttpServlet {
     	    ps.setInt(4, templateId);
     	    ps.executeUpdate();
     	    temp_flag = true;
+    	    
     	}
     	
     	catch(Exception e) {

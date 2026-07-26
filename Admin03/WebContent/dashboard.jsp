@@ -87,7 +87,6 @@ margin-left:0;
 
 <a href="#">Dashboard</a>
 <a href="digital_invitation.jsp">Digital Invitations</a>
-<a href="#">Interactive Invitations</a>
 <a href="file_uploader.jsp">File Uploder</a>
 <a href="administrator.jsp">Logout</a>
 

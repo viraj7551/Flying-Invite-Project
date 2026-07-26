@@ -1,0 +1,337 @@
+package main.resources;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+
+@WebServlet("/Invitations")
+public class Invitations extends HttpServlet {
+	
+	Connection con;
+	PreparedStatement ps;
+	ResultSet rs;
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	private String username = "root";
+	private String password = "13Viraj@6937";
+	private PrintWriter pw;
+	
+	public void init() {
+		try {
+           Class.forName(driver);
+		   con = DriverManager.getConnection(url, username, password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        pw = response.getWriter();
+        response.setContentType("text/html");
+        
+        String template_title = request.getParameter("template_heading");
+        String template_specification = request.getParameter("template_specification");
+        String template_tag = request.getParameter("template_tag");
+        
+       
+        boolean isInsertedIntoTemplate =  insert_into_template(ps,con, template_title,template_specification,template_tag);
+        
+		if(isInsertedIntoTemplate) {    
+		    pw.println("<script type=\"text/javascript\">"); 
+		    pw.println("alert('Template details inserted successfully');"); 
+		    pw.println("location='digital_invitation.jsp';"); 
+		    pw.println("</script>"); 		  
+		}else {
+		    request.getSession(false); 
+		    pw.println("<script type=\"text/javascript\">"); 
+		    pw.println("alert('Invalid Credentials');"); 
+		    pw.println("location='administrator.jsp';"); 
+		    pw.println("</script>"); 
+		}
+        
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	private int read_template_info() {
+		int template_id = 0;
+		try {
+		  ps = con.prepareStatement("select max(template_id) as template_id from flyinginvite_template");
+		  rs = ps.executeQuery();
+		  if(rs.next()) {
+			  template_id = rs.getInt("template_id");
+		  }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return template_id;
+	}
+	
+	private int read_template_category_info() {
+		int category_id = 0;
+		try {
+			ps = con.prepareStatement("select max(category_id) as category_id from flyinginvite_template_category");
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				category_id = rs.getInt("category_id");
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return category_id;
+	}
+	
+	private int read_template_type_info() {
+		int type_id = 0;
+		try {
+			ps = con.prepareStatement("select max(type_id) as type_id from flyinginvite_template_type");
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				type_id = rs.getInt(type_id);
+			}
+		}
+		catch(Exception e) {
+           e.printStackTrace();
+		}
+		return type_id;
+	}
+	
+	private boolean insert_into_template(PreparedStatement ps, Connection con, String template_title, String template_specification, String template_tag) {
+		boolean flag = false;
+		if(template_title!= null || template_specification!= null || template_tag!=null) {
+			
+		   int temp_length = template_title.length();
+		   int temp_specification_length = template_specification.length();
+		   int temp_tag_length = template_tag.length();
+		   
+		   if(temp_length <= 20 || temp_specification_length <= 100 ||  temp_tag_length <= 40) {
+			  if( (!template_title.matches("^[A-Za-z ]+$")) ||(!template_specification.matches("^[A-Za-z ]+$") || (!template_tag.matches("^[A-Za-z ]+$")))){
+				  if(!template_title.matches("^[A-Za-z ]+$")) {
+					    pw.println("<script type=\"text/javascript\">"); 
+					    pw.println("alert('Please enter template title as character value');"); 
+					    pw.println("location='digital_invitation.jsp';"); 
+					    pw.println("</script>"); 
+				  }else if(!template_specification.matches("^[A-Za-z ]+$")) {
+					    pw.println("<script type=\"text/javascript\">"); 
+					    pw.println("alert('Please enter template specification as character value');"); 
+					    pw.println("location='digital_invitation.jsp';"); 
+					    pw.println("</script>"); 					  
+				  }else {
+					    pw.println("<script type=\"text/javascript\">"); 
+					    pw.println("alert('Please enter template tag as character value');"); 
+					    pw.println("location='digital_invitation.jsp';"); 
+					    pw.println("</script>");					  
+				  }
+			  }else {
+					try {
+						ps = con.prepareStatement("insert into flyinginvite_template(template_title, template_specification, template_tag)values(?,?,?)");
+						ps.setString(1, template_title);
+						ps.setString(2,template_specification);
+						ps.setString(3, template_tag);
+						ps.executeUpdate();	
+		/*				
+				        int template_id = read_template_info();
+						String template_type = request.getParameter("template_type_selector");
+				        boolean isInsertedIntoTemplateType = insert_into_template_type(ps,con,request, template_type, template_id);
+				        if(isInsertedIntoTemplateType) {
+				        	flag = true;
+				        }
+		*/		        
+						flag = true;
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}
+			  }
+			   
+		   }else {
+			   if(temp_length > 20) {
+				    pw.println("<script type=\"text/javascript\">"); 
+				    pw.println("alert('Please enter template title value less than 20 characters');"); 
+				    pw.println("location='digital_invitation.jsp';"); 
+				    pw.println("</script>"); 
+			   }else if(temp_specification_length > 100) {
+				    pw.println("<script type=\"text/javascript\">"); 
+				    pw.println("alert('Please enter template specification value less than 100 characters');"); 
+				    pw.println("location='digital_invitation.jsp';"); 
+				    pw.println("</script>");				   
+			   }else {
+				    pw.println("<script type=\"text/javascript\">"); 
+				    pw.println("alert('Please enter template tag value less than 40 characters');"); 
+				    pw.println("location='digital_invitation.jsp';"); 
+				    pw.println("</script>");				   
+			   }
+		   }
+
+		}else {
+			if(template_title == null || template_specification == null) {
+			    pw.println("<script type=\"text/javascript\">"); 
+			    pw.println("alert('Template title cannot be null');"); 
+			    pw.println("location='digital_invitation.jsp';"); 
+			    pw.println("</script>"); 
+			}else if(template_specification == null) {
+			    pw.println("<script type=\"text/javascript\">"); 
+			    pw.println("alert('Template specification cannot be null');"); 
+			    pw.println("location='digital_invitation.jsp';"); 
+			    pw.println("</script>"); 
+			}else {
+			    pw.println("<script type=\"text/javascript\">"); 
+			    pw.println("alert('Template tag cannot be null');"); 
+			    pw.println("location='digital_invitation.jsp';"); 
+			    pw.println("</script>"); 
+			}
+		}
+		return flag;
+	}
+	
+	
+	private boolean insert_into_template_category(PreparedStatement ps, Connection con,HttpServletRequest request, String template_category, int template_id) {
+		boolean flag = false;
+		if(template_category != null) {
+			try {
+				ps = con.prepareStatement("insert into flyinginvite_template_category(category_title, template_id)values(?,?)");
+				ps.setString(1, template_category);
+				ps.setInt(2, template_id);
+				ps.executeUpdate();
+		        
+				int template_price = Integer.parseInt(request.getParameter("total_amount"));
+		        int template_category_id = read_template_category_info();
+		        int template_type_id = read_template_type_info();
+		        
+				boolean isInsertedIntoTemplatePrice = insert_into_template_price(ps,con,template_price,template_id, template_category_id, template_type_id);
+				if(isInsertedIntoTemplatePrice) {
+					flag = true;
+				}
+				
+				flag = true;
+				
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}	
+		}
+		return flag;
+	}
+	
+	private boolean insert_into_template_type(PreparedStatement ps, Connection con,HttpServletRequest request, String type_title, int template_id) {
+		boolean flag = false;
+		if(type_title != null) {
+			try {
+				ps = con.prepareStatement("insert into flyinginvite_template_type(type_title, template_id)values(?,?);");
+				ps.setString(1, type_title);
+				ps.setInt(2, template_id);
+				ps.executeUpdate();
+				
+		        String template_download_type = request.getParameter("template_download_type");
+		        boolean isAccessType = insert_into_access_type(ps,con,template_download_type, template_id);
+		        if(isAccessType) {
+		        	flag = true;
+		        }
+		        
+				flag = true;
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+        String template_category = request.getParameter("template_category_selector");
+        int template_id02 = read_template_info();
+        boolean isInsertedIntoTemplateCategory = insert_into_template_category(ps,con, request,template_category,template_id02);
+        if(isInsertedIntoTemplateCategory) {
+        	flag = true;
+        }
+        
+		return flag;
+	}
+	
+	private boolean insert_into_template_price(PreparedStatement ps, Connection con, int price, int template_id, int category_id, int type_id) {
+		boolean flag = false;
+		try {
+			ps = con.prepareStatement("insert into flyinginvite_template_price(price, template_id, category_id, type_id) values(?,?,?,?)");
+			ps.setInt(1, price);
+			ps.setInt(2, template_id);
+			ps.setInt(3, category_id);
+			ps.setInt(4, type_id);
+		    ps.executeUpdate();
+		    flag = true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	private boolean insert_into_access_type(PreparedStatement ps, Connection con, String access_type_title, int template_id) {
+       boolean flag = false;
+       if(access_type_title != null) {
+           try {
+        	   ps = con.prepareStatement("insert into flyinginvite_access_type(access_type_title, template_id)values(?,?)");
+        	   ps.setString(1, access_type_title);
+        	   ps.setInt(2, template_id);
+        	   ps.executeUpdate();
+        	   flag = true;
+           }
+           catch(Exception e) {
+        	   e.printStackTrace();
+           }   
+       }
+       return flag;
+	}
+	
+	/*
+	
+	private boolean insert_into_template(PreparedStatement ps2, Connection con2, String template_type, String template_category, String template_heading, int template_price, String username, int userId, String template_download_type) {
+		boolean flag = false;
+		if(template_type != null && template_category != null && template_heading != null && username != null && template_download_type != null) {
+			try {
+				ps2 = con.prepareStatement("insert into template(template_type, template_category, template_price, username, template_heading, userId, template_download_type)values(?,?,?,?,?,?,?)");
+				ps2.setString(1,template_type);
+				ps2.setString(2,template_category);
+				ps2.setInt(3,template_price);
+				ps2.setString(4, username);
+				ps2.setString(5,template_heading);
+				ps2.setInt(6,userId);
+				ps2.setString(7, template_download_type);
+				ps2.executeUpdate();
+				flag = true;
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else {
+		      flag = false;
+		}	
+		return flag;
+	}
+	
+	*/
+		
+	public void destroy() {
+		try {
+			ps.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

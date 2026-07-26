@@ -115,7 +115,7 @@ margin-left:0;
     try{
     	Class.forName(driver);
     	con = DriverManager.getConnection(url, username, password);
-    	ps = con.prepareStatement("select templateId, template_heading, target_name from template Inner Join target using(templateId);");
+    	ps = con.prepareStatement("select template_id, template_title, target_title from flyinginvite_template Inner Join flyinginvite_target using(template_id);");
     	rs = ps.executeQuery();
 
 %>
@@ -126,7 +126,6 @@ margin-left:0;
 
 <a href="dashboard.jsp">Dashboard</a>
 <a href="digital_invitation.jsp">Digital Invitations</a>
-<a href="interactive_invitation.jsp">Interactive Invitations</a>
 <a href="#">File Uploder</a>
 <a href="administrator.jsp">Logout</a>
 
@@ -159,10 +158,10 @@ margin-left:0;
 
        <div class="mb-3">
            <label class="form-label">Select Template</label>
-             <select class="form-select" name="template_selector">
+             <select class="form-select" name="template_selector" required>
                <option selected>Selected</option>
                <% while(rs.next()){ %>
-               <option value="<%= rs.getInt("templateId") %>"><%= rs.getInt("templateId")%> - <%= rs.getString("template_heading") %> - <%= rs.getString("target_name") %></option>
+               <option value="<%= rs.getInt("template_id") %>"><%= rs.getInt("template_id")%> - <%= rs.getString("template_title") %> - <%= rs.getString("target_title") %></option>
                <% } %>
              </select>
        </div>

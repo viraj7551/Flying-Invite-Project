@@ -259,3 +259,17 @@
 0:0:0:0:0:0:0:1 - - [28/May/2026:21:08:13 +0530] "GET /Admin03/file_uploader.jsp HTTP/1.1" 200 4405
 0:0:0:0:0:0:0:1 - - [28/May/2026:21:08:35 +0530] "POST /Admin03/FileUploader HTTP/1.1" 200 115
 0:0:0:0:0:0:0:1 - - [28/May/2026:21:08:37 +0530] "GET /Admin03/file_uploader.jsp HTTP/1.1" 200 4405
+127.0.0.1 - - [28/May/2026:21:20:22 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:27 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3419
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:30 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:30 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:42 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3419
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:42 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:42 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:55 +0530] "POST /Admin03/Auth HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:56 +0530] "GET /Admin03/dashboard.jsp HTTP/1.1" 200 2745
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:20:59 +0530] "GET /Admin03/digital_invitation.jsp HTTP/1.1" 200 6529
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:21:34 +0530] "GET /Admin03/file_uploader.jsp HTTP/1.1" 200 4405
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:21:53 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3419
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:21:53 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [28/May/2026:21:21:53 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -

@@ -1,0 +1,183 @@
+package main.resources;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+
+@WebServlet("/Invitations")
+public class Invitations extends HttpServlet {
+	
+	Connection con;
+	PreparedStatement ps;
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	private String username = "root";
+	private String password = "13Viraj@6937";
+
+	
+	public void init() {
+		try {
+           Class.forName(driver);
+		   con = DriverManager.getConnection(url, username, password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        PrintWriter pw = response.getWriter();
+        response.setContentType("text/html");
+        
+		String template_type = request.getParameter("template_type_selector");
+        String template_category = request.getParameter("template_category_selector");
+        String template_title = request.getParameter("template_heading");
+        int template_price = Integer.parseInt(request.getParameter("total_amount"));
+        String template_download_type = request.getParameter("template_download_type");
+        String template_specification = request.getParameter("template_specification");
+        String template_tag = request.getParameter("template_tag");
+        
+        
+        int template_id = read_template_info();
+        
+        boolean isInsertedIntoTemplate =  insert_into_template(ps,con,template_title,template_specification,template_tag);
+        boolean isInsertedIntoTemplateCategory = insert_into_template_category(ps,con,template_category,template_id);
+        boolean isInsertedIntoTemplateType = insert_into_template_type(ps,con, template_type, template_id);
+       
+		if(isInsertedIntoTemplate && isInsertedIntoTemplateCategory) {    
+		    pw.println("<script type=\"text/javascript\">"); 
+		    pw.println("alert('Template details inserted successfully');"); 
+		    pw.println("location='digital_invitation.jsp';"); 
+		    pw.println("</script>"); 		  
+		}else {
+		    request.getSession(false); 
+		    pw.println("<script type=\"text/javascript\">"); 
+		    pw.println("alert('Invalid Credentials');"); 
+		    pw.println("location='administrator.jsp';"); 
+		    pw.println("</script>"); 
+		}
+        
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	private int read_template_info() {
+		int template_id = 0;
+		try {
+		  ps = con.prepareStatement("select max(template_id) from flying_invite_template");
+		  ResultSet rs = ps.executeQuery();
+		  if(rs.next()) {
+			  template_id = rs.getInt("template_id");
+		  }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return template_id;
+	}
+	
+	
+	private boolean insert_into_template(PreparedStatement ps, Connection con, String template_title, String template_specification, String template_tag) {
+		boolean flag = false;
+		if(ps!= null && con!= null && template_title!= null && template_specification!= null && template_tag!=null) {
+			try {
+				ps = con.prepareStatement("insert into flyinginvite_template(template_title, template_specification, template_tag) values(?,?,?)");
+				ps.setString(1, template_title);
+				ps.setString(2,template_specification);
+				ps.setString(3, template_specification);
+				ps.executeUpdate();	
+				flag = true;
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return flag;
+	}
+	
+	
+	private boolean insert_into_template_category(PreparedStatement ps, Connection con, String template_category, int template_id) {
+		boolean flag = false;
+		if(template_category != null) {
+			try {
+				ps = con.prepareStatement("insert into flyinginvite_template_category(category_title, template_id)values(?,?)");
+				ps.setString(1, template_category);
+				ps.setInt(2, template_id);
+				ps.executeUpdate();
+				flag = true;
+				
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}	
+		}
+		return flag;
+	}
+	
+	private boolean insert_into_template_type(PreparedStatement ps, Connection con, String type_title, int template_id) {
+		boolean flag = false;
+		if(type_title != null) {
+			try {
+				ps = con.prepareStatement("insert into flyinginvite_template_type(type_title, template_id)values(?,?);");
+				ps.setString(1, type_title);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	/*
+	
+	private boolean insert_into_template(PreparedStatement ps2, Connection con2, String template_type, String template_category, String template_heading, int template_price, String username, int userId, String template_download_type) {
+		boolean flag = false;
+		if(template_type != null && template_category != null && template_heading != null && username != null && template_download_type != null) {
+			try {
+				ps2 = con.prepareStatement("insert into template(template_type, template_category, template_price, username, template_heading, userId, template_download_type)values(?,?,?,?,?,?,?)");
+				ps2.setString(1,template_type);
+				ps2.setString(2,template_category);
+				ps2.setInt(3,template_price);
+				ps2.setString(4, username);
+				ps2.setString(5,template_heading);
+				ps2.setInt(6,userId);
+				ps2.setString(7, template_download_type);
+				ps2.executeUpdate();
+				flag = true;
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else {
+		      flag = false;
+		}	
+		return flag;
+	}
+	
+	*/
+		
+	public void destroy() {
+		try {
+			ps.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

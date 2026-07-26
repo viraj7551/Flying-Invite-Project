@@ -100,7 +100,6 @@ margin-left:0;
 
 <a href="dashboard.jsp">Dashboard</a>
 <a href="#">Digital Invitations</a>
-<a href="#">Interactive Invitations</a>
 <a href="file_uploader.jsp">File Uploder</a>
 <a href="administrator.jsp">Logout</a>
 
@@ -134,42 +133,20 @@ margin-left:0;
 <form method="POST" action="/Admin03/Invitations">
 
 <div class="row">
-
-     <div class="col-md-6 mb-3">
-          <label class="form-label">Template Type</label>
-          <input type="text" class="form-control" placeholder="Enter first name" name="template_type_selector"  value = "Digital Invitations" readonly>
-    </div>
-
-     <div class="col-md-6 mb-3">
-          <label class="form-label">Template Category</label>
-          <select class="form-select" name="template_category_selector">
-             <option selected>Select option</option>
-             <option value="Greeting">Greetings</option>
-             <option value="Invitation">Invitation</option>
-          </select>
-    </div>
-</div>
+    <div class="col-md-6 mb-3">
+        <label class="form-label">Template Heading</label>
+         <input type="text" class="form-control" placeholder="Enter Heading" name="template_heading" required>
+   </div>
+       <div class="col-md-6 mb-3">
+        <label class="form-label">Template Tag (Ex: Birthday)</label>
+         <input type="text" class="form-control" placeholder="Enter Tag" name="template_tag" required>
+   </div>
+ </div>
 
 <div class="mb-3">
-      <label class="form-label">Template Heading</label>
-      <input type="text" class="form-control" placeholder="Enter Heading" name="template_heading">
+      <label class="form-label">Template Specification</label>
+      <input type="text" class="form-control" placeholder="Enter Specification" name="template_specification" required>
 </div>
-
-
-<div class="row">
-     <div class="col-md-6 mb-3">
-          <label class="form-label">Template Price</label>
-          <input type="text" class="form-control" placeholder="Enter Amount*" name="total_amount">     
-     </div>
-     <div class="col-md-6 mb-3">
-              <label class="form-label">Download Type</label>
-              <select class="form-select" name="template_download_type">
-                 <option selected>Select option</option>
-                 <option value="Free">Free</option>
-                 <option value="Pay">Pay</option>
-             </select> 
-     </div>    
- </div>
 
 <div class="d-grid">
       <button type="submit" class="btn btn-primary">Submit </button>
@@ -184,15 +161,108 @@ margin-left:0;
  <!-- ------------------ Form ends here -->
  
  
- <!-- -------------------- Form 2 starts here -->
- 
+ <!-- --------------------Form 2 starts here ------------------->
 <div class="container">
-<div class="form-container">
-<h4 class="mb-4 text-center">Add Target Information</h4>
-<form method="POST" action="/Admin03/SetTargetInformation">
-<div class="row">
-      <div class="mb-3">
-      <label class="form-label">Select Target</label>
+<div class="form-container"> 
+<h4 class="mb-4 text-center">Add Template Type</h4>
+ <form method="POST" action="/Admin03/SetTypeInfo">
+  <div class="row">
+     <div class="mb-3">
+          <label class="form-label">Template Type</label>
+          <input type="text" class="form-control" placeholder="Enter first name" name="template_type_selector"  value = "Digital Invitations" required readonly>
+    </div>
+   <div class="d-grid">
+      <button type="submit" class="btn btn-primary">Submit </button>
+   </div>
+ </div>
+</form>
+</div>
+</div>
+ 
+ <!-- -------------------Form 2 ends here -->
+ 
+ 
+
+<!-- -------------------Form 3 starts here ------------->
+<div class="container">
+<div class="form-container"> 
+<h4 class="mb-4 text-center">Add Template Category</h4>
+ <form method="POST" action="/Admin03/SetCategoryInfo">
+  <div class="row">
+     <div class="mb-3">
+          <label class="form-label">Template Category</label>
+                <select id ="first_drop_down" class="form-select" name="category_selector" required>
+                  <option selected>Select option</option>
+                  <option value="Greetings">Greetings</option>
+                  <option value="Invitations">Invitations</option>
+               </select>
+    </div>
+   <div class="d-grid">
+      <button type="submit" class="btn btn-primary">Submit </button>
+   </div>
+ </div>
+</form>
+</div>
+</div>
+<!-- -------------------Form 3 ends here ---------------> 
+
+
+<!-- -------------------Form 4 starts here ---------------> 
+<div class="container">
+<div class="form-container"> 
+<h4 class="mb-4 text-center">Add Template Price</h4>
+ <form method="POST" action="/Admin03/SetPriceInfo">
+  <div class="row">
+     <div class="mb-3">
+          <label class="form-label">Template Price</label>
+          <input type="text" class="form-control" placeholder="Enter Amount*" name="total_amount" required>        
+    </div>
+   <div class="d-grid">
+      <button type="submit" class="btn btn-primary">Submit </button>
+   </div>
+ </div>
+</form>
+</div>
+</div>
+
+<!-- -------------------Form 4 ends here ---------------> 
+
+
+<!-- -------------------Form 5 starts here ------------->
+<div class="container">
+  <div class="form-container">
+      <h4 class="mb-4 text-center">Add Access Type</h4>
+      <form method="POST" action="/Admin03/SetAccessInfo">
+      <div class="row">
+         <div class="mb-3">
+              <label class="form-label">Download Type (Ex: Free / Paid)</label>
+              <select class="form-select" name="template_access_type">
+                 <option selected>Select option</option>
+                 <option value="Free">Free</option>
+                 <option value="Pay">Pay</option>
+             </select> 
+         </div>
+      </div>    
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary"> Submit </button>
+        </div>
+     </form>
+   </div>
+ </div>
+
+
+
+
+<!-- --------------------Form 5 ends here ---------------->
+
+<!-- -------------------- Form 6 starts here --> 
+<div class="container">
+  <div class="form-container">
+   <h4 class="mb-4 text-center">Add Target Information</h4>
+  <form method="POST" action="/Admin03/SetTargetInformation">
+    <div class="row">
+        <div class="mb-3">
+        <label class="form-label">Select Target</label>
       <select id ="first_drop_down" class="form-select" onchange = "festivalFilter()" name="target_selector">
           <option selected>Select option</option>
           <option value="Wedding">Wedding</option>
@@ -204,38 +274,15 @@ margin-left:0;
        </select>
 </div>
 </div>
-
-<div class="row">
-<div class="mb-3"  id="second_drop_down"  style="display:none;">
-      <label class="form-label">Select Festival</label>
-          <select class="form-select" name="festival_selector">
-             <option selected>Select option</option>
-             <option value="Makar Sankranti">Makar Sankranti</option>
-             <option value="Holi">Holi</option>
-             <option value="Eid-ul-Fitr">Eid-ul-Fitr</option>
-             <option value="Gudi Padwa">Gudi Padwa</option>
-             <option value="Ram Navami">Ram Navami</option>
-             <option value="Easter">Easter</option>
-             <option value="Independence Day">Independence Day</option>
-             <option value="Raksha Bandhan">Raksha Bandhan</option>
-             <option value="Janmashtami">Janmashtami</option>
-             <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
-             <option value="Dussehra">Dussehra</option>
-             <option value="Diwali">Diwali</option>
-          </select>
+  <div class="d-grid">
+     <button type="submit" class="btn btn-primary"> Submit </button>
    </div>
+
+ </form>
+ </div>
 </div>
 
-<div class="d-grid">
- <button type="submit" class="btn btn-primary"> Submit </button>
-</div>
-
-</form>
-</div>
-</div>
-
-
- <!-- ---------------------Form 2 ends here -->
+ <!-- ---------------------Form 6 ends here -->
  
 
 </div>

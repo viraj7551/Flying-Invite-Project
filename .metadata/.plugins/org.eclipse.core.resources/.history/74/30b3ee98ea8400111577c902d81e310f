@@ -1,0 +1,132 @@
+package main.resources;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/SetPriceInfo")
+public class SetTemplatePriceInfo extends HttpServlet {
+	
+	Connection con;
+	PreparedStatement ps;
+	ResultSet rs;
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	private String username = "root";
+	private String password = "13Viraj@6937";
+	private PrintWriter pw;
+
+	public void init() {
+		try {
+           Class.forName(driver);
+		   con = DriverManager.getConnection(url, username, password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+        pw = response.getWriter();
+        response.setContentType("text/html");
+    
+        int template_type_id = read_template_type_info();
+        int template_category_id  = read_template_category_info();
+        int template_id = read_template_info();
+        int template_amount = Integer.parseInt(request.getParameter("total_amount"));
+        
+        boolean isInsertedIntoTemplatePrice = insert_into_template_price(ps, con, template_amount, template_id, template_category_id, template_type_id);
+        if(isInsertedIntoTemplatePrice) {
+        	
+        }else {
+        	
+        }
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	private boolean insert_into_template_price(PreparedStatement ps, Connection con, int amount, int template_id, int category_id, int type_id) {
+		boolean flag = false;
+		try {
+			ps = con.prepareStatement("insert into flyinginvite_template_price(price, template_id, category_id, type_id)values(?,?,?);");
+			ps.setInt(1, amount);
+			ps.setInt(2, template_id);
+			ps.setInt(3, category_id);
+			ps.setInt(4, type_id);
+			ps.executeUpdate();
+			flag = true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	private int read_template_type_info() {
+		int type_id = 0;
+		try {
+			ps = con.prepareStatement("select max(type_id) as type_id from flyinginvite_template_type");
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				type_id = rs.getInt(type_id);
+			}
+		}
+		catch(Exception e) {
+           e.printStackTrace();
+		}
+		return type_id;
+	}
+	
+	
+	private int read_template_category_info() {
+		int category_id = 0;
+		try {
+			ps = con.prepareStatement("select max(category_id) as category_id from flyinginvite_template_category");
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				category_id = rs.getInt("category_id");
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return category_id;
+	}
+	
+	private int read_template_info() {
+		int template_id = 0;
+		try {
+		  ps = con.prepareStatement("select max(template_id) as template_id from flyinginvite_template");
+		  rs = ps.executeQuery();
+		  if(rs.next()) {
+			  template_id = rs.getInt("template_id");
+		  }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return template_id;
+	}
+	
+	public void destroy() {
+		try {
+			ps.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

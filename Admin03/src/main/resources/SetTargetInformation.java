@@ -36,121 +36,61 @@ public class SetTargetInformation extends HttpServlet {
 	}
 	
 	
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           pw = response.getWriter();
           response.setContentType("text/html");
-          boolean flag = false; 
-          
+
 		  String selected_target = request.getParameter("target_selector");
 		  
-          int user_id = read_user_info(ps,con);
-		  int template_id = read_template_id(ps,con);
+		  int template_id = read_template_id();
 		  
-		 
-          System.out.println("Current Template Id is: "+template_id);
-          
-          
-          if(selected_target.equalsIgnoreCase("Festival")) {
-    		  String selected_festival = request.getParameter("festival_selector");
-        	  boolean flag01 = insert_into_target(ps,con,selected_target, user_id, template_id);
+        	  boolean flag01 = insert_into_target(ps,con,selected_target, template_id);
         	  
-        	  int target_id = read_target_id(ps,con);
-        	  boolean flag02 = insert_into_festival(ps,con,selected_festival, user_id, template_id, target_id);
-        	  
-              if(flag01 == true || flag02 == true) {
-            	  if(flag01 == true) {
-            		    pw.println("<script type=\"text/javascript\">"); 
-              		    pw.println("alert('Template Details inserted successfully');"); 
-              		    pw.println("location='digital_invitation.jsp';"); 
-              		    pw.println("</script>");  
-            	  }else {
-          		        pw.println("<script type=\"text/javascript\">"); 
-          		        pw.println("alert('Target Details inserted successfully');"); 
-          		        pw.println("location='digital_invitation.jsp';"); 
-          		        pw.println("</script>");            		  
-            	  } 
+              if(flag01 == true) {
+      		    pw.println("<script type=\"text/javascript\">"); 
+      		    pw.println("alert('Target Details inserted successfully');"); 
+      		    pw.println("location='digital_invitation.jsp';"); 
+      		    pw.println("</script>");
+      		    
               }else {
        		    pw.println("<script type=\"text/javascript\">"); 
-       		    pw.println("alert('Something went wrong');"); 
+       		    pw.println("alert('Something went wrong, while entering target details');"); 
        		    pw.println("location='digital_invitation.jsp';"); 
        		    pw.println("</script>"); 
-              }        		   
-                
-          }else {
-        	   if(selected_target != null) {
-             	  flag = insert_into_target(ps,con,selected_target, user_id, template_id);
-                  if(flag == true) {
-          		    pw.println("<script type=\"text/javascript\">"); 
-          		    pw.println("alert('Target details inserted successfully');"); 
-          		    pw.println("location='digital_invitation.jsp';"); 
-          		    pw.println("</script>"); 
-                  }else {
-           		    pw.println("<script type=\"text/javascript\">"); 
-           		    pw.println("alert('Something went wrong');"); 
-           		    pw.println("location='digital_invitation.jsp';"); 
-           		    pw.println("</script>"); 
-                  }        		   
-        	   }
-          }
+              } 
+	       
 	}
 	
-	private int read_user_info(PreparedStatement ps, Connection con) {
-		int userId = -1;
-		String username = "Viraj1997";		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+	
+	private int read_template_id() {
+		int template_id = 0;
 		try {
-			ps = con.prepareStatement("select userId, email from userInfo where email = ?");
-			ps.setString(1, username);
+			ps = con.prepareStatement("select max(template_id) as template_id from flyinginvite_template");
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				userId = rs.getInt("userId");
+				template_id = rs.getInt("template_id");
 			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		return userId;
+		return template_id;
 	}
 	
 	
-	private int read_template_id(PreparedStatement ps, Connection con) {
-		int total_template_count = 0;
-		try {
-			ps = con.prepareStatement("select count(*) as total_template_count from template");
-			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
-				total_template_count = rs.getInt("total_template_count");
-			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		return total_template_count;
-	}
-	
-	private int read_target_id(PreparedStatement ps, Connection con) {
-		int total_target_count = 0;
-		try {
-			ps = con.prepareStatement("select count(*) as total_target_count from target");
-			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
-				total_target_count = rs.getInt("total_target_count");
-			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return total_target_count;
-	}
-	
-	
-	private boolean insert_into_target(PreparedStatement ps, Connection con, String selected_target, int user_id, int template_id) {  
+	private boolean insert_into_target(PreparedStatement ps, Connection con, String selected_target, int template_id) {  
 		boolean flag = false;
 		try {
-		     ps = con.prepareStatement("insert into target(target_name, userId, templateId)values(?,?,?)");
+		     ps = con.prepareStatement("insert into flyinginvite_target(target_title, template_id)values(?,?)");
 		     ps.setString(1, selected_target);
-		     ps.setInt(2, user_id);
-		     ps.setInt(3, template_id);
+		     ps.setInt(2, template_id);
              ps.executeUpdate();
              flag = true;
 		}
@@ -158,29 +98,6 @@ public class SetTargetInformation extends HttpServlet {
 			e.printStackTrace();
 		}
 		return flag;
-	}
-	
-	private boolean insert_into_festival(PreparedStatement ps, Connection con, String selected_festival, int user_id, int template_id, int target_id) {
-		boolean flag = false;
-		try {
-			ps = con.prepareStatement("insert into festival(festival_name, userId, templateId, targetId) values(?,?,?,?)");
-			ps.setString(1,selected_festival);
-			ps.setInt(2,user_id);
-			ps.setInt(3,template_id);
-			ps.setInt(4,target_id);
-			ps.executeUpdate();
-			flag = true;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		return flag;
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 	public void destroy() {
