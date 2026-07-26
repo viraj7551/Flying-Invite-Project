@@ -69,7 +69,7 @@
   
      <%@ include file="/WEB-INF/jsp/common/header.jsp" %>
   
-  <!-- ***** Heade
+  <!-- ***** Header
   
   r Area End ***** -->
 
@@ -89,9 +89,7 @@
                     </p>
                   </div>
                   <div class="col-lg-12">
-                    <button type="button" class="btn btn-outline-danger btn-lg w-40" onClick="#contact">
-                      For Corporate Events
-                    </button>
+                    <a href="#services" class="btn btn-outline-danger btn-lg w-20">For Corporate Events</a>
                   </div> 
                 </div>
               </div>
@@ -106,6 +104,30 @@
       </div>
     </div>
   </div>
+  
+  <section class="stats-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Left Card -->
+            <div class="col-md-6">
+                <div class="stats-card float-left">
+                    <h4 class="mb-3">Number Of Users Visited</h4>
+                    <div class="blink-count">344+</div>
+                </div>
+            </div>
+
+            <!-- Right Card -->
+            <div class="col-md-6">
+                <div class="stats-card float-right">
+                    <h4 class="mb-3">Total Greetings Delivered</h4>
+                    <div class="blink-count">80+</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
   <div id="about" class="about section">
     <div class="container">
@@ -124,7 +146,7 @@
                   <h4>Why Flying <em>Invite</em> ?</h4>
                   <div class="line-dec"></div>
                 </div>
-                <p>Every celebration begins with a memorable greetings & invitations. Flying Invite creates premium digital invitations and corporate greetings that reflect your organization's professionalism and culture. Our designs are modern, customizable, and crafted to leave a lasting impression on employees, clients, and business partners. Whether it's a corporate event, employee birthday, festival, award ceremony, or product launch, we help you celebrate every milestone with creativity and elegance.
+                <p>Every celebration begins with a memorable greetings & invitations. Flying Invite creates premium corporate greetings and invitations that reflect your organization's professionalism and culture. Our designs are modern and crafted to leave a lasting impression on employees, clients, and business partners. Whether it's a corporate event, employee birthday, festival, award ceremony, or product launch, we help you celebrate every milestone with creativity and elegance.
                   </p>
                 <div class="row">
                   <div class="col-lg-4 col-sm-4">
@@ -245,14 +267,14 @@
                     <div class="menu">
                       <div class="first-thumb active">
                         <div class="thumb">
-                          <span class="icon"><img src="assets/images/service-icon-04.png" alt=""></span>
-                          Digital<br>Invitations
+                          <span class="icon"><img src="assets/images/service-icon-04.png" alt="icon image for greetings and invitations"></span>
+                          Greetings & Invitations
                         </div>
                       </div>
                 
                       <div>
                         <div class="thumb">                 
-                          <span class="icon"><img src="assets/images/service-icon-03.png" alt=""></span>
+                          <span class="icon"><img src="assets/images/service-icon-03.png" alt="icon image for branding & communication"></span>
                            Branding & Communication
                         </div>
                       </div>
@@ -272,7 +294,7 @@
                                        <div class="about-right-content">
                                          <div class="section-heading">
                                                   <h6>Explore The</h6> 
-                                                  <h2>Playground</h2>
+                                                  <h2>Templates</h2>
                                          </div>
                                        </div>
                               </div>
@@ -280,7 +302,7 @@
                               <div class="col-lg-6 align-self-center">
                                         <div class="about-left-content">
                                            <div class="navigate_section">
-                                              <button type="button" class="btn btn-outline-dark btn-lg w-40" >For Corporate Events</button>
+                                              <a class="btn btn-outline-dark btn-lg w-40 serviceBtn" href="greetings.jsp"> For Corporate Events</a>
                                             </div>
                                          </div>
                               </div>
@@ -295,12 +317,20 @@
                           <div class="thumb">
                             <div class="row">
                               <div class="col-lg-6 align-self-center">
-                                <div class="left-text">
-                                  <h4 id="navigateHeader">Tagline for Business</h4>
-                                  <div class="navigate_section">
-                                    <a  id="navigateBtn" href="branding.jsp">Know More</a>
-                                  </div>  
-                                </div>
+
+                                       <div class="about-right-content">
+                                         <div class="section-heading">
+                                                  <h6>Explore The</h6> 
+                                                  <h2>Section</h2>
+                                         </div>
+                                       </div>
+                               </div>        
+                              <div class="col-lg-6 align-self-center">
+                                        <div class="about-left-content">
+                                           <div class="navigate_section">
+                                              <a href="branding.jsp" class="btn btn-outline-dark btn-lg w-40 serviceBtn" >For Business Brand</a>
+                                            </div>
+                                         </div>
                               </div>
                             </div>
                           </div>

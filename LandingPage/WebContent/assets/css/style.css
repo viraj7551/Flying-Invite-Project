@@ -126,6 +126,163 @@ h1 {
     font-size: 30px;
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section Styling */
+.stats-section {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #cf5f5f, #c94c7f, #6d426d);
+}
+
+/* Card Styling */
+.stats-card {
+    border: none;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+/* Floating Animations */
+.float-left {
+    animation: floatLeft 3s ease-in-out infinite;
+}
+
+.float-right {
+    animation: floatRight 3s ease-in-out infinite;
+}
+
+@keyframes floatLeft {
+    0%, 100% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes floatRight {
+    0%, 100% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+/* Blinking Counter */
+.blink-count {
+    color: #ff6060;
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .stats-card {
+        margin-bottom: 20px;
+    }
+
+    .blink-count {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
  @media (max-width: 1200px) {
     #navigateBtn{

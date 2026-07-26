@@ -5,19 +5,84 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Footer</title>
+
+    <!-- Bootstrap core CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    
 </head>
 <body>
 
 <!-- ------------Footer starts here ------------- -->
-   <footer>
-       <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-           <p class="footer-title">FlyingInvite@2026</p>
+
+<footer class="bg-dark text-white pt-4 pb-2">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Section 1: Quick Links -->
+         <div class="row">
+           <div class="col-lg-6 col-md-6">
+              
+                <div class="row">
+                   <div class="col-sm-12">
+                     <ul class="list-inline mb-0 text-center text-md-start">
+                         <li class="list-inline-item me-5 fs-5" ><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                    </ul>
+                   </div>
+                    <div class="col-sm-12">
+                         <ul class="list-inline mb-0 text-center text-md-start">
+                           <li class="list-inline-item me-5 fs-5"><a href="#faq" class="text-white text-decoration-none">FAQ</a></li>
+                          </ul>   
+                   </div>
+                   <div class="col-sm-12">
+                    <ul class="list-inline mb-0 text-center text-md-start">
+                       <li class="list-inline-item me-5 fs-5"><a href="#about" class="text-white text-decoration-none">About</a></li>
+                    </ul>   
+                   </div>
+                   
+                    <div class="col-sm-12">
+                         <ul class="list-inline mb-0 text-center text-md-start">
+                           <li class="list-inline-item me-5 fs-5"><a href="#" class="text-white text-decoration-none">Careers</a></li>
+                          </ul>   
+                   </div>
+                      <div class="col-sm-12">
+                         <ul class="list-inline mb-0 text-center text-md-start">
+                           <li class="list-inline-item me-5 fs-5"><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                          </ul>   
+                   </div>
+                  
+                    <div class="col-sm-12">
+                         <ul class="list-inline mb-0 text-center text-md-start">
+                           <li class="list-inline-item me-5 fs-5"><a href="terms_and_condition_page.jsp" class="text-white text-decoration-none">Terms & Conditions</a></li>
+                          </ul>   
+                   </div>
+                </div>
+           </div> 
+           
+   <div class="col-lg-6 col-md-6">
+   
+     <div class="container footer-social-icons" style="margin:70px;">
+           <!-- Section 2: Social Icons -->
+        <a href="https://www.facebook.com/profile.php?id=61567671551405" class="text-white me-3 fs-5" target="_blank;"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.instagram.com/flyinginvite/?igsh=Yjh6aXM5eHZ3a3Nt" class="text-white me-3 fs-5"  target="_blank;"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/flying-invite/" class="text-white fs-5"  target="_blank";><i class="bi bi-linkedin"></i></a>
+     </div>
+    </div>
+           </div>
+        
         </div>
+     
+
+    <hr class="border-secondary my-3">
+
+    <!-- Section 3: Copyright -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="footer-title mb-0">© 2026 FlyingInvite. All rights reserved.</p>
       </div>
     </div>
-   </footer> 
+  </div>
+</footer>
    
  <!-- ------------Footer ends here------------------------------ -->  
 </body>

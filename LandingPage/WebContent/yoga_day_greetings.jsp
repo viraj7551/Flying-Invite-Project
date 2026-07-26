@@ -110,6 +110,14 @@
     
 </head>
 <body>
+
+<%
+if(session.getAttribute("session_id") == null){
+	session.invalidate();
+    response.sendRedirect("login.jsp");
+} else{
+
+%>
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -136,7 +144,7 @@
   <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-lg-6">
 
             <!-- ***** Menu Start ***** -->
                 <span>
@@ -144,7 +152,16 @@
               </span>
 
             <!-- ***** Menu End ***** -->
-        </div>    
+        </div>   
+        
+        <div class="col-12 col-lg-6">
+          <nav class="main-nav">
+              <ul class="nav">
+                <li class="scroll-to-section"><button id="logout" type="submit" class="btn btn-outline-danger"><a href="login.jsp">Sign-out</a></button></li>                   
+              
+              </ul>
+          </nav>
+        </div> 
       </div>
     </div>
     
@@ -341,5 +358,9 @@
   <script src="./assets/js/custom.js"></script>
    <script src="./assets/js/downloadFile.js"></script>
   <script src="./assets/js/app.js"></script>
+  <% 
+     }
+  %>
+ 
 </body>
 </html>

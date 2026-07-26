@@ -63,26 +63,26 @@
 
   <!-- ***** Header Area Start ***** -->
   
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
+     <%@ include file="/WEB-INF/jsp/common/header02.jsp" %>
+  
+    <!-- ***** Header Area End ***** -->
+    
+    
+    <div class="container" style="margin-top:180px;">
       <div class="row">
         <div class="col-12">
 
             <!-- ***** Menu Start ***** -->
                <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation"style= "background-color:#FFF; border-color:#FF6060; color:#FF6060;">Electronic Invites</a>
-                  <a class="flex-sm-fill text-sm-center nav-link" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation"style="background-color:#FF6060; border-color:#FF6060; color:#fff;">RSVP Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="greetings.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation"style= "background-color:#FFF; border-color:#FF6060; color:#FF6060;">E-Greetings</a>
+                  <a class="flex-sm-fill text-sm-center nav-link" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation"style="background-color:#FF6060; border-color:#FF6060; color:#fff;">E-Invitations</a>
 
             <!-- ***** Menu End ***** -->
           </nav>
         </div>
       </div>
     </div>
-  </header>
   
-  <!-- ***** Header Area End ***** -->
 
    <div class="container mt-5">  
        <h2 class="blink_me"  id="coming_soon_header" style=" margin: 45vh auto 45vh auto;">Coming Soon</h2>

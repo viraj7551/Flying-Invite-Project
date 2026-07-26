@@ -16,19 +16,9 @@
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="#" class="logo">
-              <img id="brand_logo" src="assets/images/loggo.png" style="width: 150px; margin-top:30px;" alt="brand logo">
-            </a>
-            <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#home" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
-              <li class="scroll-to-section"><a href="#faq">FAQ</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
-              <li class="scroll-to-section"><a href="terms_and_condition_page.jsp" target="_blank">Terms & Conditions</a></li>
-              <li class="scroll-to-section"><a href="#contact">Contact</a></li>
-              
+           
               <%
               if(session.getAttribute("session_id") == null){
                %>
@@ -51,8 +41,8 @@
         </div>
       </div>
     </div>
-  </header>
   <!-- ***** Header Area End ***** -->
+  </header>
   
     <script src="./assets/js/responsive_logo_hide.js"></script>
     <script src="./assets/js/logout.js"></script>

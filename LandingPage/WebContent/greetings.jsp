@@ -45,6 +45,14 @@
 </head>
 <body>
 
+<%
+if(session.getAttribute("session_id") == null){
+	session.invalidate();
+    response.sendRedirect("login.jsp");
+} else{
+
+%>
+
 
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -69,48 +77,31 @@
   
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
+       <%@ include file="/WEB-INF/jsp/common/header02.jsp" %>
+  
+  <!-- ***** Header Area End ***** -->
+
+
+<div class="container" style="margin-top:180px;">
       <div class="row">
         <div class="col-12">
 
             <!-- ***** Menu Start ***** -->
                <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style="background-color:#FF6060; border-color:#FF6060; color:#fff;">Electronic Invites</a>
-                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style= "border-color:#FF6060; color:#FF6060; background-color:#FFF;">RSVP Invites</a>
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style="background-color:#FF6060; border-color:#FF6060; color:#fff;">E-Greetings</a>
+                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style= "border-color:#FF6060; color:#FF6060; background-color:#FFF;">E-Invitations</a>
             <!-- ***** Menu End ***** -->
           </nav>
         </div>
       </div>
-    </div>
-  </header>
-  
-  <!-- ***** Header Area End ***** -->
-
-
-
-  <!-- ------------------Badges Start Here ----------------------------------------------------->
-
-  <div class="badges" style="margin-top:180px; text-align:center">
-       <button type="button" class="btn btn-outline-danger active" id="btn_greeting" onclick="invitations_tab('greetings');">Greetings</button>  
-       <button type="button" class="btn btn-outline-danger" id="btn_invitation" onclick="invitations_tab('invitations');">Invitations</button>
-  </div>
-
-<!-- ------------------Badges End Here  ------------------------------------------------------->
-
-
-
-<div class="main" id="greetings" style="display:block;">
- <div class="container d-flex justify-content-end my-4">
- <div class="container mt-3">
-   <select class="form-select btn-outline-primary" id="greeting" onchange="greeting_filter();">
-        <option selected>Open this select menu</option>  
-        <option value="Yoga Day Greetings">Yoga Day Greetings</option>
-    </select>
-   </div>
 </div>
 
+
+
+<div class="container" style="margin-top:50px;">
    <h1 style="padding:60px; font-family:Arial"> <a href="index.jsp"> <i class="bi bi-arrow-left fs-1"></i> </a> DIGITAL GREETINGS <span id="greetings_count"></span></h1>
+
+</div>
 
    <div class="container mt-5">   
      <div class="row">
@@ -205,5 +196,7 @@
   <script src="./assets/js/dropdown.js"></script>
   <script src="./assets/js/greeting_drop_down.js"></script>
   <script src="./assets/js/invite_drop_down.js"></script>
+
+<%} %>
 </body>
 </html>

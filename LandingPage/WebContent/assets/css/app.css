@@ -112,6 +112,7 @@ header, nav, section, article, aside, footer, hgroup {
   font-weight: 200;
 }
 
+
 html, body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -135,11 +136,16 @@ ul {
 }
 
 p {
-  font-size: 21px;
+  font-size: 17px;
   line-height: 30px;
   font-weight: 200;
   color: black;
   font-family:Arial;
+}
+
+.quick_link{
+	  font-size: 16px;
+	    line-height: 13px;
 }
 
 #hero_banner_sub_heading{
@@ -213,7 +219,7 @@ body {
 
 
 .section-heading h2{
-  font-size: 55px;
+  font-size: 70px;
   font-weight: 700;
   color: #FFF;
   text-transform: uppercase;
@@ -713,6 +719,8 @@ header
   .header-area .main-nav .logo {
     color: #1e1e1e;
   }
+
+  
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
     /*color: #4da6e7!important; */
@@ -743,6 +751,8 @@ header
   .header-area .main-nav {
     overflow: hidden;
   }
+  
+  
   .header-area .main-nav .nav {
     float: none;
     width: 100%;
@@ -774,8 +784,8 @@ header
     line-height: 50px !important;
     padding: 0px !important;
     border: none !important;
-    background: #f7f7f7 !important;
-    color: #191a20 !important;
+    background: linear-gradient(to right, #cf5f5f, #c94c7f, #6d426d);
+    color: white !important;
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
@@ -2013,6 +2023,8 @@ responsive
 */
 
 @media (max-width: 1200px) {
+	
+
   .header-area .main-nav .logo h4 {
     font-size: 24px;
   }
@@ -2044,9 +2056,14 @@ responsive
   }
   
   .section-heading h6{
-    font-size:18px;
+    font-size:14px;
   }
   
+  .section-heading h2{
+	font-size:28px;
+	letter-spacing:10px;
+}
+
 
 }
 
@@ -2120,9 +2137,18 @@ responsive
   .fill-form{
     width: auto;
   }
+ 
 }
 
 @media (max-width: 767px) {
+	
+.serviceBtn{
+	margin-top:10px;
+	margin-left:-100px;
+	width:150px;
+	font-size:15px;
+}
+
   .header-area .main-nav .logo h4 {
     font-size: 30px;
   }
@@ -2213,6 +2239,8 @@ responsive
   .info-post{
     width: 110%;
   }
+  
+  
 }
 
 
