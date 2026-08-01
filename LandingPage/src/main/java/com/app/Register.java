@@ -7,10 +7,22 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,15 +31,21 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	    
+	
+	// Email regex pattern
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
+
 	   Connection con;
 	   PreparedStatement ps;
 	   PrintWriter pw;
+	    
 	    
 		public void init(ServletConfig config) {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 			String username = "root";
-			String password = "13Viraj@6937";
+			String password = "13Viraj@2507";
 			try {
 				Class.forName(driver);
 				con = DriverManager.getConnection(url,username,password);
@@ -44,26 +62,80 @@ public class Register extends HttpServlet {
 		
 		  String login_username = request.getParameter("username");
 		  String contact = request.getParameter("user_contact");
-		  String email = request.getParameter("user_email");
+		  String email = request.getParameter("user_register_email");
 		  
 		  //to check all 3 values are not null
 		  
 		  if(login_username == null || contact == null || email == null) {
             if(login_username == null) {
-			    pw.println("<script type=\"text/javascript\">"); 
-			    pw.println("alert('name cannot be empty, please enter your name');");  
-			    pw.println("location='register.jsp';");
-			    pw.println("</script>");            	
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('You cannot register with empty username.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='register.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>");
+
+	    		pw.println("</body>");
+	    		pw.println("</html>");           	
             }else if(contact == null) {
-			    pw.println("<script type=\"text/javascript\">"); 
-			    pw.println("alert('contact cannot be emptym please enter your contact detail');");  
-			    pw.println("location='register.jsp';");
-			    pw.println("</script>"); 
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('You cannot register with empty contact detail.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='register.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>");
+
+	    		pw.println("</body>");
+	    		pw.println("</html>");  
             }else {
-			    pw.println("<script type=\"text/javascript\">"); 
-			    pw.println("alert('email cannot be empty, please enter your email');");  
-			    pw.println("location='register.jsp';");
-			    pw.println("</script>"); 
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('You cannot register with empty email address.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='register.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>");
+
+	    		pw.println("</body>");
+	    		pw.println("</html>");  
             }
 			  
 		  }else {
@@ -74,52 +146,205 @@ public class Register extends HttpServlet {
 			  int contact_length = contact.length();
 			  int email_length = email.length();
 			  
-			  if((username_length < 5 || username_length > 20) || (contact_length < 10 || contact_length > 10) || (email_length < 12 || email_length > 30)) {
+			  if((username_length < 5 || username_length > 20) || (contact_length < 10 || contact_length > 10) || (email_length < 9 || email_length > 30)) {
 			    if(username_length < 5 || username_length > 20) {
 			    	if(username_length < 5) {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('You cannot be submit name less than 5 characters');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");			    		
+			    		response.setContentType("text/html; charset=UTF-8");
+			    		PrintWriter pw = response.getWriter();
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with username less than 5 characters.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>"); 			    		
 			    	}else {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('You cannot enter name more than 20 characters');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");			    		
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with username more than 20 characters.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>");			    		
 			    	}
 			    }else if(contact_length < 10 || contact_length > 10) {
 			      if(contact_length < 10) {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('You cannot submit contact less than 10 values');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");			    	  
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with less than 10 contact values.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>");		    	  
 			      }else {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('You cannot submit contact more than 10 values');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");			    	  
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with less than 10 contact values.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>");			    	  
 			      }
 			    }else {
-			       if(email_length < 12) {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('You cannot submit with incorrect email');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");	
+			       if(email_length < 9) {
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with email less than 9 characters.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>");	
 			       }else {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('You cannot submit with more than set email value');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");			    	   
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with email more than 30 characters.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>");		    	   
 			       }
 			    } 
 			  }else {
 				  
+				  boolean userEmailPatternIsCorrect = isValidEmail(email);
+				  if(!userEmailPatternIsCorrect) {
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('You cannot register with incorrect email format.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>"); 
+				  }else {				  
 				  boolean userEmailExists = check_user_email_exists(ps, con, contact);
 				  if(userEmailExists) {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('Enter email is already registered! Please Sign-In');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('Entered email is already been registered, Please Sign-in.');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='register.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+
+			    		pw.println("</body>");
+			    		pw.println("</html>"); 
 				  }else {
 					    
 						  try {
@@ -132,27 +357,85 @@ public class Register extends HttpServlet {
                                 if(isInsertedIntoUserSession) {
                           		  HttpSession session01 = request.getSession(true);
                           		  session01.setAttribute("username", login_username);     
-								    pw.println("<script type=\"text/javascript\">");   
-								    pw.println("location='reset_password.jsp';");
-								    pw.println("</script>");
+                  	    		pw.println("<!DOCTYPE html>");
+                	    		pw.println("<html>");
+                	    		pw.println("<head>");
+
+                	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+                	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+                	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+                	    		pw.println("</head>");
+                	    		pw.println("<body>");
+
+                	    		pw.println("<script>");
+                	    		pw.println("$(function() {");
+                	    		pw.println("toastr.success('Your details are inserted successfully..!');");
+                	    		pw.println("setTimeout(function() {");
+                	    		pw.println("window.location.href='set_password.jsp';");
+                	    		pw.println("},2000);"); // Redirect after 2 seconds
+                	    		pw.println("});");
+                	    		pw.println("</script>");
+
+                	    		pw.println("</body>");
+                	    		pw.println("</html>"); 
+                          		  
+
                                 }else {
-								    pw.println("<script type=\"text/javascript\">");   
-								    pw.println("alert('user details cannot be inserted successfully ! something went wrong into user session');");  
-								    pw.println("location='register.jsp';");
-								    pw.println("</script>");
+                    	    		pw.println("<!DOCTYPE html>");
+                    	    		pw.println("<html>");
+                    	    		pw.println("<head>");
+
+                    	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+                    	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+                    	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+                    	    		pw.println("</head>");
+                    	    		pw.println("<body>");
+
+                    	    		pw.println("<script>");
+                    	    		pw.println("$(function() {");
+                    	    		pw.println("toastr.error('You cannot register, something went wrong with user session.');");
+                    	    		pw.println("setTimeout(function() {");
+                    	    		pw.println("window.location.href='register.jsp';");
+                    	    		pw.println("},2000);"); // Redirect after 2 seconds
+                    	    		pw.println("});");
+                    	    		pw.println("</script>");
+
+                    	    		pw.println("</body>");
+                    	    		pw.println("</html>"); 
                                 }
                                 
 				              }else {
-								    pw.println("<script type=\"text/javascript\">");   
-								    pw.println("alert('Something went wrong');");  
-								    pw.println("location='register.jsp';");
-								    pw.println("</script>");
+				  	    		pw.println("<!DOCTYPE html>");
+					    		pw.println("<html>");
+					    		pw.println("<head>");
+
+					    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+					    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+					    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+					    		pw.println("</head>");
+					    		pw.println("<body>");
+
+					    		pw.println("<script>");
+					    		pw.println("$(function() {");
+					    		pw.println("toastr.error('You cannot register, something went wrong.');");
+					    		pw.println("setTimeout(function() {");
+					    		pw.println("window.location.href='register.jsp';");
+					    		pw.println("},2000);"); // Redirect after 2 seconds
+					    		pw.println("});");
+					    		pw.println("</script>");
+
+					    		pw.println("</body>");
+					    		pw.println("</html>"); 
 				              }
 						  }
 						  catch(Exception e) {
 							  e.printStackTrace();
 						  }	 
 				     }
+			      }
 			  }
 		  }
 	}
@@ -161,6 +444,12 @@ public class Register extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
+    private boolean isValidEmail(String email) {
+        if (email == null) return false;
+        Matcher matcher = EMAIL_PATTERN.matcher(email);
+        return matcher.matches();
+    }
 	
 	private int read_user_id(PreparedStatement ps, Connection con) {
 		try {
@@ -224,6 +513,7 @@ public class Register extends HttpServlet {
 		}
 		return flag;
 	}
+	
 
 	
 	public void destroy() {

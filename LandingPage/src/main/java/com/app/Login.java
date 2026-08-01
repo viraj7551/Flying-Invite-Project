@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 			String username = "root";
-			String password = "13Viraj@6937";
+			String password = "13Viraj@2507";
 			try {
 				Class.forName(driver);
 				con = DriverManager.getConnection(url,username,password);
@@ -51,15 +51,45 @@ public class Login extends HttpServlet {
 		  
 		  if(email == null || password == null) {
 			  if(email == null) {
-				    pw.println("<script type=\"text/javascript\">"); 
-				    pw.println("alert('Email cannot be empty, please enter your email');");  
-				    pw.println("location='login.jsp';");
-				    pw.println("</script>"); 
+		    		pw.println("<!DOCTYPE html>");
+		    		pw.println("<html>");
+		    		pw.println("<head>");
+
+		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+		    		pw.println("</head>");
+		    		pw.println("<body>");
+
+		    		pw.println("<script>");
+		    		pw.println("$(function() {");
+		    		pw.println("toastr.error('Email cannot be empty, Please enter your email.');");
+		    		pw.println("setTimeout(function() {");
+		    		pw.println("window.location.href='login.jsp';");
+		    		pw.println("},2000);"); // Redirect after 2 seconds
+		    		pw.println("});");
+		    		pw.println("</script>"); 
 			  }else {
-				    pw.println("<script type=\"text/javascript\">"); 
-				    pw.println("alert('Password cannot be empty, please enter your password');");  
-				    pw.println("location='login.jsp';");
-				    pw.println("</script>"); 
+		    		pw.println("<!DOCTYPE html>");
+		    		pw.println("<html>");
+		    		pw.println("<head>");
+
+		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+		    		pw.println("</head>");
+		    		pw.println("<body>");
+
+		    		pw.println("<script>");
+		    		pw.println("$(function() {");
+		    		pw.println("toastr.error('Password cannot be empty, Please enter your password.');");
+		    		pw.println("setTimeout(function() {");
+		    		pw.println("window.location.href='login.jsp';");
+		    		pw.println("},2000);"); // Redirect after 2 seconds
+		    		pw.println("});");
+		    		pw.println("</script>"); 
 			  }
 			  
 		  }else {
@@ -71,53 +101,162 @@ public class Login extends HttpServlet {
 			  if((email_length < 5 || email_length > 30) || (password_length < 5 || password_length > 30)) {
 				  if(email_length < 5 || email_length > 30) {
 					  if(email_length < 5) {
-						    pw.println("<script type=\"text/javascript\">"); 
-						    pw.println("alert('Please enter correct email');");  
-						    pw.println("location='register.jsp';");
-						    pw.println("</script>");						  
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('Incorrect email, Please enter correct email!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='login.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>"); 						  
 					  }else {
-						    pw.println("<script type=\"text/javascript\">"); 
-						    pw.println("alert('Please enter correct email');");  
-						    pw.println("location='register.jsp';");
-						    pw.println("</script>");						  
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('Incorrect email, Please enter correct email!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='login.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>"); 						  
 					  }
 				  }else {
 					  if(password_length < 5) {
-						    pw.println("<script type=\"text/javascript\">"); 
-						    pw.println("alert('Please enter correct password');");  
-						    pw.println("location='register.jsp';");
-						    pw.println("</script>");						  
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('Incorrect password, Please enter correct password!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='login.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>"); 						  
 					  }else {
-						    pw.println("<script type=\"text/javascript\">"); 
-						    pw.println("alert('Please enter correct password');");  
-						    pw.println("location='register.jsp';");
-						    pw.println("</script>");
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('Incorrect password, Please enter correct password!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='login.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>");
 					  }
 				  }
 			  }else {
 				  //check for email exist
 				  boolean isEmailExist = check_for_email(ps, con, email);
+				  
 				  if(!isEmailExist) {
-					    pw.println("<script type=\"text/javascript\">"); 
-					    pw.println("alert('Entered email doesn't exists, Please enter correct email.');");  
-					    pw.println("location='register.jsp';");
-					    pw.println("</script>");
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.error('Entered email not exists, Please enter correct email!');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='login.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
 				  }else {
 					  
 					  //check for correct password
 					  String actual_password = check_for_password(ps,con,email);
 					  if(!password.equals(actual_password)) {
-						    pw.println("<script type=\"text/javascript\">"); 
-						    pw.println("alert('Entered password is incorrect, please enter correct password.');");  
-						    pw.println("location='register.jsp';");
-						    pw.println("</script>");
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('Entered password is incorrect, Please enter correct password!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='login.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>");
 					  }else {
 
 						  //read user_session id & set into session
 						  String session_name = read_user_session(ps, con, email);
                   		  HttpSession session = request.getSession(true);
                   		  session.setAttribute("session_id", session_name); 
-                  		  response.sendRedirect("greetings.jsp");
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.success('You are validated successfully..!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='greetings.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>");
                   		  
 					  }
 				  }

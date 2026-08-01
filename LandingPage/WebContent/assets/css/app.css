@@ -1001,10 +1001,10 @@ Banner Style
   z-index: 2;
   position: relative;
   font-weight: 700;
-  font-size: 150px;
+  font-size: 120px;
   color: #FF6060;
   margin-bottom: -15px;
-  font-family:fantasy;
+  font-family:Poppins;
   letter-spacing: 36px;
 }
 
@@ -1033,6 +1033,12 @@ About Style
 
 #about {
   padding-top: 130px;
+}
+
+.content-section{
+	margin: 40px auto;
+	padding: 7px;
+	text-align:left;
 }
 
 .about-left-image img {
@@ -2037,7 +2043,7 @@ responsive
   }
   
   .main-banner .left-content h2{
-    font-size: 70px;
+    font-size: 60px;
     letter-spacing: 10px;
   }
   
@@ -2064,6 +2070,13 @@ responsive
 	letter-spacing:10px;
 }
 
+  .footer-list{
+	margin: 55px auto;
+}
+
+.footer-list .row .col-sm-12 .list-inline li{
+	padding:20px;
+}
 
 }
 

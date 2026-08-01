@@ -54,6 +54,15 @@
 
 </head>
 <body>
+
+ <%
+     String session_name = (String) request.getSession().getAttribute("session_name");
+     if(session_name == null){
+    	 response.sendRedirect("verify_email.jsp");
+     }else{
+    
+  %>
+  
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -75,35 +84,6 @@
   <!-- Pre-header End -->
 
 
-<%
-
-   String username = (String) session.getAttribute("username");
-   String user_session = null;
-
-   ResultSet rs = null;
-   Connection con = null;
-   PreparedStatement ps = null;
-
-    try{
- 	   con = DBConnection.getConnection();
- 	   ps = con.prepareStatement("select user_id, user_name, session_name from flyinginvite_user_session_details Inner Join flyinginvite_user_info_details using(user_id) where user_name = ?;");
-       ps.setString(1, username);
-       rs = ps.executeQuery();
-       if(rs.next()){
-    	   user_session = rs.getString("session_name");
-       }
-    }
-    catch(Exception e){
-    	e.printStackTrace();
-    }
-
-    if(user_session == null || (!user_session.equals(user_session))){
-    	session.invalidate();
-    	response.sendRedirect("login.jsp");
-    }else{
-  
-%>
-
 <div class="main" style="margin: 80px auto;">
     <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> RESET PASSWORD </h1>
     <div class="container mt-5">
@@ -115,26 +95,41 @@
                             <div class="form-group">
                                 <label for="password">
                                    New Password
-                                </label>
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="new_pass" 
-                                       name="new_password"
-                                       placeholder="Enter password"
-                                    required />
+                                 </label>
+                                <div class="input-group"> 
+                                   <input type="password" 
+                                        class="form-control" 
+                                        id="password" 
+                                        name="reset_new_password"
+                                        placeholder="Enter password"
+                                       required />
+                                    
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                   <!-- Bootstrap Icons used as visual indicators -->
+                                         <i class="fa fa-eye" id="toggleIcon"></i>
+                                 </button>
+                                 </div> 
                             </div>
                             
                             <div class="form-group">
                                 <label for="password">
                                     Confirm Password
                                 </label>
+                             <div class="input-group">   
                                 <input type="password" 
                                        class="form-control" 
-                                       id="confirm_pass"
-                                       name="confirm_password" 
+                                       id="password02"
+                                       name="reset_confirm_password" 
                                        placeholder="Enter confirm password"
                                     required />
-                            </div>
+                                    
+                              <!-- Toggle Visibility Button -->
+                              <button class="btn btn-outline-secondary" type="button" id="togglePassword02">
+                                   <!-- Bootstrap Icons used as visual indicators -->
+                                  <i class="fa fa-eye" id="toggleIcon"></i>
+                             </button>        
+                           </div>            
+                         </div>
                             <button class="btn btn-danger btn-lg btn-block" style="margin-top:50px;">
                                 Reset Password
                             </button>
@@ -145,10 +140,6 @@
         </div>
     </div>
   </div>
-
-<%
-    }
-%>
 
   
 <!--------------Footer starts here ------------------------------->
@@ -165,5 +156,8 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/show_password.js"></script>
+  
+  <% } %>
 </body>
 </html>

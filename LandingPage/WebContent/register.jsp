@@ -84,12 +84,12 @@
                         <form id="registrationForm" method="POST" action="Register">
                             <div class="form-group">
                                 <label for="name">
-                                    Name
+                                    Username
                                 </label>
                                 <input type="text" 
                                        class="form-control" 
                                        id="username" name="username" 
-                                       placeholder="Enter your name" required />
+                                       placeholder="Enter your username (ex: Suraj123)" required />
                             </div>
                             
                             <div class="form-group">
@@ -108,7 +108,7 @@
                                 </label>
                                 <input type="email" 
                                        class="form-control" 
-                                       id="email" name="user_email" 
+                                       id="email" name="user_register_email" 
                                        placeholder="Enter your email" required />
                             </div>
 

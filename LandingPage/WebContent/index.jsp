@@ -46,6 +46,7 @@
 </head>
 <body>
 
+
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -146,8 +147,13 @@
                   <h4>Why Flying <em>Invite</em> ?</h4>
                   <div class="line-dec"></div>
                 </div>
-                <p>Every celebration begins with a memorable greetings & invitations. Flying Invite creates premium corporate greetings and invitations that reflect your organization's professionalism and culture. Our designs are modern and crafted to leave a lasting impression on employees, clients, and business partners. Whether it's a corporate event, employee birthday, festival, award ceremony, or product launch, we help you celebrate every milestone with creativity and elegance.
-                  </p>
+                
+                <div class="content-section">
+                   <span>Every celebration begins with a memorable greetings & invitations. Flying Invite creates premium corporate greetings and invitations that reflect your organization's professionalism and culture. Our designs are modern and crafted to leave a lasting impression on employees, clients, and business partners. Whether it's a corporate event, employee birthday, festival, award ceremony, or product launch, we help you celebrate every milestone with creativity and elegance.
+                  </span>
+                </div>
+               
+               
                 <div class="row">
                   <div class="col-lg-4 col-sm-4">
                     <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
@@ -232,13 +238,13 @@
       </div>
       <hr>
       <div class="container">
-        <div class="label">Can I able to track guest count for web templates ?</div>
-        <div class="content"><strong>Yes</strong>, you can able to track guest count going to attend your event.</div>
+        <div class="label">Templates are best for ?</div>
+        <div class="content">Templates are suitable for mail-list greetings</div>
       </div>
       <hr>
       <div class="container">
-        <div class="label">How much time will it take to deliver web-template invitation ?</div>
-        <div class="content">Not more than <strong> 1 </strong> day.</div>
+        <div class="label">What file is available?</div>
+        <div class="content">At present, <strong> PNG </strong> File is available.</div>
       </div>
       <hr>
       <div class="container">

@@ -36,6 +36,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/otp.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
 <script>
@@ -48,14 +49,17 @@
 
 
 </head>
+
+
 <body>
-   
-   <%
-      if(session.getAttribute("session_id") != null){
-    	  session.invalidate();
-      }
-    %>
-   
+
+ <%
+     String session_name = (String) request.getSession().getAttribute("session_name");
+     if(session_name == null){
+    	 response.sendRedirect("verify_email.jsp");
+     }else{
+    
+  %>
    
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -79,54 +83,35 @@
 
 <div class="main" style="margin: 80px auto;">
           
-    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> SIGN-IN </h1>
+    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a>OTP Verification </h1>
     
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form id="loginForm" method="POST" action="Login">
+                        <form id="loginForm" method="POST" action="verifyOTP">
                             <div class="form-group">
-                                <label for="email">
-                                    Email
-                                </label>
-                                <input type="email" 
-                                       class="form-control" 
-                                       id="email" 
-                                       name="user_email"
-                                       placeholder="Enter your email" required />
+                                
+                          <!-- Box containers wrapped using Bootstrap Flex utilities -->
+                            <div class="d-flex justify-content-center gap-2 mb-4">
+                              <input type="text" class="form-control otp-box" maxlength="1" name="num1" inputmode="numeric" required>
+                              <input type="text" class="form-control otp-box" maxlength="1" name="num2" inputmode="numeric" required>
+                              <input type="text" class="form-control otp-box" maxlength="1" name="num3" inputmode="numeric" required>
+                              <input type="text" class="form-control otp-box" maxlength="1" name="num4" inputmode="numeric" required>
+                              <input type="text" class="form-control otp-box" maxlength="1" name="num5" inputmode="numeric" required>
+                              <input type="text" class="form-control otp-box" maxlength="1" name="num6" inputmode="numeric" required>
+                                
                             </div>
-                            <div class="form-group">
-                                   <div class="row">
-                                      <div class="col-lg-6 col-md-6 col-sm-6">
-                                          <label for="password"> Password </label>
-                                      </div>    
-                                    
-                                      <div class="col-lg-6 col-md-6 col-sm-6 text-end">
-                                           <a href="verify_email.jsp"> Reset Password</a>
-                                       </div> 
-                                   </div>
-                     
-                              <div class="input-group">        
-                                <input type="password" class="form-control" id="password" name="user_password" placeholder="Enter your password" required />
-                                    
-                                        <!-- Toggle Visibility Button -->
-                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                      <!-- Bootstrap Icons used as visual indicators -->
-                                     <i class="fa fa-eye" id="toggleIcon"></i>
-                                 </button>    
-                                </div>  
-                              </div>
+                           </div>
                             <button class="btn btn-danger btn-lg btn-block">
-                                Login
+                                Confirm OTP
                             </button>
-
                         </form>
                         <p class="mt-3 quick_link">
-                            Not registered? &nbsp;
-                            <a href="register.jsp">Create an
-                                Account</a>
+                            
+                            Re-send Email? &nbsp;
+                            <a href="verify_email.jsp">Go Back</a>
                         </p>
                         
                     </div>
@@ -151,6 +136,9 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
-    <script src="./assets/js/show_password.js"></script>
+   <script src="./assets/js/otp.js"></script>
+
+<% } %>
+
 </body>
 </html>

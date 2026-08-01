@@ -82,21 +82,6 @@ if(session.getAttribute("session_id") == null){
   <!-- ***** Header Area End ***** -->
 
 
-<div class="container" style="margin-top:180px;">
-      <div class="row">
-        <div class="col-12">
-
-            <!-- ***** Menu Start ***** -->
-               <nav class="nav nav-pills justify-content-center">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style="background-color:#FF6060; border-color:#FF6060; color:#fff;">E-Greetings</a>
-                  <a class="flex-sm-fill text-sm-center nav-link" href="interactive_invitation.jsp" data-toggle="tooltip" data-placement="right" title="Digital Invitations is and invitation" style= "border-color:#FF6060; color:#FF6060; background-color:#FFF;">E-Invitations</a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-</div>
-
-
 
 <div class="container" style="margin-top:50px;">
    <h1 style="padding:60px; font-family:Arial"> <a href="index.jsp"> <i class="bi bi-arrow-left fs-1"></i> </a> DIGITAL GREETINGS <span id="greetings_count"></span></h1>

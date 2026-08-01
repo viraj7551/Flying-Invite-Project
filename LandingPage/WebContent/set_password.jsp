@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*" %>
+<%@ page import = "java.sql.*"%>
+<%@ page import="com.app.DBConnection" %>
+<%@ page import="java.sql.Connection" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +19,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width,  initial-scale=1,shrink-to-fit=no" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href=" ./assets/images/loggo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,10 +38,10 @@
   <link rel="stylesheet" href="./assets/css/animated.css">
   <link rel="stylesheet" href="./assets/css/owl.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -49,14 +54,6 @@
 
 </head>
 <body>
-   
-   <%
-      if(session.getAttribute("session_id") != null){
-    	  session.invalidate();
-      }
-    %>
-   
-   
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -77,64 +74,64 @@
 
   <!-- Pre-header End -->
 
+
+<%
+
+   String user_session = (String) session.getAttribute("username");
+   String expected_user_session = user_session;
+
+    if(user_session == null || !user_session.equals(expected_user_session)){
+    	response.sendRedirect("login.jsp");
+    }else{
+  
+%>
+
 <div class="main" style="margin: 80px auto;">
-          
-    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> SIGN-IN </h1>
-    
+    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> SET PASSWORD </h1>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form id="loginForm" method="POST" action="Login">
+                        <form id="set_password" method = "post" action="SetPassword">
                             <div class="form-group">
-                                <label for="email">
-                                    Email
-                                </label>
-                                <input type="email" 
-                                       class="form-control" 
-                                       id="email" 
-                                       name="user_email"
-                                       placeholder="Enter your email" required />
+                                <label for="password">New Password  </label>
+                                   <div class="input-group"> 
+                                      <input type="password"  class="form-control" id="password"  name="new_password" placeholder="Enter password" required />
+                                          <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                              <!-- Bootstrap Icons used as visual indicators -->
+                                               <i class="fa fa-eye" id="toggleIcon"></i>
+                                          </button>   
+                                    </div>
                             </div>
+                            
                             <div class="form-group">
-                                   <div class="row">
-                                      <div class="col-lg-6 col-md-6 col-sm-6">
-                                          <label for="password"> Password </label>
-                                      </div>    
-                                    
-                                      <div class="col-lg-6 col-md-6 col-sm-6 text-end">
-                                           <a href="verify_email.jsp"> Reset Password</a>
-                                       </div> 
-                                   </div>
-                     
-                              <div class="input-group">        
-                                <input type="password" class="form-control" id="password" name="user_password" placeholder="Enter your password" required />
-                                    
-                                        <!-- Toggle Visibility Button -->
-                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                      <!-- Bootstrap Icons used as visual indicators -->
-                                     <i class="fa fa-eye" id="toggleIcon"></i>
-                                 </button>    
-                                </div>  
-                              </div>
-                            <button class="btn btn-danger btn-lg btn-block">
-                                Login
+                                  <label for="password"> Confirm Password </label>
+                                    <div class="input-group"> 
+                                        <input type="password" class="form-control"  id="password02" name="confirm_password" placeholder="Enter confirm password" required />
+                                            <!-- Toggle Visibility Button -->
+                                          <button class="btn btn-outline-secondary" type="button" id="togglePassword02">
+                                                 <!-- Bootstrap Icons used as visual indicators -->
+                                               <i class="fa fa-eye" id="toggleIcon"></i>
+                                          </button>    
+                                  
+                                  </div>
+                         </div>
+                            
+                            <button class="btn btn-danger btn-lg btn-block" style="margin-top:50px;">
+                                Set Password
                             </button>
-
                         </form>
-                        <p class="mt-3 quick_link">
-                            Not registered? &nbsp;
-                            <a href="register.jsp">Create an
-                                Account</a>
-                        </p>
-                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
   </div>
+
+<%
+    }
+%>
 
   
 <!--------------Footer starts here ------------------------------->
@@ -151,6 +148,6 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
-    <script src="./assets/js/show_password.js"></script>
+      <script src="./assets/js/show_password.js"></script>
 </body>
 </html>

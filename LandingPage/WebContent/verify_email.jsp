@@ -49,13 +49,13 @@
 
 </head>
 <body>
-   
+
    <%
       if(session.getAttribute("session_id") != null){
     	  session.invalidate();
       }
-    %>
    
+   %>
    
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -79,14 +79,14 @@
 
 <div class="main" style="margin: 80px auto;">
           
-    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> SIGN-IN </h1>
+    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> VERIFY EMAIL </h1>
     
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form id="loginForm" method="POST" action="Login">
+                        <form id="loginForm" method="POST" action="EmailAuth">
                             <div class="form-group">
                                 <label for="email">
                                     Email
@@ -97,36 +97,14 @@
                                        name="user_email"
                                        placeholder="Enter your email" required />
                             </div>
-                            <div class="form-group">
-                                   <div class="row">
-                                      <div class="col-lg-6 col-md-6 col-sm-6">
-                                          <label for="password"> Password </label>
-                                      </div>    
-                                    
-                                      <div class="col-lg-6 col-md-6 col-sm-6 text-end">
-                                           <a href="verify_email.jsp"> Reset Password</a>
-                                       </div> 
-                                   </div>
-                     
-                              <div class="input-group">        
-                                <input type="password" class="form-control" id="password" name="user_password" placeholder="Enter your password" required />
-                                    
-                                        <!-- Toggle Visibility Button -->
-                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                      <!-- Bootstrap Icons used as visual indicators -->
-                                     <i class="fa fa-eye" id="toggleIcon"></i>
-                                 </button>    
-                                </div>  
-                              </div>
-                            <button class="btn btn-danger btn-lg btn-block">
-                                Login
-                            </button>
 
+                            <button class="btn btn-danger btn-lg btn-block">
+                                Confirm Email
+                            </button>
                         </form>
                         <p class="mt-3 quick_link">
-                            Not registered? &nbsp;
-                            <a href="register.jsp">Create an
-                                Account</a>
+                            Got Password? &nbsp;
+                            <a href="login.jsp">Go Back</a>
                         </p>
                         
                     </div>
@@ -135,6 +113,7 @@
         </div>
     </div>
   </div>
+
 
   
 <!--------------Footer starts here ------------------------------->
@@ -151,6 +130,5 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
-    <script src="./assets/js/show_password.js"></script>
 </body>
 </html>

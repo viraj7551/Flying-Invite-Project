@@ -150,7 +150,7 @@
                     </ul>
                     
                         <ul><br>
-                           <li> <strong> An effective tagline: </strong></li>
+                           <li> <strong> An effective slogan: </strong></li>
                            <li>1. Clear and easy to remember</li>
                            <li>2. Aligned with your brand identity</li>
                            <li>3. Emotionally engaging</li>

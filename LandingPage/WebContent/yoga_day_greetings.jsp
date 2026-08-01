@@ -148,7 +148,7 @@ if(session.getAttribute("session_id") == null){
 
             <!-- ***** Menu Start ***** -->
                 <span>
-                 <h2 style="margin:40px"><a href="invitation.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> YOGA DAY GREETINGS</h2>
+                 <h2 style="margin:40px"><a href="greetings.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> YOGA DAY GREETINGS</h2>
               </span>
 
             <!-- ***** Menu End ***** -->
@@ -157,7 +157,18 @@ if(session.getAttribute("session_id") == null){
         <div class="col-12 col-lg-6">
           <nav class="main-nav">
               <ul class="nav">
-                <li class="scroll-to-section"><button id="logout" type="submit" class="btn btn-outline-danger"><a href="login.jsp">Sign-out</a></button></li>                   
+                       
+              <%
+              if(session.getAttribute("session_id") == null){
+               %>
+                 <li class="scroll-to-section"><button id="login" type="submit" class="btn btn-outline-danger"><a href="login.jsp">Sign-In</a></button></li>
+              <%    
+                }else{
+              %>
+              <li class="scroll-to-section"><button id="logout" type="submit" class="btn btn-outline-danger"><a href="login.jsp">Sign-out</a></button></li>                   
+            
+             <% }
+              %>                     
               
               </ul>
           </nav>
@@ -358,6 +369,7 @@ if(session.getAttribute("session_id") == null){
   <script src="./assets/js/custom.js"></script>
    <script src="./assets/js/downloadFile.js"></script>
   <script src="./assets/js/app.js"></script>
+      <script src="./assets/js/logout.js"></script>
   <% 
      }
   %>
