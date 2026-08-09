@@ -79,7 +79,7 @@
 
 <div class="main" style="margin: 80px auto;">
           
-    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> VERIFY EMAIL </h1>
+    <h3 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-4"></i></a> VERIFY EMAIL </h3>
     
     <div class="container mt-5">
         <div class="row justify-content-center">

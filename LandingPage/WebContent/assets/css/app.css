@@ -707,6 +707,11 @@ header
   .background-header .nav li a.active:after {
     display: none;
   }
+  
+  .dropdown-menu{
+    margin-left:-80px;
+  }
+  
 }
 
 @media (max-width: 767px) {
@@ -2075,12 +2080,17 @@ responsive
 }
 
 .footer-list .row .col-sm-12 .list-inline li{
-	padding:20px;
-}
+	padding:20px; 
+ }
 
 }
 
 @media (max-width: 992px) {
+  
+    #RenewBtn{
+  padding:40px;
+  }
+  
   form#contact {
     overflow: hidden;
   }
@@ -2151,6 +2161,10 @@ responsive
     width: auto;
   }
  
+ .renew{
+   height:10px;
+ }
+
 }
 
 @media (max-width: 767px) {
@@ -2252,7 +2266,6 @@ responsive
   .info-post{
     width: 110%;
   }
-  
   
 }
 

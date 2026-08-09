@@ -138,45 +138,7 @@ if(session.getAttribute("session_id") == null){
   <!-- Pre-header End -->
 
   <!-- ***** Header Area Start ***** -->
-  
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-6">
-
-            <!-- ***** Menu Start ***** -->
-                <span>
-                 <h2 style="margin:40px"><a href="greetings.jsp"> <i class="bi bi-arrow-left fs-3"></i> </a> YOGA DAY GREETINGS</h2>
-              </span>
-
-            <!-- ***** Menu End ***** -->
-        </div>   
-        
-        <div class="col-12 col-lg-6">
-          <nav class="main-nav">
-              <ul class="nav">
-                       
-              <%
-              if(session.getAttribute("session_id") == null){
-               %>
-                 <li class="scroll-to-section"><button id="login" type="submit" class="btn btn-outline-danger"><a href="login.jsp">Sign-In</a></button></li>
-              <%    
-                }else{
-              %>
-              <li class="scroll-to-section"><button id="logout" type="submit" class="btn btn-outline-danger"><a href="login.jsp">Sign-out</a></button></li>                   
-            
-             <% }
-              %>                     
-              
-              </ul>
-          </nav>
-        </div> 
-      </div>
-    </div>
-    
-  </header>
+     <%@ include file="/WEB-INF/jsp/common/header02.jsp" %>  
   
   <!-- ***** Header Area End ***** -->
 
@@ -193,22 +155,23 @@ if(session.getAttribute("session_id") == null){
     try{
     	
     	   con = DBConnection.getConnection();
-		   ps = con.prepareStatement("select templateId, template_category, template_price, template_heading, template_download_type, targetid, target_name, imageId, image, preview_image from template inner join target using(templateId) inner join template_image using(templateId);");
+		   ps = con.prepareStatement("select template_id,template_title,template_specification,template_tag,category_title,target_title,access_type_title,type_title,price,imageId,filename,image,preview_image from flyinginvite_template Inner Join flyinginvite_template_category using(template_id) Inner Join flyinginvite_template_type using(template_id) Inner Join flyinginvite_target using(template_id) Inner Join flyinginvite_access_type using(template_id) Inner Join flyinginvite_template_price using(template_id) Inner Join template_image using(template_id) where target_title = ?;");
+		   ps.setString(1,"promotion greetings");
 		   rs = ps.executeQuery();
 		   
 		   while(rs.next()){  
 		
-	       int id = rs.getInt("templateId");
+	       int id = rs.getInt("template_id");
 		   
   	         if (!seenIds.contains(id)) {
   	    	              seenIds.add(id);
 		       	          Map<String, Object> row = new HashMap<>();
-		       	          row.put("template_heading", rs.getString("template_heading"));
-		       	          row.put("template_price", rs.getInt("template_price"));
-		       	          row.put("template_id", rs.getInt("templateId"));
-		       	          row.put("template_category", rs.getString("template_category"));
-		       	          row.put("target_name", rs.getString("target_name"));
-		       	          row.put("template_download_type", rs.getString("template_download_type"));
+		       	          row.put("template_heading", rs.getString("template_title"));
+		       	          row.put("template_price", rs.getInt("price"));
+		       	          row.put("template_id", rs.getInt("template_id"));
+		       	          row.put("template_category", rs.getString("category_title"));
+		       	          row.put("target_name", rs.getString("target_title"));
+		       	          row.put("template_download_type", rs.getString("access_type_title"));
 				       	    
 		       	          // get blob
 				       	    Blob blob = rs.getBlob("image");
@@ -232,11 +195,30 @@ if(session.getAttribute("session_id") == null){
 		   }
 %>
 
+<div class="container" style="margin-top:80px;">
+
+<div class="heading_container text-center">
+   <h3 style="padding:10px; font-family:Arial"> <a href="greetings.jsp"> <i class="bi bi-arrow-left fs-4"></i> </a> PROMOTION GREETINGS <span id="greetings_count"></span></h3>
+</div>
+
+<div class="container" style="margin-bottom:2px; padding:30px; border:1px solid red; display: none;">
+     <div class="row">
+         <div class="col-6">
+          <span class="d-inline-block mt-2"> <strong>Your subscription has been expired, Please renew to download more ! </strong></span> 
+         </div>
+         
+         <div class="col-6 d-flex justify-content-end">
+          <a href="#services" class="btn btn-outline-danger">Renew</a>    
+         </div>
+     </div>
+</div>
+</div>
+
 
 <!-- ---------------- Carousal1 Slider Code Starts Here --------------------------------------->
   
-    <div class="container mt-5">   
-    <div class="row" style="margin-top:180px;">
+    <div class="container pt-5">   
+    <div class="row" style="margin-top:40px;">
     
    <%   
 
@@ -244,7 +226,7 @@ if(session.getAttribute("session_id") == null){
       
       String template_target = card.get("target_name").toString();
          
-      if(template_target.equals("Yoga Day")){ %>
+      if(template_target.equals("promotion greetings")){ %>
        <div class="col-md-4" style="padding-bottom:90px;">   
          <form method="POST" action="downloadImage.jsp">
             <div class="card image-card shadow">

@@ -37,6 +37,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/otp.css">
+        <link rel="stylesheet" href="./assets/css/app.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
 <script>
@@ -83,18 +84,23 @@
 
 <div class="main" style="margin: 80px auto;">
           
-    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a>OTP Verification </h1>
+    <h3 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-4"></i></a> OTP Verification </h3>
     
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
+                    
                         <form id="loginForm" method="POST" action="verifyOTP">
                             <div class="form-group">
-                                
+                            
+                               <div class="text-center" style="padding:3px;">
+                                        <span>Please enter otp, sent on your email.</span>
+                               </div>
+                                                    
                           <!-- Box containers wrapped using Bootstrap Flex utilities -->
-                            <div class="d-flex justify-content-center gap-2 mb-4">
+                            <div class="d-flex justify-content-center gap-1 mb-4 pt-2">
                               <input type="text" class="form-control otp-box" maxlength="1" name="num1" inputmode="numeric" required>
                               <input type="text" class="form-control otp-box" maxlength="1" name="num2" inputmode="numeric" required>
                               <input type="text" class="form-control otp-box" maxlength="1" name="num3" inputmode="numeric" required>

@@ -21,12 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Parisienne&family=Pinyon+Script&family=Ephesis&display=swap" rel="stylesheet">
-
     <title>FlyingInvite | Special Invite</title>
-
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="./assets/css/fontawesome.css">
     <link rel="stylesheet" href="./assets/css/app.css">
@@ -155,6 +152,7 @@
                
                
                 <div class="row">
+                 
                   <div class="col-lg-4 col-sm-4">
                     <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
                       <div class="progress" data-percentage="100">
@@ -166,13 +164,14 @@
                         </span>
                         <div class="progress-value">
                           <div>
-                             User <br>Oriented
+                             Quick <br>Download
                            
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  
                   <div class="col-lg-4 col-sm-4">
                     <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
                       <div class="progress" data-percentage="100">
@@ -184,7 +183,7 @@
                         </span>
                         <div class="progress-value">
                           <div>
-                              AI Content Validation
+                               AI Correction & Translation
                               
                           </div>
                         </div>
@@ -243,8 +242,8 @@
       </div>
       <hr>
       <div class="container">
-        <div class="label">What file is available?</div>
-        <div class="content">At present, <strong> PNG </strong> File is available.</div>
+        <div class="label">Which file types are available?</div>
+        <div class="content">For now, <strong> PNG </strong> File is available.</div>
       </div>
       <hr>
       <div class="container">
@@ -278,15 +277,21 @@
                         </div>
                       </div>
                 
-                      <div>
+                     <div>
                         <div class="thumb">                 
                           <span class="icon"><img src="assets/images/service-icon-03.png" alt="icon image for branding & communication"></span>
-                           Branding & Communication
+                            AI Correction & Translation
                         </div>
                       </div>
                       
                       
-                      
+                      <div>
+                        <div class="thumb">                 
+                          <span class="icon"><img src="assets/images/service-icon-01.png" alt="icon image for branding & communication"></span>
+                           Branding & Communication
+                        </div>
+                      </div>
+
                     </div>
                   </div> 
                   <div class="col-lg-12">
@@ -295,7 +300,6 @@
                         <div>
                           <div class="thumb">
                             <div class="row">
-                              
                               <div class="col-lg-6 align-self-center">
                                        <div class="about-right-content">
                                          <div class="section-heading">
@@ -304,11 +308,35 @@
                                          </div>
                                        </div>
                               </div>
-                              
                               <div class="col-lg-6 align-self-center">
                                         <div class="about-left-content">
                                            <div class="navigate_section">
                                               <a class="btn btn-outline-dark btn-lg w-40 serviceBtn" href="greetings.jsp"> For Corporate Events</a>
+                                            </div>
+                                         </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+
+                 <li>
+                        <div>
+                          <div class="thumb">
+                            <div class="row">
+                              <div class="col-lg-6 align-self-center">
+                                       <div class="about-right-content">
+                                         <div class="section-heading">
+                                                  <h6>Correct Me</h6> 
+                                                  <h2>Principal</h2>
+                                         </div>
+                                       </div>
+                              </div>
+                              <div class="col-lg-6 align-self-center">
+                                        <div class="about-left-content">
+                                           <div class="navigate_section">
+                                              <a class="btn btn-outline-dark btn-lg w-40 serviceBtn" href="correct_the.jsp"> For Content Health</a>
                                             </div>
                                          </div>
                               </div>
@@ -342,6 +370,8 @@
                           </div>
                         </div>
                       </li>
+                      
+                      
                     </ul>
                   </div>          
                 </div>

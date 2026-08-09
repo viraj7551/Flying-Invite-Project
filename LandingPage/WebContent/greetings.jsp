@@ -53,7 +53,6 @@ if(session.getAttribute("session_id") == null){
 
 %>
 
-
  <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -81,14 +80,33 @@ if(session.getAttribute("session_id") == null){
   
   <!-- ***** Header Area End ***** -->
 
+<div class="container" style="margin-top:80px;">
+    
+    <div class="heading_container text-center">
+          <h3  style="padding:20px; font-family:Arial"> <a href="index.jsp#services"> <i class="bi bi-arrow-left fs-4"></i> </a> DIGITAL GREETINGS</h3>
+    </div>
 
+<div class="container" style="margin-bottom:2px; padding:30px; border:1px solid red; display: none;">
+  <div class="row align-items-center">
+    <!-- Text section -->
+    <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+      <span class="expiry-alert d-inline-block mt-2" style="color:red;">
+        <strong>Your subscription has expired, please renew to download more!</strong>
+      </span>
+    </div>
 
-<div class="container" style="margin-top:50px;">
-   <h1 style="padding:60px; font-family:Arial"> <a href="index.jsp"> <i class="bi bi-arrow-left fs-1"></i> </a> DIGITAL GREETINGS <span id="greetings_count"></span></h1>
+    <!-- Button section -->
+    <div class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end">
+      <a href="#" id="Sample" class="btn btn-outline-danger">Renew</a>
+    </div>
+  </div>
+ </div>
+</div>
+
 
 </div>
 
-   <div class="container mt-5">   
+   <div class="container pt-5">   
      <div class="row">
      <!-- ---------------- Greeting Card01 Starts Here --------------------------------------->
          <div class="col-md-4" id = "yoga">
@@ -96,10 +114,10 @@ if(session.getAttribute("session_id") == null){
             <div class="card shadow" style="width: 500px;">
                <div class="carousel-inner">
                  <div class="carousel-item active">
-                   <img src= "assets/images/thumbnail/yoga.png" class="d-block w-100" alt="Slide 1">
-                      <a href="yoga_day_greetings.jsp">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="candidate_interview_selection_greetings.jsp">
                            <div class="card-body text-center">
-                            <h5 class="card-title">Yoga Day Greetings</h5>
+                               <h5 class="card-title">Selection Greetings</h5>
                           </div>
                        </a> 
                   </div>
@@ -108,10 +126,112 @@ if(session.getAttribute("session_id") == null){
        </div>
       </div>
    <!-- ---------------- Greeting Card01 Ends Here --------------------------------------->
-
+   
+   
+   <!-- ---------------- Greeting Card02 Starts Here --------------------------------------->
+         <div class="col-md-4" id = "yoga">
+          <div class="container d-flex justify-content-center mt-3">
+            <div class="card shadow" style="width: 500px;">
+               <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="on_board_greetings.jsp">
+                           <div class="card-body text-center">
+                               <h5 class="card-title">Onboard Greetings</h5>
+                          </div>
+                       </a> 
+                  </div>
+               </div>      
+          </div>
+       </div>
       </div>
+   <!-- ---------------- Greeting Card02 Ends Here --------------------------------------->
+   
+      <!-- ---------------- Greeting Card03 Starts Here --------------------------------------->
+         <div class="col-md-4" id = "yoga">
+          <div class="container d-flex justify-content-center mt-3">
+            <div class="card shadow" style="width: 500px;">
+               <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="employee_exit_greetings.jsp">
+                           <div class="card-body text-center">
+                               <h5 class="card-title">Exit Greetings</h5>
+                          </div>
+                       </a> 
+                  </div>
+               </div>      
+          </div>
+       </div>
+      </div>
+   <!-- ---------------- Greeting Card03 Ends Here --------------------------------------->
+      </div>
+      
+       <div class="row">
+       
+       
+    <!-- ---------------- Greeting Card04 Starts Here --------------------------------------->
+         <div class="col-md-4" id = "yoga">
+          <div class="container d-flex justify-content-center mt-3">
+            <div class="card shadow" style="width: 500px;">
+               <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="product_launch_greetings.jsp">
+                           <div class="card-body text-center">
+                               <h5 class="card-title">Product Launch Greetings</h5>
+                          </div>
+                       </a> 
+                  </div>
+               </div>      
+          </div>
+       </div>
+      </div>
+   <!-- ---------------- Greeting Card04 Ends Here --------------------------------------->
+   
+   
+       <!-- ---------------- Greeting Card05 Starts Here --------------------------------------->
+         <div class="col-md-4" id = "yoga">
+          <div class="container d-flex justify-content-center mt-3">
+            <div class="card shadow" style="width: 500px;">
+               <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="employee_birthday_greetings.jsp">
+                           <div class="card-body text-center">
+                               <h5 class="card-title">Birthday Greetings</h5>
+                          </div>
+                       </a> 
+                  </div>
+               </div>      
+          </div>
+       </div>
+      </div>
+   <!-- ---------------- Greeting Card05 Ends Here --------------------------------------->
+   
+   
+          <!-- ---------------- Greeting Card06 Starts Here --------------------------------------->
+         <div class="col-md-4" id = "yoga">
+          <div class="container d-flex justify-content-center mt-3">
+            <div class="card shadow" style="width: 500px;">
+               <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="employee_promotion_greetings.jsp">
+                           <div class="card-body text-center">
+                               <h5 class="card-title">Promotion Greetings</h5>
+                          </div>
+                       </a> 
+                  </div>
+               </div>      
+          </div>
+       </div>
+      </div>
+   <!-- ---------------- Greeting Card05 Ends Here --------------------------------------->
+   
    </div>
-</div>
+   
+  </div>
 
 
 
@@ -182,6 +302,6 @@ if(session.getAttribute("session_id") == null){
   <script src="./assets/js/greeting_drop_down.js"></script>
   <script src="./assets/js/invite_drop_down.js"></script>
 
-<%} %>
+<%}%>
 </body>
 </html>

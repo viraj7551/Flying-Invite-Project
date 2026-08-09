@@ -79,7 +79,7 @@
 
 <div class="main" style="margin: 80px auto;">
           
-    <h1 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-1"></i></a> SIGN-IN </h1>
+    <h3 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-4"></i></a> SIGN-IN </h3>
     
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -99,11 +99,11 @@
                             </div>
                             <div class="form-group">
                                    <div class="row">
-                                      <div class="col-lg-6 col-md-6 col-sm-6">
+                                      <div class="col-6">
                                           <label for="password"> Password </label>
                                       </div>    
                                     
-                                      <div class="col-lg-6 col-md-6 col-sm-6 text-end">
+                                      <div class="col-6 text-end">
                                            <a href="verify_email.jsp"> Reset Password</a>
                                        </div> 
                                    </div>

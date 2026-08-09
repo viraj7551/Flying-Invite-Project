@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+
+.correct {
+    background-color: #f8f9fa;
+}
+
+.tab-content {
+    background-color: #ffffff;
+}
+
+.diff-removed {
+    color: #dc3545;
+    text-decoration: line-through;
+    background-color: #f8d7da;
+    padding: 0 2px;
+    border-radius: 3px;
+    margin: 0 1px;
+    display: inline-block;
+}
+
+.diff-added {
+    color: #198754;
+    background-color: #d1e7dd;
+    padding: 0 2px;
+    border-radius: 3px;
+    margin: 0 1px;
+    display: inline-block;
+}
+
+.diff-unchanged {
+    margin: 0 1px;
+}
+
+
+#translate-tab{
+  background-color:#FF6060;
+  color:#FFFF;
+}
+
+#correct-tab{
+   background-color:#FF6060;
+   color:#FFFF;
+}
+
+

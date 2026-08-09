@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*" %>
-<%@ page import = "java.sql.*"%>
-<%@ page import="com.app.DBConnection" %>
-<%@ page import="java.sql.Connection" %>
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +14,13 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="viewport" content="width=device-width,  initial-scale=1,shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href=" ./assets/images/loggo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <title>FlyingInvite | Special Invite</title>
 
   <!-- Bootstrap core CSS -->
@@ -38,17 +33,22 @@
   <link rel="stylesheet" href="./assets/css/animated.css">
   <link rel="stylesheet" href="./assets/css/owl.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-DZ4MP44ET9');
+  
+  
+
+
 </script>
 
 
@@ -74,52 +74,48 @@
 
   <!-- Pre-header End -->
 
-
-<%
-
-   String user_session = (String) session.getAttribute("username");
-   String expected_user_session = user_session;
-
-    if(user_session == null || !user_session.equals(expected_user_session)){
-    	response.sendRedirect("login.jsp");
-    }else{
-  
-%>
-
 <div class="main" style="margin: 80px auto;">
-    <h3 class="text-danger text-center"> <a href="index.jsp"><i class="bi bi-arrow-left fs-4"></i></a> SET PASSWORD </h3>
+    <h3 class="text-danger text-center"> <a href="greetings.jsp"><i class="bi bi-arrow-left fs-4"></i></a> EDIT PROFILE DETAILS </h3>
+
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form id="set_password" method = "post" action="SetPassword">
+                        <form id="registrationForm" method="POST" action="EditProfile">
                             <div class="form-group">
-                                <label for="password">New Password  </label>
-                                   <div class="input-group"> 
-                                      <input type="password"  class="form-control" id="password"  name="new_password" placeholder="Enter password" required />
-                                          <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                              <!-- Bootstrap Icons used as visual indicators -->
-                                               <i class="fa fa-eye" id="toggleIcon"></i>
-                                          </button>   
-                                    </div>
+                                <label for="name">
+                                    Username
+                                </label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="username" name="username" 
+                                       placeholder="Enter your username" required />
                             </div>
                             
                             <div class="form-group">
-                                  <label for="password"> Confirm Password </label>
-                                    <div class="input-group"> 
-                                        <input type="password" class="form-control"  id="password02" name="confirm_password" placeholder="Enter confirm password" required />
-                                            <!-- Toggle Visibility Button -->
-                                          <button class="btn btn-outline-secondary" type="button" id="togglePassword02">
-                                                 <!-- Bootstrap Icons used as visual indicators -->
-                                               <i class="fa fa-eye" id="toggleIcon"></i>
-                                          </button>    
-                                  
-                                  </div>
-                         </div>
+                                <label for="contact">
+                                    Contact Number
+                                </label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="contact" name="user_contact" 
+                                       placeholder="Enter your contact number" required />
+                            </div>
                             
-                            <button class="btn btn-danger btn-lg btn-block" style="margin-top:50px;">
-                                Set Password
+                             <div class="form-group">
+                                <label for="email">
+                                    Email
+                                </label>
+                                <input type="email" 
+                                       class="form-control" 
+                                       id="email" name="user_email" 
+                                       placeholder="Enter your email" required />
+                            </div>
+
+                            <button class="btn btn-danger btn-lg btn-block">
+                                Update Details
                             </button>
                         </form>
                     </div>
@@ -129,9 +125,6 @@
     </div>
   </div>
 
-<%
-    }
-%>
 
   
 <!--------------Footer starts here ------------------------------->
@@ -148,6 +141,7 @@
   <script src="./assets/js/imagesloaded.js"></script>
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
-      <script src="./assets/js/show_password.js"></script>
+   <script src="./assets/js/script.js"></script>
+   <script src="./assets/js/frontend_validation.js"></script>
 </body>
 </html>

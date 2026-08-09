@@ -75,7 +75,9 @@
   <!-- Pre-header End -->
 
 <div class="main" style="margin: 80px auto;">
-    <h1 class="text-danger text-center"> <a href="login.jsp"><i class="bi bi-arrow-left fs-1"></i></a> SIGN-UP </h1>
+    <h3 class="text-danger text-center"> <a href="login.jsp"><i class="bi bi-arrow-left fs-4"></i></a> SIGN-UP </h3>
+
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -144,5 +146,6 @@
   <script src="./assets/js/custom.js"></script>
   <script src="./assets/js/app.js"></script>
    <script src="./assets/js/script.js"></script>
+   <script src="./assets/js/frontend_validation.js"></script>
 </body>
 </html>

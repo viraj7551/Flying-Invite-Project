@@ -83,7 +83,7 @@
                 	   }
                 	   
                 	   con = DBConnection.getConnection();
-             		   ps = con.prepareStatement("select template_heading, template_price, template_category, template_download_type, preview_image from template Inner Join template_image using(templateId) where templateId = ?;");
+             		   ps = con.prepareStatement("select template_title,price,category_title,access_type_title,preview_image from flyinginvite_template Inner Join flyinginvite_template_category using(template_id) Inner Join flyinginvite_access_type using(template_id) Inner Join template_image using(template_id) Inner Join flyinginvite_template_price using(template_id) where template_id = ?;");
              		   ps.setInt(1, original_tempId);
              		   rs = ps.executeQuery();
              		   if(rs.next()){  
@@ -99,92 +99,41 @@
 				       	  
 				       	  request.setAttribute("template_image", templateImage);
 				       	  
-				       	  String template_download_tp = rs.getString("template_download_type");
+				       	  String template_download_tp = rs.getString("access_type_title");
              			   
     %>
     
 <div class="container mt-5">
   <div class="row align-items-center">
-
-    <!-- Left Section Image -->
+ <!-- Left Section Image -->
     <div class="col-md-6 mb-4">
       <img src="data:image/png;base64,${template_image}" class="img-fluid rounded" alt="Customer Image">
     </div>
-
-    <!-- Right Section Form -->
-    <div class="col-md-6">
-      <h3 class="mb-4"> <a href="#" onclick="browser_back();"; return false;> <i class="bi bi-arrow-left fs-4"></i> </a> Customer Details</h3>
-
- <form action="MyServlet" method="post">
-    <div class="row">
-          <div class="col-6">
-           
-                <div class="mb-3">
-                   <label class="form-label">First Name</label>
-                   <input type="text" name="firstname" class="form-control" placeholder="Enter first name" required>
-                </div>
-          </div>
-          <div class="col-6">
-                <div class="mb-3">
-                   <label class="form-label">Last Name</label>
-                   <input type="text" name="lastname" class="form-control" placeholder="Enter last name" required>
-                </div>
-          </div>
-    </div>
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-control" placeholder="Enter email" required>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Phone</label>
-          <input type="tel" name="phone" class="form-control" placeholder="Enter phone number" required>
-        </div>
-        
-          <div class="mb-3">      
-               <h3 class="mb-4">Template Details</h3>
-                 <div class="row">
-                     <div class="col-6 mb-4">
-                         <label class="form-label">Selected Template</label>
-                         <input type="text" name="template_heading" class="form-control" value="<%= rs.getString("template_heading") %>" readonly>
-                     </div>
-                     <div class="col-6 mb-4">
-                         <label class="form-label">Template Price - (&#8377)</label>
-                         <% if(template_download_tp.equals("Free")) { %>
-                         <input type="text" name="template_price" class="form-control" value="0" readonly>
-                         <%}else{ %>
-                         <input type="text" name="template_price" class="form-control" value="<%= rs.getInt("template_price") %>" readonly>                         
-                         <%} %> 
-                     </div>
-                 </div>
+ <!-- ---Right Section  -->
+ <div class="col-md-6">
                  
-                  <div class="row">
-                     <div class="col-6 mb-4">
-                         <label class="form-label">Template Type</label>
-                         <input type="text" name="template_category" class="form-control" value="<%= rs.getString("template_category") %>" readonly>
-                     </div>
-                     <div class="col-6 mb-4">
-                         <label class="form-label">Download Type</label>
-                         <input type="text" name="download_type" class="form-control" value="<%= rs.getString("template_download_type") %>" readonly>
-                     </div>
-                 </div>
-          </div>
-          
-          <% 
-          
-             if(template_download_tp.equals("Free")){ %> 
-              <button type="submit" class="btn btn-success w-100">Download</button> <br><br>             
-             <%} else{ %>
-              <button type="submit" class="btn btn-success w-100">Check out</button> <br><br>
-              <a href="index.jsp" class="btn btn-danger w-100">Cancel</a>
+              <div class="row">
+                  <div class="col-6">
+                         <h3 class="mb-4"> <a href="#" onclick="browser_back();"; return false;> <i class="bi bi-arrow-left fs-4"></i> </a> <%= rs.getString("template_title") %></h3>
+                  </div>
+                  
+              </div>
               
-        <% } %>
-         
-      </form>
-    
-    </div>
+              <div class="row">
+                   <div class="col-6 text-center">
+                               <% if(template_download_tp.equals("Free")){ %>
+                                 
+                               <h4  style="font-size:20px";>&#8377 <span class="card-title text-decoration-line-through" style="font-size:20px;"> <%= rs.getString("price")%></span> <h4 style="font-size:50px";>&#8377 <span class="card-title" style="font-size:50px;">0</span></h4></h4> 
+                            <% }else{ %>
+                                	 <h4 class="card-title">&#8377 <%= rs.getString("price") %></h4>
+                                <%  } %>  
+                  </div>
+              </div>    
+                  
+  </div>   
   </div>
 </div>
+     
        <%
             } 		   
            }catch(Exception e){
