@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConnection {
 	   private static final String URL = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 	   private static final String USER = "root";
-	   private static final String PASSWORD = "13Viraj@2507";
+	   private static final String PASSWORD = "13Viraj@6937";
 
 	    public static Connection getConnection() {
 	        Connection con = null;

@@ -83,11 +83,8 @@
               <div class="about-right-content">
                 <div class="section-heading">
                 
-                <a href="javascript:history.back()">
-                      <i class="bi bi-arrow-left fs-3"></i>
-                </a>
-
-                  <h6>Tagline for Brand </h6>
+    
+                  <span>  <a href="index.jsp"> <i class="bi bi-arrow-left fs-5"></i> </a> Tagline for Brand </span>
                   <h4>Looking For <em>#TAGLINE</em> For Your Brand ?</h4>
                   <div class="line-dec"></div>
                 </div>
@@ -138,7 +135,7 @@
             <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="about-right-content">
                 <div class="section-heading">
-                  <h6>Slogan for Product</h6>
+                  <span><a href="index.jsp"> <i class="bi bi-arrow-left fs-5"></i> </a> Slogan for Product</span>
                   <h4>Looking for <em>SLOGAN</em> for product ?</h4>
                   <div class="line-dec"></div>
                 </div>

@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <title>FlyingInvite | Special Invite</title>
+  <title>FlyingInvite | Hero Invite</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -70,21 +70,21 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="assets/images/terms_condition.png" alt="terms and condition image">
+                <img src="assets/images/Terms.jpeg" alt="terms and condition image">
               </div>
             </div>
-            <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="col-lg-12 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="about-right-content">
                 <div class="section-heading">
-                  <h6>Terms & Conditions</h6>
+                  <h6> <a href="index.jsp"><i class="bi bi-arrow-left fs-4"></i></a> Terms & Conditions</h6>
                   <h4>Thing's <em>You</em> Should Know</h4>
                   <div class="line-dec"></div>
                 </div>
                 <p>
                   <div>
-                     <span>Last Updated: Feb-02-2025</span>
+                     <span>Last Updated: Aug-14-2026</span>
                   </div> <br>
                     <ul><strong>Definitions</strong>
                       <li>User(s): Any individual or entity accessing or using the Website or Services.

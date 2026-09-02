@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -22,13 +23,14 @@ public class ResetPassword extends HttpServlet {
     
    Connection con;
    PreparedStatement ps;
-   PrintWriter pw;
-    
+   PrintWriter pw; 
+   private static final Pattern VALID_PATTERN = Pattern.compile("^[a-zA-Z0-9@]+$");
+   
 	public void init(ServletConfig config) {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 		String username = "root";
-		String password = "13Viraj@2507";
+		String password = "13Viraj@6937";
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url,username,password);
@@ -179,56 +181,120 @@ public class ResetPassword extends HttpServlet {
 				  }
 			  }else {
 				  
-				  //check password and confirm password are matched or not
-				  if(!new_password.equals(confirm_password)) {
-			    		pw.println("<!DOCTYPE html>");
-			    		pw.println("<html>");
-			    		pw.println("<head>");
-			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
-			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
-			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
-			    		pw.println("</head>");
-			    		pw.println("<body>");
-			    		pw.println("<script>");
-			    		pw.println("$(function() {");
-			    		pw.println("toastr.error('Password and Confirm-Password are mismatched! Please try again..');");
-			    		pw.println("setTimeout(function() {");
-			    		pw.println("window.location.href='reset_password.jsp';");
-			    		pw.println("},2000);"); // Redirect after 2 seconds
-			    		pw.println("});");
-			    		pw.println("</script>");
-			    		pw.println("</body>");
-			    		pw.println("</html>");				  
-				  }else {
-					  
-					  
-				    	// read user id from user information table
-					   int user_id = read_user_id(ps,con,session_name);
-					   
-					   // read user password from user information table
-					   boolean isPasswordExists = read_user_password(ps,con,user_id);
-					   if(!isPasswordExists) {
-						   // insert password for existing user
-						   boolean isPasswordUpdated = update_password(ps, con, new_password, user_id);
-						   if(isPasswordUpdated) {
-					    		pw.println("<!DOCTYPE html>");
-					    		pw.println("<html>");
-					    		pw.println("<head>");
-					    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
-					    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
-					    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
-					    		pw.println("</head>");
-					    		pw.println("<body>");
-					    		pw.println("<script>");
-					    		pw.println("$(function() {");
-					    		pw.println("toastr.success('Your password details are updated successfully..!');");
-					    		pw.println("setTimeout(function() {");
-					    		pw.println("window.location.href='login.jsp';");
-					    		pw.println("},2000);"); // Redirect after 2 seconds
-					    		pw.println("});");
-					    		pw.println("</script>");
-					    		pw.println("</body>");
-					    		pw.println("</html>");							   
+				  boolean isPasswordInCorrectFormat = isValid(new_password);
+				  boolean isConfirmPasswordInCorrectFormat = isValid(confirm_password);
+				  
+			     if(!isPasswordInCorrectFormat || !isConfirmPasswordInCorrectFormat) {
+			    	 if(!isPasswordInCorrectFormat) {
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('You cannot try to reset password with incorrect format, Please try again!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='reset_password.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>");
+				    		pw.println("</body>");
+				    		pw.println("</html>");	 
+			    	 }else {
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('You cannot try to reset confirm password with incorrect format, Please try again!');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='reset_password.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>");
+				    		pw.println("</body>");
+				    		pw.println("</html>");	
+			    	 }
+			     }else {
+					  //check password and confirm password are matched or not
+					  if(!new_password.equals(confirm_password)) {
+				    		pw.println("<!DOCTYPE html>");
+				    		pw.println("<html>");
+				    		pw.println("<head>");
+				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+				    		pw.println("</head>");
+				    		pw.println("<body>");
+				    		pw.println("<script>");
+				    		pw.println("$(function() {");
+				    		pw.println("toastr.error('Password and Confirm-Password are mismatched! Please try again..');");
+				    		pw.println("setTimeout(function() {");
+				    		pw.println("window.location.href='reset_password.jsp';");
+				    		pw.println("},2000);"); // Redirect after 2 seconds
+				    		pw.println("});");
+				    		pw.println("</script>");
+				    		pw.println("</body>");
+				    		pw.println("</html>");				  
+					  }else {
+						  
+						  
+					    	// read user id from user information table
+						   int user_id = read_user_id(ps,con,session_name);
+						   
+						   // read user password from user information table
+						   boolean isPasswordExists = read_user_password(ps,con,user_id);
+						   if(!isPasswordExists) {
+							   // insert password for existing user
+							   boolean isPasswordUpdated = update_password(ps, con, new_password, user_id);
+							   if(isPasswordUpdated) {
+						    		pw.println("<!DOCTYPE html>");
+						    		pw.println("<html>");
+						    		pw.println("<head>");
+						    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+						    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+						    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+						    		pw.println("</head>");
+						    		pw.println("<body>");
+						    		pw.println("<script>");
+						    		pw.println("$(function() {");
+						    		pw.println("toastr.success('Your password details are updated successfully..!');");
+						    		pw.println("setTimeout(function() {");
+						    		pw.println("window.location.href='login.jsp';");
+						    		pw.println("},2000);"); // Redirect after 2 seconds
+						    		pw.println("});");
+						    		pw.println("</script>");
+						    		pw.println("</body>");
+						    		pw.println("</html>");							   
+							   }else {
+						    		pw.println("<!DOCTYPE html>");
+						    		pw.println("<html>");
+						    		pw.println("<head>");
+						    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+						    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+						    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+						    		pw.println("</head>");
+						    		pw.println("<body>");
+						    		pw.println("<script>");
+						    		pw.println("$(function() {");
+						    		pw.println("toastr.error('Something went wrong while inserting password details');");
+						    		pw.println("setTimeout(function() {");
+						    		pw.println("window.location.href='reset_password.jsp';");
+						    		pw.println("},2000);"); // Redirect after 2 seconds
+						    		pw.println("});");
+						    		pw.println("</script>");
+						    		pw.println("</body>");
+						    		pw.println("</html>");	
+							   }
 						   }else {
 					    		pw.println("<!DOCTYPE html>");
 					    		pw.println("<html>");
@@ -240,42 +306,31 @@ public class ResetPassword extends HttpServlet {
 					    		pw.println("<body>");
 					    		pw.println("<script>");
 					    		pw.println("$(function() {");
-					    		pw.println("toastr.error('Something went wrong while inserting password details');");
+					    		pw.println("toastr.error('You are trying to set with existing password, Please try to reset password with new one.!');");
 					    		pw.println("setTimeout(function() {");
-					    		pw.println("window.location.href='reset_password.jsp';");
+					    		pw.println("window.location.href=reset_password.jsp';");
 					    		pw.println("},2000);"); // Redirect after 2 seconds
 					    		pw.println("});");
 					    		pw.println("</script>");
 					    		pw.println("</body>");
-					    		pw.println("</html>");	
+					    		pw.println("</html>");		
 						   }
-					   }else {
-				    		pw.println("<!DOCTYPE html>");
-				    		pw.println("<html>");
-				    		pw.println("<head>");
-				    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
-				    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
-				    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
-				    		pw.println("</head>");
-				    		pw.println("<body>");
-				    		pw.println("<script>");
-				    		pw.println("$(function() {");
-				    		pw.println("toastr.error('You are trying to set with existing password, Please try to reset password with new one.!');");
-				    		pw.println("setTimeout(function() {");
-				    		pw.println("window.location.href=reset_password.jsp';");
-				    		pw.println("},2000);"); // Redirect after 2 seconds
-				    		pw.println("});");
-				    		pw.println("</script>");
-				    		pw.println("</body>");
-				    		pw.println("</html>");		
-					   }
-				  }
+					  } 
+			     }
 			  }
 		  }
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+	
+    private static boolean isValid(String input) {
+        if (input == null) {
+            return false;
+        }
+        // Alternative quick approach: return input.matches("^[a-zA-Z0-9@]+$");
+        return VALID_PATTERN.matcher(input).matches();
+    }
 	
 	private boolean read_user_password(PreparedStatement ps, Connection con, int user_id) {
 		boolean flag = false;

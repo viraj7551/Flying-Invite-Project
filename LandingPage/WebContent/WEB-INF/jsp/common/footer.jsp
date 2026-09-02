@@ -77,6 +77,11 @@
 
     <!-- Section 3: Copyright -->
     <div class="row">
+     <div class="col-12">
+         <div class="container d-flex justify-content-center align-items-center">
+                 <img src="./assets/images/MSME.png" style="width:20%;">
+         </div>
+     </div>
       <div class="col-12 text-center">
         <p class="footer-title mb-0">© 2026 FlyingInvite. All rights reserved.</p>
       </div>

@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+.rail-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background: #222;
+  color: #fff;
+  padding: 5px 0;
+}
+
+.rail-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: flowText 15s linear infinite;
+}
+
+.rail-track span {
+  display: inline-block;
+  padding-right: 50px;
+  font-size: 1.2rem;
+}
+
+@keyframes flowText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-48%);
+  }
+}

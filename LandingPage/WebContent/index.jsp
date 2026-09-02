@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Parisienne&family=Pinyon+Script&family=Ephesis&display=swap" rel="stylesheet">
-    <title>FlyingInvite | Special Invite</title>
+    <title>FlyingInvite | Hero Invite</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS Files -->
@@ -233,12 +233,12 @@
       <hr>
       <div class="container">
         <div class="label">Is watermark removable ?</div>
-        <div class="content"> <strong>Yes</strong> watermark is removable, Once it has been downloaded</div>
+        <div class="content"> <strong>Yes</strong> watermark is removable, Once it has been downloaded.</div>
       </div>
       <hr>
       <div class="container">
         <div class="label">Templates are best for ?</div>
-        <div class="content">Templates are suitable for mail-list greetings</div>
+        <div class="content">Templates are suitable for mail campaign.</div>
       </div>
       <hr>
       <div class="container">
@@ -370,8 +370,6 @@
                           </div>
                         </div>
                       </li>
-                      
-                      
                     </ul>
                   </div>          
                 </div>

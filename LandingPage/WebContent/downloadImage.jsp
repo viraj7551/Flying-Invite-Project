@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <title>FlyingInvite | Special Invite</title>
+  <title>FlyingInvite | Hero Invite</title>
 
       <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,8 +44,12 @@
   <link rel="stylesheet" href="./assets/css/animated.css">
   <link rel="stylesheet" href="./assets/css/owl.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ4MP44ET9"></script>
 <script>
@@ -66,6 +70,13 @@
 
   <!-- Pre-header End -->
   
+  <!-- ***** Header Area Start ***** -->
+       <%@ include file="/WEB-INF/jsp/common/header02.jsp" %>
+  
+  <!-- ***** Header Area End ***** -->
+  
+  
+  
 
          <%
                  ResultSet rs = null;
@@ -83,7 +94,7 @@
                 	   }
                 	   
                 	   con = DBConnection.getConnection();
-             		   ps = con.prepareStatement("select template_title,price,category_title,access_type_title,preview_image from flyinginvite_template Inner Join flyinginvite_template_category using(template_id) Inner Join flyinginvite_access_type using(template_id) Inner Join template_image using(template_id) Inner Join flyinginvite_template_price using(template_id) where template_id = ?;");
+             		   ps = con.prepareStatement("select template_title, template_specification, template_tag, price,category_title,access_type_title,preview_image, target_title from flyinginvite_template Inner Join flyinginvite_template_category using(template_id) Inner Join flyinginvite_access_type using(template_id) Inner Join template_image using(template_id) Inner Join flyinginvite_template_price using(template_id) Inner Join flyinginvite_target using(template_id) where template_id = ?;");
              		   ps.setInt(1, original_tempId);
              		   rs = ps.executeQuery();
              		   if(rs.next()){  
@@ -103,43 +114,142 @@
              			   
     %>
     
-<div class="container mt-5">
+<div class="container" style="margin-top:180px;">
+    
+<div class="container mt-5 pt-5">
   <div class="row align-items-center">
  <!-- Left Section Image -->
     <div class="col-md-6 mb-4">
       <img src="data:image/png;base64,${template_image}" class="img-fluid rounded" alt="Customer Image">
     </div>
+    
+    
+ <% if(template_download_tp.equals("Free")){ %>   
  <!-- ---Right Section  -->
+ 
  <div class="col-md-6">
                  
               <div class="row">
-                  <div class="col-6">
-                         <h3 class="mb-4"> <a href="#" onclick="browser_back();"; return false;> <i class="bi bi-arrow-left fs-4"></i> </a> <%= rs.getString("template_title") %></h3>
+                  <div class="col-6" style="width:100%;">
+                         <span class="mb-3"><a href="#" onclick="browser_back();">  <i class="bi bi-arrow-left fs-5"> </i> </a> <%= rs.getString("target_title")%></span>
                   </div>
-                  
+              </div>
+              
+              <div class= "row">
+                   <div class="col-6 text-left">
+                         <h1 class="mb-3"><%= rs.getString("template_title")%></h1>
+                   </div>
               </div>
               
               <div class="row">
-                   <div class="col-6 text-center">
-                               <% if(template_download_tp.equals("Free")){ %>
-                                 
-                               <h4  style="font-size:20px";>&#8377 <span class="card-title text-decoration-line-through" style="font-size:20px;"> <%= rs.getString("price")%></span> <h4 style="font-size:50px";>&#8377 <span class="card-title" style="font-size:50px;">0</span></h4></h4> 
-                            <% }else{ %>
-                                	 <h4 class="card-title">&#8377 <%= rs.getString("price") %></h4>
-                                <%  } %>  
+                   <div class="col-6 text-left pt-3" style="width:100%">
+                          <span  class="card-title" style="font-size:32px";><span class=" text-decoration-line-through" style="font-size:32px; color:#FF6060"> &#8377 <%= rs.getString("price")%></span> &#8377 0 </span> 
                   </div>
               </div>    
+              
+              <div class="row">
+                 <div class="col-6 text-left pt-4" style="width:auto;">
+                     <span> This template is use for testing purpose, Testing is done on big screen devices and small screen devices. </span>
+                 </div>
+              </div>
+              
+              <div class="row pt-2">
+                 <div class="col-4 text-center" style="width:auto; padding:10px;">
+                      <h6 class="card-title"> #<%= rs.getString("template_tag")%></h6>
+                 </div>
+                 <div class="col-4 text-center" style="width:auto; padding:10px; ">
+                      <h6 class="card-title"> #<%= rs.getString("category_title")%></h6>
+                 </div>
+                 
+                  <div class="col-4 text-center" style="width:auto; padding:10px; ">
+                      <h6 class="card-title"> #<%= rs.getString("access_type_title")%></h6>
+                 </div>
+              </div>
+            
+             <form method="POST" action="TemplateDownload">
+                  <input type= "hidden" name="template_name" value="<%= rs.getString("template_title")%>">
+                  <input type= "hidden" name="target_title" value="<%= rs.getString("target_title")%>">
                   
-  </div>   
+                   <div class="row">
+                      <div class="col-6 pt-4" style="width:100%;">
+                        <button class="btn btn-danger btn-lg btn-block"> <i class="bi bi-cloud-download"> </i> Download For Free </button>
+                      </div>
+                   </div>
+             </form> 
+                   
+                   <div class="row">
+                      <div class="col-6 pt-4" style="width:100%;">
+                        <a class="btn btn-outline-success btn-lg btn-block" href="renew_model.jsp"> <i class="bi bi-cash-coin"> </i> Renew Now </a>
+                      </div>
+                   </div>          
+       </div>   
+ <% } else {%>
+ 
+ 
+  <!-- ---Right Section  -->
+ <div class="col-md-6">
+ 
+      <form method="POST" action="TemplateDownload">
+      
+         <input type= "hidden" name="template_name" value="<%= rs.getString("template_title")%>">
+         <input type= "hidden" name="target_title" value="<%= rs.getString("target_title")%>">
+         
+              <div class="row">
+                  <div class="col-6" style="width:100%;">
+                         <span class="mb-3"><a href="#" onclick="browser_back();">  <i class="bi bi-arrow-left fs-5"> </i> </a> <%= rs.getString("target_title")%></span>
+                  </div>
+              </div>
+              
+              <div class= "row">
+                   <div class="col-6 text-left">
+                         <h1 class="mb-3"><%= rs.getString("template_title")%></h1>
+                   </div>
+              </div>
+              
+              <div class="row">
+                   <div class="col-6 text-left pt-3" style="width:100%">
+                          <span  class="card-title" style="font-size:32px";> &#8377 <%= rs.getString("price")%></span>   
+                  </div>
+              </div>    
+              
+              <div class="row">
+                 <div class="col-6 text-left pt-4" style="width:auto;">
+                     <span> This template is use for testing purpose, Testing is done on big screen devices and small screen devices. </span>
+                 </div>
+              </div>
+              
+              <div class="row pt-2">
+                 <div class="col-4 text-center" style="width:auto; padding:10px;">
+                      <h6 class="card-title"> #<%= rs.getString("template_tag")%></h6>
+                 </div>
+                 <div class="col-4 text-center" style="width:auto; padding:10px; ">
+                      <h6 class="card-title"> #<%= rs.getString("category_title")%></h6>
+                 </div>
+                 
+                  <div class="col-4 text-center" style="width:auto; padding:10px; ">
+                      <h6 class="card-title"> #<%= rs.getString("access_type_title")%></h6>
+                 </div>
+              </div>
+
+               <input type= "hidden" name="<%= rs.getString("template_title")%>">
+              
+                   <div class="row">
+                      <div class="col-6 pt-4" style="width:100%;">
+                        <a class="btn btn-danger btn-lg btn-block" href="renew_model.jsp"> <i class="bi bi-cloud-download"> </i> Download </a>
+                      </div>
+                   </div>  
+            </form>     
+       </div> 
+  <%}%>
   </div>
 </div>
+</div>
      
-       <%
-            } 		   
+       <%  
+           }
            }catch(Exception e){
             e.printStackTrace();
-         }
-      
+         }   
       %>
   
   <script>

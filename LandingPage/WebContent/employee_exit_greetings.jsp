@@ -5,7 +5,6 @@
 <%@ page import = "java.sql.*"%>
 <%@ page import="com.app.DBConnection" %>
 <%@ page import="java.sql.Connection" %>
- 
     
 <!DOCTYPE html>
 <html>
@@ -31,7 +30,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   
-    <title>FlyingInvite | Special Invite</title>
+    <title>FlyingInvite | Hero Invite</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -194,14 +193,36 @@ if(session.getAttribute("session_id") == null){
   	         }
   	         
 		   }
-%>
+		   
+		   int user_id=-1;
+           int total_download = 0;
+           String renew_type = null;
+           String session_name = (String) session.getAttribute("session_id");
+
+		   ps = con.prepareStatement("select user_id from flyinginvite_user_info_details Inner Join flyinginvite_user_session_details using(user_id) where session_name = ?;");
+		    ps.setString(1, session_name);
+	        rs = ps.executeQuery();
+		     if(rs.next()) {
+			    user_id = rs.getInt("user_id");
+		     }
+		  
+		    ps = con.prepareStatement("select count(download_event_id) as total_download from flyinginvite_download_event where user_id = ?;");
+		    ps.setInt(1,user_id);
+		    rs = ps.executeQuery();
+		    if(rs.next()){
+	           total_download = rs.getInt("total_download");	    	
+	 	    }
+			   
+		    ps = con.prepareStatement("select renew_type from flyinginvite_renew_table where user_id = ?;");
+		    ps.setInt(1, user_id);
+		    rs = ps.executeQuery();
+		    if(rs.next()){
+		    	renew_type = rs.getString("renew_type");
+		    }
+           
+		    if(renew_type.equals("Free Tier") && total_download > 20){   %>
 
 <div class="container" style="margin-top:80px;">
-
-<div class="heading_container text-center">
-   <h3 style="padding:10px; font-family:Arial"> <a href="greetings.jsp"> <i class="bi bi-arrow-left fs-4"></i> </a> EXIT GREETINGS <span id="greetings_count"></span></h3>
-</div>
-
 <div class="container" style="margin-bottom:2px; padding:30px; border:1px solid red; display: none;">
      <div class="row">
          <div class="col-6">
@@ -215,9 +236,33 @@ if(session.getAttribute("session_id") == null){
 </div>
 </div>
 
+<% } else if(renew_type.equals("Basic Tier") && total_download > 100){ %>
+       <div class="container" style="margin-top:80px;">
+   <div class="container" style="margin-bottom:2px; padding:30px; border:1px solid red; display: block;">
+     <div class="row align-items-center">
+      <!-- Text section -->
+      <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+        <span class="expiry-alert d-inline-block mt-2" style="color:red;">
+          <strong>Your subscription has expired, please renew plan again to download more!</strong>
+        </span>
+      </div>
+
+    <!-- Button section -->
+    <div class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end">
+      <a href="renew_model.jsp" id="Sample" class="btn btn-outline-danger">Renew</a>
+    </div>
+  </div>
+ </div>
+</div>
+     
+<%} else{%>
 
 <!-- ---------------- Carousal1 Slider Code Starts Here --------------------------------------->
   
+  <div class="container" style="margin-top:80px;">
+     <div class="heading_container text-center">
+      <h3 style="padding:10px; font-family:Arial"> <a href="greetings.jsp"> <i class="bi bi-arrow-left fs-4"></i> </a> EXIT GREETINGS <span id="greetings_count"></span></h3>
+    </div>
     <div class="container pt-5">   
     <div class="row" style="margin-top:40px;">
     
@@ -295,6 +340,7 @@ if(session.getAttribute("session_id") == null){
    </div> 
 </div> 
 
+</div>
 
 <!-- FULLSCREEN MODAL -->
 <div class="modal fade" id="previewModal" tabindex="-1">
@@ -311,7 +357,7 @@ if(session.getAttribute("session_id") == null){
     </div>
 </div>   
 
-  <%      
+  <%  }    
      }
    catch(Exception e){
   	   e.printStackTrace();

@@ -28,7 +28,7 @@ public class EditProfile extends HttpServlet {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 		String username = "root";
-		String password = "13Viraj@2507";
+		String password = "13Viraj@6937";
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url,username,password);
@@ -264,56 +264,7 @@ public class EditProfile extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	private boolean check_username_exist(String session) {
-		boolean flag = false;
-		try {
-			ps = con.prepareStatement("select user_name from flyinginvite_user_info_details Inner Join flyinginvite_user_session_details where session_name = ?;");
-		    ps.setString(1, session);
-		    ResultSet rs = ps.executeQuery();
-		    if(rs.next()) {
-		    	flag = true;
-		    }
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
-	
-	private boolean check_contact_exist(String session) {
-		boolean flag = false;
-		try {
-			ps = con.prepareStatement("select user_contact from flyinginvite_user_info_details Inner Join flyinginvite_user_session_details where session_name = ?;");
-		    ps.setString(1, session);
-		    ResultSet rs = ps.executeQuery();
-		    if(rs.next()) {
-		    	flag = true;
-		    }
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
-	private boolean check_email_exist(String session) {
-		boolean flag = false;
-		try {
-			ps = con.prepareStatement("select user_email from flyinginvite_user_info_details Inner Join flyinginvite_user_session_details where session_name = ?;");
-		    ps.setString(1, session);
-		    ResultSet rs = ps.executeQuery();
-		    if(rs.next()) {
-		    	flag = true;
-		    }
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
+
 	private int read_user_name(String session) {
 		int user_id = -1;
 		try {

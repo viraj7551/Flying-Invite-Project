@@ -31,7 +31,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   
-    <title>FlyingInvite | Special Invite</title>
+    <title>FlyingInvite | Hero Invite</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -228,7 +228,8 @@ if(session.getAttribute("session_id") == null){
       String template_target = card.get("target_name").toString();
          
       if(template_target.equals("birthday greetings")){ %>
-       <div class="col-md-4" style="padding-bottom:90px;">   
+       <div class="col-md-4" style="padding-bot
+       tom:90px;">   
          <form method="POST" action="downloadImage.jsp">
             <div class="card image-card shadow">
                 <img src="data:image/jpeg;base64,<%= card.get("preview_image") %>" alt="Image" id="Image01">
