@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 
 @WebServlet("/ResetPassword")
 public class ResetPassword extends HttpServlet {
@@ -30,7 +32,7 @@ public class ResetPassword extends HttpServlet {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 		String username = "root";
-		String password = "13Viraj@6937";
+		String password = "13Viraj@2507";
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url,username,password);
@@ -254,8 +256,12 @@ public class ResetPassword extends HttpServlet {
 						   // read user password from user information table
 						   boolean isPasswordExists = read_user_password(ps,con,user_id);
 						   if(!isPasswordExists) {
+							   
+							   //encrypt password before reset and update into database
+							   String hashed_password = encrypt_password(new_password);
+							   
 							   // insert password for existing user
-							   boolean isPasswordUpdated = update_password(ps, con, new_password, user_id);
+							   boolean isPasswordUpdated = update_password(ps, con, hashed_password, user_id);
 							   if(isPasswordUpdated) {
 						    		pw.println("<!DOCTYPE html>");
 						    		pw.println("<html>");
@@ -322,6 +328,11 @@ public class ResetPassword extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	private String encrypt_password(String password) {
+		String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
+		return hashedPassword;
 	}
 	
     private static boolean isValid(String input) {

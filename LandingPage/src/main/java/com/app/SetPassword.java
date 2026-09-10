@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 
 @WebServlet("/SetPassword")
 public class SetPassword extends HttpServlet {
@@ -31,7 +33,7 @@ public class SetPassword extends HttpServlet {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 		String username = "root";
-		String password = "13Viraj@6937";
+		String password = "13Viraj@2507";
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url,username,password);
@@ -271,9 +273,13 @@ public class SetPassword extends HttpServlet {
 
 						    	   // read user id from user information table
 							       int user_id = read_user_id(ps,con,username);
+							       
+							       
+							       //encrypt password before setting into database
+							       String hashed_password = encrypt_password(new_password);
 							   
-								   // insert password for existing user
-								   boolean isPasswordInserted= insert_into_password(ps, con, new_password, user_id);
+								   // insert hashed password for existing user into database
+								   boolean isPasswordInserted= insert_into_password(ps, con, hashed_password, user_id);
 								   if(!isPasswordInserted) {							    		
 							    		pw.println("<!DOCTYPE html>");
 							    		pw.println("<html>");
@@ -322,6 +328,11 @@ public class SetPassword extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	private String encrypt_password(String password) {
+		String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
+		return hashedPassword;
 	}
 	
 	private int read_user_id(PreparedStatement ps, Connection con, String username) {

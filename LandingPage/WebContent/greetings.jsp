@@ -230,8 +230,29 @@ if(session.getAttribute("session_id") == null){
       </div>
    <!-- ---------------- Greeting Card03 Ends Here --------------------------------------->
    
-
    </div>   
+   
+   <div class="row">
+           <!-- ---------------- Greeting Card03 Starts Here --------------------------------------->
+         <div class="col-md-4" id = "yoga">
+          <div class="container d-flex justify-content-center mt-3">
+            <div class="card shadow" style="width: 500px;">
+               <div class="carousel-inner">
+                 <div class="carousel-item active">
+                   <img src= "assets/images/thumbnail/star.png" class="d-block w-100" alt="Slide 1">
+                      <a href="employee_birthday_greetings.jsp">
+                           <div class="card-body text-center">
+                               <h5 class="card-title">Birthday Greetings</h5>
+                          </div>
+                       </a> 
+                  </div>
+               </div>      
+          </div>
+       </div>
+      </div>
+   <!-- ---------------- Greeting Card03 Ends Here --------------------------------------->
+   
+   </div>
   </div>
 
 

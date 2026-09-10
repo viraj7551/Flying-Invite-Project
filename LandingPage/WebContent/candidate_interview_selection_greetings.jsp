@@ -5,6 +5,9 @@
 <%@ page import = "java.sql.*"%>
 <%@ page import="com.app.DBConnection" %>
 <%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.LocalTime" %>
  
     
 <!DOCTYPE html>
@@ -163,6 +166,17 @@ if(session.getAttribute("session_id") == null){
 		    	renew_type = rs.getString("renew_type");
 		    }
            
+		    LocalDate startDate = null;
+		    LocalDate endDate = null;
+		    
+		    ps = con.prepareStatement("select from_date, to_date from flyinginvite_renew_date_range where user_id = ?;");
+		    ps.setInt(1,user_id);
+		    rs = ps.executeQuery();
+		    if(rs.next()){
+		    	startDate = rs.getObject("from_date", LocalDate.class);
+		    	endDate = rs.getObject("to_date",LocalDate.class);
+		    }
+		    
 		    if(renew_type.equals("Free Tier") && total_download > 20){   
 		   
 %>
@@ -186,8 +200,10 @@ if(session.getAttribute("session_id") == null){
 
 </div>
 
-<% }  else if(renew_type.equals("Basic Tier") &&  total_download > 100) { %>
-
+<% }  else if(renew_type.equals("Basic Tier") && ( startDate.isAfter(endDate) || total_download > 100)) { %>
+ 
+   <% if(renew_type.equals("Basic Tier") && startDate.isAfter(endDate)) { %>
+  
    <div class="container" style="margin-top:80px;">
    <div class="container" style="margin-bottom:2px; padding:30px; border:1px solid red; display: block;">
      <div class="row align-items-center">
@@ -205,6 +221,26 @@ if(session.getAttribute("session_id") == null){
   </div>
  </div>
 </div>
+
+<%}else{ %>
+   <div class="container" style="margin-top:80px;">
+   <div class="container" style="margin-bottom:2px; padding:30px; border:1px solid red; display: block;">
+     <div class="row align-items-center">
+      <!-- Text section -->
+      <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+        <span class="expiry-alert d-inline-block mt-2" style="color:red;">
+          <strong>Your Download Limit has exceeds beyond set Limit, please renew plan again to download more!</strong>
+        </span>
+      </div>
+
+    <!-- Button section -->
+    <div class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end">
+      <a href="renew_model.jsp" id="Sample" class="btn btn-outline-danger">Renew</a>
+    </div>
+  </div>
+ </div>
+</div>
+<%} %>
 
 <% } else { %>
 

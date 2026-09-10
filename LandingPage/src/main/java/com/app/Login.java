@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -34,7 +36,7 @@ public class Login extends HttpServlet {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 			String username = "root";
-			String password = "13Viraj@6937";
+			String password = "13Viraj@2507";
 			try {
 				Class.forName(driver);
 				con = DriverManager.getConnection(url,username,password);
@@ -243,10 +245,10 @@ public class Login extends HttpServlet {
 					    		pw.println("</script>");
 					    		
 						  }else {
-							  
+							  							  
 							  //check for correct password
-							  String actual_password = check_for_password(ps,con,email);
-							  if(!password.equals(actual_password)) {
+							  boolean IsPasswordMatched = check_for_password_match(email,password);
+							  if(!IsPasswordMatched) {
 						    		pw.println("<!DOCTYPE html>");
 						    		pw.println("<html>");
 						    		pw.println("<head>");
@@ -265,27 +267,27 @@ public class Login extends HttpServlet {
 						    		pw.println("</script>");
 						    		
 							  }else {
-
-								  //read user_session id & set into session
-								  String session_name = read_user_session(ps, con, email);
-		                  		  HttpSession session = request.getSession(true);
-		                  		  session.setAttribute("session_id", session_name); 
-						    		pw.println("<!DOCTYPE html>");
-						    		pw.println("<html>");
-						    		pw.println("<head>");
-						    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
-						    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
-						    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
-						    		pw.println("</head>");
-						    		pw.println("<body>");
-						    		pw.println("<script>");
-						    		pw.println("$(function() {");
-						    		pw.println("toastr.success('You are validated successfully..!');");
-						    		pw.println("setTimeout(function() {");
-						    		pw.println("window.location.href='greetings.jsp';");
-						    		pw.println("},2000);"); // Redirect after 2 seconds
-						    		pw.println("});");
-						    		pw.println("</script>");
+								  
+									  //read user_session id & set into session
+									  String session_name = read_user_session(ps, con, email);
+			                  		  HttpSession session = request.getSession(true);
+			                  		  session.setAttribute("session_id", session_name); 
+							    		pw.println("<!DOCTYPE html>");
+							    		pw.println("<html>");
+							    		pw.println("<head>");
+							    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+							    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+							    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+							    		pw.println("</head>");
+							    		pw.println("<body>");
+							    		pw.println("<script>");
+							    		pw.println("$(function() {");
+							    		pw.println("toastr.success('You are validated successfully..!');");
+							    		pw.println("setTimeout(function() {");
+							    		pw.println("window.location.href='greetings.jsp';");
+							    		pw.println("},2000);"); // Redirect after 2 seconds
+							    		pw.println("});");
+							    		pw.println("</script>");  
 		                  		  
 							  }
 						  }    	 
@@ -300,6 +302,18 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	private boolean check_for_password_match(String email, String password) {
+	    boolean flag = false;   
+		String hashed_password = check_for_password(email);
+        if (BCrypt.checkpw(password, hashed_password)) {
+           flag = true;
+        } else {
+           flag = false;
+        }   
+        return flag;
+	}
+	
 	
     private boolean isValidEmail(String email) {
         if (email == null) return false;
@@ -332,7 +346,7 @@ public class Login extends HttpServlet {
 	}
 	
 	
-	private String check_for_password(PreparedStatement ps, Connection con, String email) {
+	private String check_for_password(String email) {
 	   String actual_password = null;
 	   try {
 		   ps = con.prepareStatement("select password from flyinginvite_user_password_details Inner Join flyinginvite_user_info_details using(user_id) where user_email=?;");

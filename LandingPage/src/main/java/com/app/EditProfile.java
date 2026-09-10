@@ -28,7 +28,7 @@ public class EditProfile extends HttpServlet {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
 		String username = "root";
-		String password = "13Viraj@6937";
+		String password = "13Viraj@2507";
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url,username,password);
