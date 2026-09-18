@@ -100,7 +100,7 @@ public class FileUploader extends HttpServlet {
     	    Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
             
-    	    ps = con.prepareStatement("insert into template_image(filename, image, preview_image, templateId) values(?,?,?,?);");
+    	    ps = con.prepareStatement("insert into template_image(filename, image, preview_image, template_id) values(?,?,?,?);");
     	    ps.setString(1, filename);
     	    ps.setBlob(2, inputStream);
     	    ps.setBlob(3, inputStream02);

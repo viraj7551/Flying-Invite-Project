@@ -1,0 +1,262 @@
+package main.resources;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.*;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/SetCouponInformation")
+public class SetCouponInformation extends HttpServlet {
+	
+	Connection con;
+	PreparedStatement ps;
+	PrintWriter pw;
+	
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	private String username = "root";
+	private String password = "13Viraj@6937";
+	
+	public void init() {
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, username, password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      
+      String coupon_title = request.getParameter("coupon_title");
+      System.out.println(coupon_title);
+      
+      String coupon_status = request.getParameter("coupon_status");
+      System.out.println(coupon_status);
+      
+      int company_id = Integer.parseInt(request.getParameter("company_id"));
+      System.out.println(company_id);
+      
+      response.setContentType("text/html");
+     pw = response.getWriter();
+		
+      if(coupon_title == null || coupon_status == null || company_id < 1) {
+    	  if(coupon_title == null) {
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('Coupon title cannot be empty, Please enter coupon value.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='coupons.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>"); 
+	    		
+    	  }else if(coupon_status == null) {
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('Coupon status cannot be empty, Please try again!');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='coupons.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>"); 
+    	  }else {
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('Company id cannot be less than 1, Please try again.!');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='coupons.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>");
+    	  }
+    	  
+      }else {
+    	  int coupon_title_length = coupon_title.length(); 
+    	  int coupon_status_length = coupon_status.length();
+    	  
+    	  if((coupon_title_length < 5 || coupon_title_length > 40) || (coupon_status_length < 5 || coupon_status_length > 8)) {
+    		  if((coupon_title_length < 5 || coupon_title_length > 40)) {
+    			  if(coupon_title_length < 5) {
+    		    		pw.println("<!DOCTYPE html>");
+    		    		pw.println("<html>");
+    		    		pw.println("<head>");
+    		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+    		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+    		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+    		    		pw.println("</head>");
+    		    		pw.println("<body>");
+    		    		pw.println("<script>");
+    		    		pw.println("$(function() {");
+    		    		pw.println("toastr.error('coupon title cannot be less than 5 characters, Please try again.!');");
+    		    		pw.println("setTimeout(function() {");
+    		    		pw.println("window.location.href='coupons.jsp';");
+    		    		pw.println("},2000);"); // Redirect after 2 seconds
+    		    		pw.println("});");
+    		    		pw.println("</script>");
+
+    			  }else {
+  		    		pw.println("<!DOCTYPE html>");
+  		    		pw.println("<html>");
+  		    		pw.println("<head>");
+  		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+  		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+  		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+  		    		pw.println("</head>");
+  		    		pw.println("<body>");
+  		    		pw.println("<script>");
+  		    		pw.println("$(function() {");
+  		    		pw.println("toastr.error('coupon title cannot be more than 40 characters, Please try again.!');");
+  		    		pw.println("setTimeout(function() {");
+  		    		pw.println("window.location.href='coupons.jsp';");
+  		    		pw.println("},2000);"); // Redirect after 2 seconds
+  		    		pw.println("});");
+  		    		pw.println("</script>");
+    			  }
+    			  
+    		  }else if((coupon_status_length < 5 || coupon_status_length > 8)) {
+    			 if(coupon_status_length < 5) {
+ 		    		pw.println("<!DOCTYPE html>");
+ 		    		pw.println("<html>");
+ 		    		pw.println("<head>");
+ 		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+ 		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+ 		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+ 		    		pw.println("</head>");
+ 		    		pw.println("<body>");
+ 		    		pw.println("<script>");
+ 		    		pw.println("$(function() {");
+ 		    		pw.println("toastr.error('coupon status cannot be less than 5 value, Please try again.!');");
+ 		    		pw.println("setTimeout(function() {");
+ 		    		pw.println("window.location.href='coupons.jsp';");
+ 		    		pw.println("},2000);"); // Redirect after 2 seconds
+ 		    		pw.println("});");
+ 		    		pw.println("</script>");
+    			 }else {
+ 		    		pw.println("<!DOCTYPE html>");
+ 		    		pw.println("<html>");
+ 		    		pw.println("<head>");
+ 		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+ 		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+ 		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+ 		    		pw.println("</head>");
+ 		    		pw.println("<body>");
+ 		    		pw.println("<script>");
+ 		    		pw.println("$(function() {");
+ 		    		pw.println("toastr.error('coupon status cannot be more than 8 characters, Please try again.!');");
+ 		    		pw.println("setTimeout(function() {");
+ 		    		pw.println("window.location.href='coupons.jsp';");
+ 		    		pw.println("},2000);"); // Redirect after 2 seconds
+ 		    		pw.println("});");
+ 		    		pw.println("</script>");
+    			 }
+    			  
+    		  } else {
+                   boolean isInsertedNewCoupon = insert_into_new_coupon(coupon_title, coupon_status, company_id);
+                   System.out.println();
+                   if(!isInsertedNewCoupon) {
+    		    		pw.println("<!DOCTYPE html>");
+     		    		pw.println("<html>");
+     		    		pw.println("<head>");
+     		    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+     		    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+     		    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+     		    		pw.println("</head>");
+     		    		pw.println("<body>");
+     		    		pw.println("<script>");
+     		    		pw.println("$(function() {");
+     		    		pw.println("toastr.error('Something went wrong while inserting new coupon details, Please try again.!');");
+     		    		pw.println("setTimeout(function() {");
+     		    		pw.println("window.location.href='coupons.jsp';");
+     		    		pw.println("},2000);"); // Redirect after 2 seconds
+     		    		pw.println("});");
+     		    		pw.println("</script>");
+                   }else {
+			    		pw.println("<!DOCTYPE html>");
+			    		pw.println("<html>");
+			    		pw.println("<head>");
+			    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+			    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+			    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+			    		pw.println("</head>");
+			    		pw.println("<body>");
+			    		pw.println("<script>");
+			    		pw.println("$(function() {");
+			    		pw.println("toastr.success('New coupon details is inserted successfully..!');");
+			    		pw.println("setTimeout(function() {");
+			    		pw.println("window.location.href='coupons.jsp';");
+			    		pw.println("},2000);"); // Redirect after 2 seconds
+			    		pw.println("});");
+			    		pw.println("</script>");
+                   }
+                	   
+    		  }
+    		  
+    	  }
+    	  
+       }
+		
+	}
+	
+	private boolean insert_into_new_coupon(String coupon_title,String coupon_status, int company_id) {
+		boolean flag = false;
+		try {
+			ps = con.prepareStatement("insert into flyinginvite_company_coupon(coupon_title, coupon_status,company_id)values(?,?,?);");
+		    ps.setString(1,coupon_title);
+		    ps.setString(2, coupon_status);
+		    ps.setInt(3, company_id);
+		    ps.executeUpdate();
+		    flag = true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	
+	public void destroy() {
+		try {
+			ps.close();
+			con.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

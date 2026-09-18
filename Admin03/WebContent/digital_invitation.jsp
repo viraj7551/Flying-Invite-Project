@@ -101,6 +101,7 @@ margin-left:0;
 <a href="dashboard.jsp">Dashboard</a>
 <a href="#">Digital Invitations</a>
 <a href="file_uploader.jsp">File Uploder</a>
+<a href="coupons.jsp">Coupon Generation</a>
 <a href="administrator.jsp">Logout</a>
 
 </div>
@@ -265,8 +266,9 @@ margin-left:0;
         <label class="form-label">Select Target</label>
       <select id ="first_drop_down" class="form-select" onchange = "festivalFilter()" name="target_selector">
           <option selected>Select option</option>
-          <option value="Wedding">Wedding</option>
-          <option value="Baby Shower">Baby Shower</option>
+          <option value="selection greetings">selection greetings</option>
+          <option value="onboard greetings">onboard greetings</option>
+          <option value="exit greetings">exit greetings</option>
           <option value="Yoga Day">Yoga Day</option>
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>

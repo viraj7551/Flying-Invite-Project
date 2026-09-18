@@ -1,0 +1,14 @@
+127.0.0.1 - - [12/Sep/2026:10:10:05 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:10:33 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3410
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:10:33 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:10:33 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:10:56 +0530] "GET /Admin03/administrator.jsp HTTP/1.1" 200 3410
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:10:56 +0530] "GET /Admin03/css/styles.css HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:10:56 +0530] "GET /Admin03/js/index.js HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:11:02 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:31:37 +0530] "POST /Admin03/Auth HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:31:37 +0530] "GET /Admin03/dashboard.jsp HTTP/1.1" 200 2749
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:44:00 +0530] "GET /Admin03/digital_invitation.jsp HTTP/1.1" 200 7947
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:44:03 +0530] "GET /Admin03/file_uploader.jsp HTTP/1.1" 200 7933
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:44:04 +0530] "GET /Admin03/coupons.jsp HTTP/1.1" 200 4991
+0:0:0:0:0:0:0:1 - - [12/Sep/2026:10:45:21 +0530] "GET /Admin03/coupons.jsp HTTP/1.1" 200 4991

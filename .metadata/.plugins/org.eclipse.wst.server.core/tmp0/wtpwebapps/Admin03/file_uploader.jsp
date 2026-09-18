@@ -127,6 +127,7 @@ margin-left:0;
 <a href="dashboard.jsp">Dashboard</a>
 <a href="digital_invitation.jsp">Digital Invitations</a>
 <a href="#">File Uploder</a>
+<a href="coupons.jsp">Coupon Generation</a>
 <a href="administrator.jsp">Logout</a>
 
 </div>

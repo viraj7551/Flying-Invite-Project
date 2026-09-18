@@ -1,0 +1,207 @@
+package main.resources;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/SetCompanyInformation")
+public class SetCompanyInformation extends HttpServlet {
+
+	PrintWriter pw;
+	Connection con;
+	PreparedStatement ps;
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://88.222.214.58:3306/flyinginvite_invitation";
+	private String username = "root";
+	private String password = "13Viraj@6937";
+	
+	public void init() {
+
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, username, password);
+		}
+		catch(Exception e) {
+            e.printStackTrace();
+		}
+
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        pw = response.getWriter();
+        response.setContentType("text/html");
+        
+		String company_name = request.getParameter("company_name");
+		String company_status = request.getParameter("company_status");
+		String company_type = request.getParameter("company_type");
+		
+		if(company_name == null || company_status == null || company_type == null) {
+			if(company_name == null) {
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('Company name cannot be empty, Please enter company name.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='coupons.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>"); 
+			}else if(company_status == null) {
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('Company status cannot be empty, Please enter correct company status.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='coupons.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>"); 
+			}else {
+	    		pw.println("<!DOCTYPE html>");
+	    		pw.println("<html>");
+	    		pw.println("<head>");
+	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+	    		pw.println("</head>");
+	    		pw.println("<body>");
+	    		pw.println("<script>");
+	    		pw.println("$(function() {");
+	    		pw.println("toastr.error('Company type cannot be empty, Please enter company type.');");
+	    		pw.println("setTimeout(function() {");
+	    		pw.println("window.location.href='coupons.jsp';");
+	    		pw.println("},2000);"); // Redirect after 2 seconds
+	    		pw.println("});");
+	    		pw.println("</script>"); 
+			}
+			
+		}else {
+			int company_name_length = company_name.length();
+			int company_status_length = company_status.length();
+			int company_type_length = company_type.length();
+			
+			if((company_name_length < 5 || company_name_length > 40) || (company_status_length < 5 || company_status_length > 10) || (company_type_length < 5 || company_type_length > 40)) {
+				if(company_name_length < 5 || company_name_length > 40) {
+                  if(company_name_length < 5) {
+      	    		pw.println("<!DOCTYPE html>");
+    	    		pw.println("<html>");
+    	    		pw.println("<head>");
+    	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+    	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+    	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+    	    		pw.println("</head>");
+    	    		pw.println("<body>");
+    	    		pw.println("<script>");
+    	    		pw.println("$(function() {");
+    	    		pw.println("toastr.error('Company name cannot be less than 5 characters, Please try again!');");
+    	    		pw.println("setTimeout(function() {");
+    	    		pw.println("window.location.href='coupons.jsp';");
+    	    		pw.println("},2000);"); // Redirect after 2 seconds
+    	    		pw.println("});");
+    	    		pw.println("</script>");
+                  }else {
+        	    		pw.println("<!DOCTYPE html>");
+        	    		pw.println("<html>");
+        	    		pw.println("<head>");
+        	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+        	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+        	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+        	    		pw.println("</head>");
+        	    		pw.println("<body>");
+        	    		pw.println("<script>");
+        	    		pw.println("$(function() {");
+        	    		pw.println("toastr.error('Company name cannot be more than 40 characters, Please try again!');");
+        	    		pw.println("setTimeout(function() {");
+        	    		pw.println("window.location.href='coupons.jsp';");
+        	    		pw.println("},2000);"); // Redirect after 2 seconds
+        	    		pw.println("});");
+        	    		pw.println("</script>");
+                  }
+					
+				}else if(company_status_length < 5 || company_status_length > 10) {
+					if(company_status_length < 5) {
+        	    		pw.println("<!DOCTYPE html>");
+        	    		pw.println("<html>");
+        	    		pw.println("<head>");
+        	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+        	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+        	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+        	    		pw.println("</head>");
+        	    		pw.println("<body>");
+        	    		pw.println("<script>");
+        	    		pw.println("$(function() {");
+        	    		pw.println("toastr.error('Company status value is less than 5 characters, Please try again!');");
+        	    		pw.println("setTimeout(function() {");
+        	    		pw.println("window.location.href='coupons.jsp';");
+        	    		pw.println("},2000);"); // Redirect after 2 seconds
+        	    		pw.println("});");
+        	    		pw.println("</script>");
+					}else {
+        	    		pw.println("<!DOCTYPE html>");
+        	    		pw.println("<html>");
+        	    		pw.println("<head>");
+        	    		pw.println("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>");
+        	    		pw.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>");
+        	    		pw.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>");
+        	    		pw.println("</head>");
+        	    		pw.println("<body>");
+        	    		pw.println("<script>");
+        	    		pw.println("$(function() {");
+        	    		pw.println("toastr.error('Company status value is more than 10 characters, Please try again!');");
+        	    		pw.println("setTimeout(function() {");
+        	    		pw.println("window.location.href='coupons.jsp';");
+        	    		pw.println("},2000);"); // Redirect after 2 seconds
+        	    		pw.println("});");
+        	    		pw.println("</script>");
+					}
+					
+				}else {
+					
+				}
+				
+			}else {
+				
+			}
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	
+	public void destroy() {
+		try {
+			  ps.close();
+		      con.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
